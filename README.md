@@ -1,4 +1,55 @@
-Welcome to your new TanStack app!
+# Bluechip Fares
+
+This project serves as a demonstration application showcasing various features and integrations.
+
+## Project Structure
+
+```
+.
+├── components.json
+├── content
+│   ├── speakers
+│   └── talks
+├── content-collections.ts
+├── eslint.config.js
+├── neon-vite-plugin.ts
+├── netlify.toml
+├── package.json
+├── prettier.config.js
+├── public
+│   ├── background-1.jpg
+│   ├── background-2.jpg
+│   ├── background-3.jpg
+│   ├── background-4.jpg
+│   ├── bluechip-fares.svg
+│   ├── conference-logo.png
+│   ├── demo-neon.svg
+│   ├── favicon.ico
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   ├── robots.txt
+│   ├── speakers
+│   ├── talks
+│   └── tanstack-circle-logo.png
+├── README.md
+├── src
+│   ├── components
+│   ├── data
+│   ├── db.ts
+│   ├── hooks
+│   ├── integrations
+│   ├── lib
+│   ├── logo.svg
+│   ├── router.tsx
+│   ├── routes
+│   ├── routeTree.gen.ts
+│   └── styles.css
+├── todos.json
+├── tsconfig.json
+└── vite.config.ts
+
+```
 
 # Getting Started
 
@@ -89,15 +140,6 @@ Then run migrations:
 npx @better-auth/cli migrate
 ```
 
-# Events Example - Haute Pâtisserie 2026
-
-A beautiful pastry conference website built with TanStack Start and Netlify, featuring:
-
-- **Speakers & Sessions**: Managed with content-collections for easy markdown-based content
-- **Conference Schedule**: Day-by-day timeline of all sessions
-- **AI Assistant (Remy)**: An AI-powered chat assistant to help attendees navigate the conference
-- **Elegant Dark Theme**: Custom typography with Playfair Display and copper/gold accents
-
 ## Features
 
 ### Content Management
@@ -138,66 +180,6 @@ pnpm install
 pnpm dev
 ```
 
-## AI Configuration
-
-To use the AI assistant, set one of the following environment variables:
-
-```bash
-# Anthropic (Claude)
-ANTHROPIC_API_KEY=your-key-here
-
-# OpenAI
-OPENAI_API_KEY=your-key-here
-
-# Google Gemini
-GEMINI_API_KEY=your-key-here
-
-# Ollama (local, no API key needed)
-# Just ensure Ollama is running locally
-```
-
-The assistant will automatically use the first available provider.
-
-## Customization
-
-### Adding Speakers
-
-Create a new markdown file in `content/speakers/`:
-
-```markdown
----
-name: 'Chef Name'
-title: 'Executive Pastry Chef'
-specialty: 'French Pastry'
-restaurant: 'Restaurant Name'
-location: 'City, Country'
-headshot: 'speakers/chef-name.jpg'
-awards:
-  - 'Award 1'
-  - 'Award 2'
----
-
-Bio content here...
-```
-
-### Adding Sessions
-
-Create a new markdown file in `content/talks/`:
-
-```markdown
----
-title: 'Session Title'
-speaker: 'Chef Name'
-duration: '90 minutes'
-image: 'talks/session-image.jpg'
-topics:
-  - 'Topic 1'
-  - 'Topic 2'
----
-
-Session description here...
-```
-
 ## Theme
 
 The example uses a custom dark theme with:
@@ -209,64 +191,6 @@ The example uses a custom dark theme with:
 ## Routing
 
 This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add another a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from '@tanstack/react-router'
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you use the `<Outlet />` component.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-
-import { Link } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  component: () => (
-    <>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
-      </header>
-      <Outlet />
-      <TanStackRouterDevtools />
-    </>
-  ),
-})
-```
-
-The `<TanStackRouterDevtools />` component is not required so you can remove it if you don't want it in your layout.
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
 
 ## Data Fetching
 
@@ -458,3 +382,4 @@ Files prefixed with `demo` can be safely deleted. They are there to provide a st
 # Learn More
 
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+
