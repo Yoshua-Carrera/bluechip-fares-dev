@@ -1,5 +1,5 @@
 {
-  "projectName": "test2",
+  "projectName": "bluechip-fares",
   "mode": "file-router",
   "typescript": true,
   "packageManager": "pnpm",
@@ -24,3 +24,4 @@
     "events"
   ]
 }
+

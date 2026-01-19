@@ -1,5 +1,5 @@
 {
-  "name": "test2",
+  "name": "bluechip-fares",
   "private": true,
   "type": "module",
   "scripts": {
@@ -83,3 +83,4 @@
     "web-vitals": "^5.1.0"
   }
 }
+
