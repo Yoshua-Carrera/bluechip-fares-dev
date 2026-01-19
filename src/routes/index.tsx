@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 
 import { allSpeakers, allTalks } from 'content-collections'
+import { format } from 'date-fns'
 
 import SpeakerCard from '@/components/SpeakerCard'
 import TalkCard from '@/components/TalkCard'
@@ -29,47 +30,35 @@ function HomePage() {
           {/* Event date badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-copper/10 border border-copper/30 text-copper-light text-sm font-medium">
             <Calendar className="w-4 h-4" />
-            <span>March 15-17, 2026</span>
+            <span>{format(Date.now(), 'MMMM/dd/yyyy')}</span>
             <span className="mx-2 text-copper/40">•</span>
             <MapPin className="w-4 h-4" />
-            <span>Paris, France</span>
+            <span>Frisco, TX</span>
           </div>
 
           {/* Main title */}
           <h1 className="font-display text-6xl md:text-8xl font-bold text-cream mb-6 leading-tight">
-            Haute
-            <span className="block text-gold italic">Pâtisserie</span>
+            Bluechip
+            <span className="block text-gold italic">Fares</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-cream/70 font-body max-w-3xl mx-auto mb-10 leading-relaxed">
-            Join the world's most celebrated pastry chefs and master bakers for
-            three extraordinary days of masterclasses, demonstrations, and
-            culinary inspiration.
+            Family-owned in Frisco, TX – fixing homes, building trust, one project at a time.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">
-                {allSpeakers.length}
-              </div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">
-                Master Chefs
-              </div>
+              <div className="text-4xl font-display font-bold text-gold">{allSpeakers.length}</div>
+              <div className="text-cream/50 text-sm uppercase tracking-wider">Master Chefs</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">
-                {allTalks.length}
-              </div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">
-                Sessions
-              </div>
+              <div className="text-4xl font-display font-bold text-gold">{allTalks.length}</div>
+              <div className="text-cream/50 text-sm uppercase tracking-wider">Sessions</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-display font-bold text-gold">3</div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">
-                Days
-              </div>
+              <div className="text-cream/50 text-sm uppercase tracking-wider">Days</div>
             </div>
           </div>
 
@@ -189,8 +178,8 @@ function HomePage() {
                 Ready to Elevate Your Craft?
               </h2>
               <p className="text-cream/60 text-lg font-body mb-8 max-w-2xl mx-auto">
-                Join us in Paris for an unforgettable experience with the
-                world's finest pastry artisans.
+                Join us in Paris for an unforgettable experience with the world's finest pastry
+                artisans.
               </p>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/30 text-gold text-sm font-medium">
                 <span>🥐</span>

@@ -44,9 +44,7 @@ export default function HeroCarousel() {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? 'bg-gold w-6'
-                : 'bg-cream/30 hover:bg-cream/50'
+              index === currentIndex ? 'bg-gold w-6' : 'bg-cream/30 hover:bg-cream/50'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

@@ -64,9 +64,7 @@ function SpeakerDetailPage() {
                 {speaker.name}
               </h1>
 
-              <p className="text-2xl text-gold font-display italic mb-4">
-                {speaker.title}
-              </p>
+              <p className="text-2xl text-gold font-display italic mb-4">{speaker.title}</p>
 
               <div className="flex items-center gap-2 text-cream/60 text-lg mb-8">
                 <MapPin className="w-5 h-5 text-copper" />

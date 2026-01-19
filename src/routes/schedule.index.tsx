@@ -77,8 +77,8 @@ function SchedulePage() {
               Conference <span className="text-gold italic">Schedule</span>
             </h1>
             <p className="text-xl text-cream/70 max-w-2xl mx-auto font-body">
-              Three days of masterclasses, demonstrations, and culinary
-              inspiration from the world's finest pastry artisans.
+              Three days of masterclasses, demonstrations, and culinary inspiration from the world's
+              finest pastry artisans.
             </p>
           </div>
         </div>
@@ -135,11 +135,7 @@ function SchedulePage() {
                 const speaker = getSpeakerByName(talk.speaker)
 
                 return (
-                  <Link
-                    key={session.talkSlug}
-                    to={`/talks/${talk.slug}`}
-                    className="group block"
-                  >
+                  <Link key={session.talkSlug} to={`/talks/${talk.slug}`} className="group block">
                     <div className="relative flex gap-6 md:gap-10">
                       {/* Time marker */}
                       <div className="flex-shrink-0 w-16 md:w-24 pt-6">
@@ -210,9 +206,7 @@ function SchedulePage() {
 
                             {/* Speaker & Duration */}
                             <div className="flex flex-wrap items-center gap-4 text-cream/60 text-sm mb-3">
-                              <span className="font-medium text-copper-light">
-                                {talk.speaker}
-                              </span>
+                              <span className="font-medium text-copper-light">{talk.speaker}</span>
                               <div className="flex items-center gap-1.5">
                                 <Clock className="w-3.5 h-3.5" />
                                 <span>{talk.duration}</span>
@@ -254,8 +248,7 @@ function SchedulePage() {
                 Don't Miss a Single Session
               </h3>
               <p className="text-cream/60 font-body mb-6 max-w-xl mx-auto">
-                Each masterclass offers hands-on learning from the world's
-                finest pastry artisans.
+                Each masterclass offers hands-on learning from the world's finest pastry artisans.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link

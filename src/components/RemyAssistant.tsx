@@ -11,8 +11,7 @@ function Messages({ messages }: { messages: ConferenceChatMessages }) {
 
   useEffect(() => {
     if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop =
-        messagesContainerRef.current.scrollHeight
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight
     }
   }, [messages])
 
@@ -27,8 +26,8 @@ function Messages({ messages }: { messages: ConferenceChatMessages }) {
           Bonjour! I'm Remy 👨‍🍳
         </p>
         <p className="text-xs text-cream/40 mt-2 text-center max-w-[220px]">
-          Your culinary guide to Haute Pâtisserie 2026. Ask about speakers,
-          sessions, or pastry techniques!
+          Your culinary guide to Haute Pâtisserie 2026. Ask about speakers, sessions, or pastry
+          techniques!
         </p>
       </div>
     )
@@ -81,16 +80,9 @@ interface RemyAssistantProps {
 // Export store for header control
 export const showRemyAssistant = new Store(false)
 
-export default function RemyAssistant({
-  speakerSlug,
-  talkSlug,
-  contextTitle,
-}: RemyAssistantProps) {
+export default function RemyAssistant({ speakerSlug, talkSlug, contextTitle }: RemyAssistantProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const { messages, sendMessage, isLoading } = useConferenceChat(
-    speakerSlug,
-    talkSlug,
-  )
+  const { messages, sendMessage, isLoading } = useConferenceChat(speakerSlug, talkSlug)
   const [input, setInput] = useState('')
 
   // Sync with store for header control
@@ -127,13 +119,9 @@ export default function RemyAssistant({
             <span className="text-lg">👨‍🍳</span>
           </div>
           <div>
-            <h3 className="font-display font-bold text-cream text-base tracking-tight">
-              Remy
-            </h3>
+            <h3 className="font-display font-bold text-cream text-base tracking-tight">Remy</h3>
             {contextTitle && (
-              <p className="text-xs text-copper/70 truncate max-w-[220px]">
-                🥐 {contextTitle}
-              </p>
+              <p className="text-xs text-copper/70 truncate max-w-[220px]">🥐 {contextTitle}</p>
             )}
           </div>
         </div>
@@ -185,12 +173,7 @@ export default function RemyAssistant({
                 target.style.height = Math.min(target.scrollHeight, 100) + 'px'
               }}
               onKeyDown={(e) => {
-                if (
-                  e.key === 'Enter' &&
-                  !e.shiftKey &&
-                  input.trim() &&
-                  !isLoading
-                ) {
+                if (e.key === 'Enter' && !e.shiftKey && input.trim() && !isLoading) {
                   e.preventDefault()
                   handleSend()
                 }

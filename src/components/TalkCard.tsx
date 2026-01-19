@@ -20,11 +20,7 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
       >
         {/* Image */}
         <div className="absolute inset-0">
-          <img
-            src={`/${talk.image}`}
-            alt={talk.title}
-            className="w-full h-full object-cover"
-          />
+          <img src={`/${talk.image}`} alt={talk.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
         </div>
 

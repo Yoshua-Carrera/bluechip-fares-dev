@@ -1,12 +1,12 @@
 ---
-title: "Savory Breads of the Mediterranean"
-speaker: "André Costa"
-duration: "90 minutes"
-image: "talks/savory-breads-of-the-mediterranean.jpg"
+title: 'Savory Breads of the Mediterranean'
+speaker: 'André Costa'
+duration: '90 minutes'
+image: 'talks/savory-breads-of-the-mediterranean.jpg'
 topics:
-  - "Bread"
-  - "Mediterranean"
-  - "Savory"
+  - 'Bread'
+  - 'Mediterranean'
+  - 'Savory'
 ---
 
 André Costa takes you on a journey around the Mediterranean Sea, exploring the savory bread traditions that have sustained cultures for millennia. From Portuguese broa to Moroccan msemen, this session celebrates the diversity and commonality of Mediterranean baking.
@@ -36,4 +36,4 @@ Samples of each bread discussed will be available for participants to taste and 
 
 Ideal for bakers interested in expanding beyond French and American bread traditions, food historians, and anyone who believes that understanding bread is understanding culture. All skill levels welcome.
 
-*"The Mediterranean is connected by wheat, water, and olive oil — and by the hands that have shaped bread along its shores for thousands of years."* — André Costa
+_"The Mediterranean is connected by wheat, water, and olive oil — and by the hands that have shaped bread along its shores for thousands of years."_ — André Costa

@@ -1,12 +1,12 @@
 ---
-title: "Umami in Pastry: East Meets West"
-speaker: "Kenji Nakamura"
-duration: "90 minutes"
-image: "talks/umami-in-pastry-east-meets-west.jpg"
+title: 'Umami in Pastry: East Meets West'
+speaker: 'Kenji Nakamura'
+duration: '90 minutes'
+image: 'talks/umami-in-pastry-east-meets-west.jpg'
 topics:
-  - "Japanese"
-  - "French Fusion"
-  - "Innovation"
+  - 'Japanese'
+  - 'French Fusion'
+  - 'Innovation'
 ---
 
 Kenji Nakamura challenges the Western assumption that desserts must be purely sweet. In this boundary-pushing session, he reveals how umami — the fifth taste — can add depth, complexity, and surprise to pastry in ways that delight rather than confuse.
@@ -36,4 +36,4 @@ Participants will taste a progression of Kenji's creations, from subtle umami ac
 
 Adventurous pastry professionals, chefs interested in cross-cultural fusion, and anyone curious about expanding the flavor possibilities of dessert. Open minds required; open palates will follow.
 
-*"Umami is not about making desserts savory — it is about making them complete."* — Kenji Nakamura
+_"Umami is not about making desserts savory — it is about making them complete."_ — Kenji Nakamura

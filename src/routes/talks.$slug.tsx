@@ -39,11 +39,7 @@ function TalkDetailPage() {
       {/* Hero image */}
       <div className="relative h-[40vh] max-w-7xl mx-auto px-6 mb-8">
         <div className="w-full h-full rounded-2xl overflow-hidden border border-border/50">
-          <img
-            src={`/${talk.image}`}
-            alt={talk.title}
-            className="w-full h-full object-cover"
-          />
+          <img src={`/${talk.image}`} alt={talk.title} className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-6 bg-gradient-to-t from-charcoal/60 to-transparent rounded-2xl pointer-events-none" />
       </div>
@@ -72,10 +68,7 @@ function TalkDetailPage() {
         <div className="flex flex-wrap items-center gap-6 mb-10 pb-10 border-b border-border/50">
           {/* Speaker link */}
           {speaker ? (
-            <Link
-              to={`/speakers/${speaker.slug}`}
-              className="flex items-center gap-3 group"
-            >
+            <Link to={`/speakers/${speaker.slug}`} className="flex items-center gap-3 group">
               <div className="w-12 h-12 rounded-full overflow-hidden border border-border/50">
                 <img
                   src={`/${speaker.headshot}`}

@@ -1,12 +1,12 @@
 ---
-title: "Sourdough: From Starter to Masterpiece"
-speaker: "Isabella Martinez"
-duration: "120 minutes"
-image: "talks/sourdough-from-starter-to-masterpiece.jpg"
+title: 'Sourdough: From Starter to Masterpiece'
+speaker: 'Isabella Martinez'
+duration: '120 minutes'
+image: 'talks/sourdough-from-starter-to-masterpiece.jpg'
 topics:
-  - "Sourdough"
-  - "Bread"
-  - "Fermentation"
+  - 'Sourdough'
+  - 'Bread'
+  - 'Fermentation'
 ---
 
 Isabella Martinez invites you into the living world of sourdough — where flour, water, and time create something almost magical. This extended session covers the complete journey from cultivating a starter to pulling a perfectly blistered loaf from the oven.
@@ -33,4 +33,4 @@ Participants will work with pre-fermented dough to practice shaping and scoring 
 
 Perfect for bread enthusiasts at any level who want to deepen their understanding of natural leavening. Whether you're troubleshooting your home starter or looking to add sourdough to your bakery menu, this session provides both scientific grounding and practical wisdom.
 
-*"Every loaf of sourdough carries within it the history of bread itself — a connection to every baker who came before."* — Isabella Martinez
+_"Every loaf of sourdough carries within it the history of bread itself — a connection to every baker who came before."_ — Isabella Martinez

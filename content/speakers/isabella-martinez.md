@@ -1,14 +1,14 @@
 ---
-name: "Isabella Martinez"
-title: "Head Baker & Founder"
-specialty: "Artisan Bread & Sourdough"
-restaurant: "Madre Masa"
-location: "San Francisco, USA"
-headshot: "speakers/isabella-martinez.jpg"
+name: 'Isabella Martinez'
+title: 'Head Baker & Founder'
+specialty: 'Artisan Bread & Sourdough'
+restaurant: 'Madre Masa'
+location: 'San Francisco, USA'
+headshot: 'speakers/isabella-martinez.jpg'
 awards:
-  - "San Francisco Chronicle Rising Star 2021"
-  - "Bread Bakers Guild of America Master Baker"
-  - "Slow Food Presidium Recognition"
+  - 'San Francisco Chronicle Rising Star 2021'
+  - 'Bread Bakers Guild of America Master Baker'
+  - 'Slow Food Presidium Recognition'
 ---
 
 Isabella Martinez's love affair with bread began in her grandmother's kitchen in Mexico City, where she learned that bread is more than sustenance — it's culture, community, and love made tangible. That foundation led her on a journey through the world's great bread traditions, ultimately landing at San Francisco's legendary Tartine Bakery.

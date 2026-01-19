@@ -1,12 +1,12 @@
 ---
-title: "Croissant Lamination Secrets"
-speaker: "Hans Mueller"
-duration: "150 minutes"
-image: "talks/croissant-lamination-secrets.jpg"
+title: 'Croissant Lamination Secrets'
+speaker: 'Hans Mueller'
+duration: '150 minutes'
+image: 'talks/croissant-lamination-secrets.jpg'
 topics:
-  - "Croissants"
-  - "Lamination"
-  - "Viennoiserie"
+  - 'Croissants'
+  - 'Lamination'
+  - 'Viennoiserie'
 ---
 
 Hans Mueller opens the door to his glass-walled kitchen for an unprecedented deep dive into laminated dough. This extended masterclass reveals the science, technique, and obsessive attention to detail behind his legendary 288-layer croissant.
@@ -36,4 +36,4 @@ Hans will laminate dough in real-time, narrating each step and taking questions.
 
 This session is designed for serious pastry professionals and ambitious home bakers who are ready to invest the time required for true mastery. Prior experience with laminated doughs is helpful but not required — only patience and dedication.
 
-*"The croissant demands everything from the baker — time, precision, attention. In return, it offers transcendence."* — Hans Mueller
+_"The croissant demands everything from the baker — time, precision, attention. In return, it offers transcendence."_ — Hans Mueller

@@ -1,14 +1,14 @@
 ---
-name: "Priya Sharma"
-title: "Pastry Innovation Director"
-specialty: "Molecular Pastry & Modern Techniques"
-restaurant: "Mithai Modern"
-location: "Mumbai, India"
-headshot: "speakers/priya-sharma.jpg"
+name: 'Priya Sharma'
+title: 'Pastry Innovation Director'
+specialty: 'Molecular Pastry & Modern Techniques'
+restaurant: 'Mithai Modern'
+location: 'Mumbai, India'
+headshot: 'speakers/priya-sharma.jpg'
 awards:
   - "World's 50 Best Restaurants Star Pastry Chef 2023"
-  - "Culinary Institute of America Leadership Award"
-  - "Forbes 30 Under 30 - Food & Beverage"
+  - 'Culinary Institute of America Leadership Award'
+  - 'Forbes 30 Under 30 - Food & Beverage'
 ---
 
 Priya Sharma is redefining the boundaries of pastry through her fearless fusion of cutting-edge molecular techniques with traditional Indian sweets. Her work transforms the familiar flavors of mithai — the beloved sweets of the Indian subcontinent — into avant-garde experiences that challenge and delight.

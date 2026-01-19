@@ -21,8 +21,8 @@ function TalksPage() {
               Conference <span className="text-gold italic">Sessions</span>
             </h1>
             <p className="text-xl text-cream/70 max-w-2xl mx-auto font-body">
-              Immerse yourself in masterclasses and demonstrations covering
-              every aspect of artisan baking and pastry.
+              Immerse yourself in masterclasses and demonstrations covering every aspect of artisan
+              baking and pastry.
             </p>
           </div>
         </div>

@@ -74,8 +74,7 @@ Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attend
 
           // Adapter factory pattern for multi-vendor support
           const adapterConfig = {
-            anthropic: () =>
-              anthropicText((model || 'claude-haiku-4-5') as any),
+            anthropic: () => anthropicText((model || 'claude-haiku-4-5') as any),
             openai: () => openaiText((model || 'gpt-4o') as any),
             gemini: () => geminiText((model || 'gemini-2.0-flash-exp') as any),
             ollama: () => ollamaText((model || 'mistral:7b') as any),
@@ -85,13 +84,7 @@ Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attend
 
           const stream = chat({
             adapter,
-            tools: [
-              getSpeakerBySlug,
-              getTalkBySlug,
-              getAllSpeakers,
-              getAllTalks,
-              searchConference,
-            ],
+            tools: [getSpeakerBySlug, getTalkBySlug, getAllSpeakers, getAllTalks, searchConference],
             systemPrompts: [SYSTEM_PROMPT],
             agentLoopStrategy: maxIterations(5),
             messages,

@@ -10,10 +10,7 @@ interface SpeakerCardProps {
   featured?: boolean
 }
 
-export default function SpeakerCard({
-  speaker,
-  featured = false,
-}: SpeakerCardProps) {
+export default function SpeakerCard({ speaker, featured = false }: SpeakerCardProps) {
   return (
     <Link to={`/speakers/${speaker.slug}`} className="group relative block">
       <Card
