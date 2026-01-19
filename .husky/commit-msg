@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if [ $(git symbolic-ref --short HEAD --quiet) ]; then
+    branch=$(git symbolic-ref --short HEAD)
+    message=$(cat $1)
+    if [ $message != *"feature: "* ]; then
+        featStr="feature: "
+        newMessage=$featStr$message
+        echo $newMessage > $1
+    fi
+fi
