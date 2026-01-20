@@ -38,7 +38,7 @@ export default function HeroCarousel() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(26,26,26,0.4)_100%)]" />
 
       {/* Carousel indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      <div className="hidden md:flex md:absolute bottom-8 left-1/2 -translate-x-1/2 gap-2 z-10">
         {backgrounds.map((_, index) => (
           <button
             key={index}

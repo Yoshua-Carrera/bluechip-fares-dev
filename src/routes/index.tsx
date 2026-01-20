@@ -50,15 +50,15 @@ function HomePage() {
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
               <div className="text-4xl font-display font-bold text-gold">{allSpeakers.length}</div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">Master Chefs</div>
+              <div className="text-cream/50 text-sm uppercase tracking-wider">Contractors</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-display font-bold text-gold">{allTalks.length}</div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">Sessions</div>
+              <div className="text-cream/50 text-sm uppercase tracking-wider">Hours a day</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">3</div>
-              <div className="text-cream/50 text-sm uppercase tracking-wider">Days</div>
+              <div className="text-4xl font-display font-bold text-gold">7</div>
+              <div className="text-cream/50 text-sm uppercase tracking-wider">Days a week</div>
             </div>
           </div>
 
@@ -69,13 +69,13 @@ function HomePage() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-copper to-copper-dark text-charcoal font-semibold text-lg transition-all hover:shadow-lg hover:shadow-copper/30 hover:scale-[1.02]"
             >
               <Users className="w-5 h-5" />
-              Meet Our Speakers
+              Look at our work
             </Link>
             <Link
               to="/talks"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-gold/50 text-gold font-semibold text-lg transition-all hover:bg-gold/10 hover:border-gold"
             >
-              View Sessions
+              Service catalog
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
