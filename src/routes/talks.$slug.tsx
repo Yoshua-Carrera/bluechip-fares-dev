@@ -68,7 +68,11 @@ function TalkDetailPage() {
         <div className="flex flex-wrap items-center gap-6 mb-10 pb-10 border-b border-border/50">
           {/* Speaker link */}
           {speaker ? (
-            <Link to={`/speakers/${speaker.slug}`} className="flex items-center gap-3 group">
+            <Link
+              to="/speakers/$slug"
+              params={{ slug: speaker.slug }}
+              className="flex items-center gap-3 group"
+            >
               <div className="w-12 h-12 rounded-full overflow-hidden border border-border/50">
                 <img
                   src={`/${speaker.headshot}`}

@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="p-4 flex items-center bg-gray-800 text-white shadow-lg">
+      <header className="p-4 flex items-center justify-between bg-gray-800 text-white shadow-lg">
         <button
           onClick={() => setIsOpen(true)}
           className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
@@ -20,7 +20,7 @@ export default function Header() {
         >
           <Menu size={24} />
         </button>
-        <h1 className="ml-4 text-xl font-semibold">
+        <h1 className="flex-1 text-center text-xl font-semibold flex justify-center">
           <Link to="/">
             <img src="/bluechip-fares.svg" alt="TanStack Logo" className="h-20" />
           </Link>
