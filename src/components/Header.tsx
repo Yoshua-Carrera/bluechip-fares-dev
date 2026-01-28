@@ -22,7 +22,7 @@ export default function Header() {
         </button>
         <h1 className="flex-1 text-center text-xl font-semibold flex justify-center">
           <Link to="/">
-            <img src="/bluechip-fares.svg" alt="TanStack Logo" className="h-20" />
+            <img src="/bluechip-fares-logo.svg" alt="TanStack Logo" className="h-25" />
           </Link>
         </h1>
       </header>
