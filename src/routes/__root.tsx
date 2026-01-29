@@ -96,7 +96,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                     and we'll give you honest advice (no pitch).
                   </DialogDescription>
                 </DialogHeader>
-                <Button className="m-8">Let's talk now</Button>
+                <Button className="bg-primary">Let's talk now</Button>
               </DialogContent>
             </Dialog>
           )}

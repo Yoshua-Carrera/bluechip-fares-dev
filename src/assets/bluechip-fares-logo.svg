@@ -4,17 +4,17 @@
     <style>
       .cls-1 {
         fill: none;
-        stroke: #01418f;
+        stroke: var(--logo-stroke-cls-1, white);
         stroke-miterlimit: 10;
         stroke-width: 16px;
       }
 
       .cls-2 {
-        fill: #013577;
+        fill: var(--logo-fill-cls-2, white);
       }
 
       .cls-3 {
-        fill: #01418f;
+        fill: var(--logo-fill-cls-3, white);
       }
     </style>
   </defs>

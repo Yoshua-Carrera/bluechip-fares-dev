@@ -7,23 +7,24 @@ import RemyButton from './RemyButton'
 import { useState } from 'react'
 import { Globe, Home, Menu, X } from 'lucide-react'
 import { DarkModeToggle } from './dark-mode-toggle.tsx'
+import BluechipLogo from '../assets/bluechip-fares-logo.svg?react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      <header className="p-4 flex items-center justify-between bg-gray-800 text-white shadow-lg">
+      <header className="bg-muted p-4 flex items-center justify-between text-white shadow-lg">
         <button
           onClick={() => setIsOpen(true)}
-          className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+          className="p-2 hover:bg-background rounded-lg transition-colors light:text-[var(--logo)]"
           aria-label="Open menu"
         >
-          <Menu size={24} />
+          <Menu size={36} className="hover:bg-background" />
         </button>
         <h1 className="flex-1 text-center text-xl font-semibold flex justify-center">
           <Link to="/">
-            <img src="/bluechip-fares-logo.svg" alt="TanStack Logo" className="h-25" />
+            <BluechipLogo className="h-20 text-white light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)]" />
           </Link>
         </h1>
         <DarkModeToggle></DarkModeToggle>

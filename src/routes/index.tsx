@@ -28,10 +28,10 @@ function HomePage() {
 
         <div className="relative max-w-5xl mx-auto text-center z-10">
           {/* Event date badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-copper/10 border border-copper/30 text-copper-light text-sm font-medium">
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 border border-white/30 text-white-light text-sm font-medium">
             <Calendar className="w-4 h-4" />
             <span>{format(Date.now(), 'MMMM/dd/yyyy')}</span>
-            <span className="mx-2 text-copper/40">•</span>
+            <span className="mx-2 text-white/40">•</span>
             <MapPin className="w-4 h-4" />
             <span>Frisco, TX</span>
           </div>
@@ -39,25 +39,25 @@ function HomePage() {
           {/* Main title */}
           <h1 className="font-display text-6xl md:text-8xl font-bold text-cream mb-6 leading-tight">
             Bluechip
-            <span className="block text-gold italic">Fares</span>
+            <span className="block italic text-[var(--primary)]">Fares</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-cream/70 font-body max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl text-cream/70 font-semi-bold max-w-3xl mx-auto mb-10 leading-relaxed">
             Family-owned in Frisco, TX – fixing homes, building trust, one project at a time.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">{allSpeakers.length}</div>
+              <div className="text-4xl font-display font-bold text-white">{allSpeakers.length}</div>
               <div className="text-cream/50 text-sm uppercase tracking-wider">Contractors</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">{allTalks.length}</div>
+              <div className="text-4xl font-display font-bold text-white">{allTalks.length}</div>
               <div className="text-cream/50 text-sm uppercase tracking-wider">Hours a day</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-gold">7</div>
+              <div className="text-4xl font-display font-bold text-white">7</div>
               <div className="text-cream/50 text-sm uppercase tracking-wider">Days a week</div>
             </div>
           </div>
@@ -66,14 +66,14 @@ function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/speakers"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-copper to-copper-dark text-charcoal font-semibold text-lg transition-all hover:shadow-lg hover:shadow-copper/30 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-white to-white text-charcoal font-semibold text-lg transition-all hover:shadow-lg hover:shadow-[var(--primary)]/30 hover:scale-[1.02]"
             >
               <Users className="w-5 h-5" />
               Look at our work
             </Link>
             <Link
               to="/talks"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-gold/50 text-gold font-semibold text-lg transition-all hover:bg-gold/10 hover:border-gold"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-[var(--primary)]/50 text-white font-semibold text-lg transition-all hover:bg-[var(--primary)]/10 hover:border-[var(--primary)]"
             >
               Service catalog
               <ArrowRight className="w-5 h-5" />
@@ -83,12 +83,12 @@ function HomePage() {
       </section>
 
       {/* Featured Speakers Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12">
             <div>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-cream mb-3">
-                Featured <span className="text-gold italic">Speakers</span>
+                Featured <span className="text-[var(--primary)] italic">Speakers</span>
               </h2>
               <p className="text-cream/60 text-lg font-body">
                 Learn from award-winning pastry chefs and master bakers
@@ -96,7 +96,7 @@ function HomePage() {
             </div>
             <Link
               to="/speakers"
-              className="hidden md:inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
+              className="hidden md:inline-flex items-center gap-2 text-[var(--primary)] hover:text-white/80 transition-colors font-medium"
             >
               View all speakers
               <ArrowRight className="w-4 h-4" />
@@ -112,7 +112,7 @@ function HomePage() {
           <div className="md:hidden mt-8 text-center">
             <Link
               to="/speakers"
-              className="inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-[var(--primary)] hover:text-white/80 transition-colors font-bold"
             >
               View all speakers
               <ArrowRight className="w-4 h-4" />
@@ -127,12 +127,12 @@ function HomePage() {
       </div>
 
       {/* Featured Sessions Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-12">
             <div>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-cream mb-3">
-                Featured <span className="text-gold italic">Sessions</span>
+                Featured <span className="text-[var(--primary)] italic">Sessions</span>
               </h2>
               <p className="text-cream/60 text-lg font-body">
                 Masterclasses and demonstrations to elevate your craft
@@ -140,7 +140,7 @@ function HomePage() {
             </div>
             <Link
               to="/talks"
-              className="hidden md:inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-[var(--primary)] hover:text-white/80 transition-colors font-bold"
             >
               View all sessions
               <ArrowRight className="w-4 h-4" />
