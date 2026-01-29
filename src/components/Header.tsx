@@ -6,6 +6,7 @@ import RemyButton from './RemyButton'
 
 import { useState } from 'react'
 import { Globe, Home, Menu, X } from 'lucide-react'
+import { DarkModeToggle } from './dark-mode-toggle.tsx'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,6 +26,7 @@ export default function Header() {
             <img src="/bluechip-fares-logo.svg" alt="TanStack Logo" className="h-25" />
           </Link>
         </h1>
+        <DarkModeToggle></DarkModeToggle>
       </header>
 
       <aside
