@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/dialog'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { ThemeProvider } from '@/components/theme-provider'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -82,35 +83,37 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <Header />
-        {children}
-        {isDialogOpen && (
-          <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(!isDialogOpen)}>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Need help choosing the right solution?</DialogTitle>
-                <DialogDescription>
-                  That usually means you're at least a little curious. Tell us what's stopping you
-                  and we'll give you honest advice (no pitch).
-                </DialogDescription>
-              </DialogHeader>
-              <Button className="m-8">Let's talk now</Button>
-            </DialogContent>
-          </Dialog>
-        )}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-            StoreDevtools,
-            TanStackQueryDevtools,
-          ]}
-        />
+        <ThemeProvider>
+          <Header />
+          {children}
+          {isDialogOpen && (
+            <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(!isDialogOpen)}>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Need help choosing the right solution?</DialogTitle>
+                  <DialogDescription>
+                    That usually means you're at least a little curious. Tell us what's stopping you
+                    and we'll give you honest advice (no pitch).
+                  </DialogDescription>
+                </DialogHeader>
+                <Button className="m-8">Let's talk now</Button>
+              </DialogContent>
+            </Dialog>
+          )}
+          <TanStackDevtools
+            config={{
+              position: 'bottom-right',
+            }}
+            plugins={[
+              {
+                name: 'Tanstack Router',
+                render: <TanStackRouterDevtoolsPanel />,
+              },
+              StoreDevtools,
+              TanStackQueryDevtools,
+            ]}
+          />
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>
