@@ -112,7 +112,7 @@ function HomePage() {
           <div className="md:hidden mt-8 text-center">
             <Link
               to="/speakers"
-              className="inline-flex items-center gap-2 text-[var(--primary)] hover:text-white/80 transition-colors font-bold"
+              className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-white/80 transition-colors font-bold"
             >
               View all speakers
               <ArrowRight className="w-4 h-4" />
@@ -156,7 +156,7 @@ function HomePage() {
           <div className="md:hidden mt-8 text-center">
             <Link
               to="/talks"
-              className="inline-flex items-center gap-2 text-gold hover:text-gold/80 transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-gold/80 transition-colors font-medium"
             >
               View all sessions
               <ArrowRight className="w-4 h-4" />
