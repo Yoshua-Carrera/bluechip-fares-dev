@@ -12,11 +12,11 @@ interface SpeakerCardProps {
 
 export default function SpeakerCard({ speaker, featured = false }: SpeakerCardProps) {
   return (
-    <Link to={`/speakers/${speaker.slug}`} className="group relative block">
+    <Link to={'/speakers/$slug'} params={{ slug: speaker.slug }} className="group relative block">
       <Card
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-square' : 'aspect-square'}
-          hover:border-copper/50`}
+          hover:border-[var(--primary)]`}
       >
         {/* Headshot */}
         <div className="absolute inset-0">
@@ -32,12 +32,12 @@ export default function SpeakerCard({ speaker, featured = false }: SpeakerCardPr
         <CardContent className="absolute bottom-0 left-0 right-0 p-6 z-10">
           <div className="space-y-2">
             {/* Specialty tag */}
-            <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-copper/20 text-copper-light rounded-full border border-copper/30">
+            <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70">
               {speaker.specialty}
             </span>
 
             {/* Name */}
-            <h3 className="font-display text-2xl font-semibold text-cream group-hover:text-gold transition-colors">
+            <h3 className="font-display text-2xl font-semibold text-cream group-hover:text-copper transition-colors">
               {speaker.name}
             </h3>
 
@@ -56,7 +56,7 @@ export default function SpeakerCard({ speaker, featured = false }: SpeakerCardPr
 
         {/* Decorative corner accent */}
         <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden">
-          <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-copper/20 to-transparent transform rotate-45 translate-x-14 -translate-y-14" />
+          <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-[var(--primary)}/20 to-transparent transform rotate-45 translate-x-14 -translate-y-14" />
         </div>
       </Card>
     </Link>

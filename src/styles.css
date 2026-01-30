@@ -35,7 +35,7 @@ code {
   --secondary: oklch(0.76 0.1 70);
   --secondary-foreground: oklch(0.1 0.03 250);
   --accent: oklch(0.5 0.06 250);
-  --accent-foreground: oklch(0.96 0.06 250);
+  --accent-foreground: #eee7d9;
   --destructive: oklch(0.7 0.06 30);
   --destructive-foreground: oklch(0.96 0.06 250);
   --chart-1: oklch(0.76 0.1 250);
@@ -205,5 +205,5 @@ code {
   transform: translateY(-4px);
   box-shadow:
     0 12px 40px oklch(0 0 0 / 0.4),
-    0 0 20px oklch(0.65 0.14 55 / 0.15);
+    0 0 15px var(--primary);
 }

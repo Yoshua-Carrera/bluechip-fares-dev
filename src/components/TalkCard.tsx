@@ -12,7 +12,7 @@ interface TalkCardProps {
 
 export default function TalkCard({ talk, featured = false }: TalkCardProps) {
   return (
-    <Link to={`/talks/${talk.slug}`} className="group relative block">
+    <Link to={'/talks/$slug'} params={{ slug: talk.slug }} className="group relative block">
       <Card
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-[16/10]' : 'aspect-[16/9]'}
@@ -32,7 +32,7 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
               {talk.topics.slice(0, 2).map((topic) => (
                 <span
                   key={topic}
-                  className="px-2.5 py-0.5 text-xs font-medium tracking-wide uppercase bg-gold/15 text-gold border border-gold/30 rounded-full"
+                  className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
                 >
                   {topic}
                 </span>
@@ -40,7 +40,7 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-xl font-semibold text-cream group-hover:text-gold transition-colors leading-tight">
+            <h3 className="font-display text-xl font-semibold text-cream group-hover:text-copper transition-colors leading-tight">
               {talk.title}
             </h3>
 
