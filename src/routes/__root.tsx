@@ -1,4 +1,9 @@
-import { HeadContent, Scripts, createRootRouteWithContext } from '@tanstack/react-router'
+import {
+  HeadContent,
+  ScriptOnce,
+  Scripts,
+  createRootRouteWithContext,
+} from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
@@ -62,6 +67,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -77,8 +83,24 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     }
   }, [])
 
+  const themeScript = `
+  (function () {
+    const stored = localStorage.getItem("vite-ui-theme")
+    console.log(stored)
+    const root = window.document.documentElement
+    root.classList.remove('light', 'dark')
+    if (stored === 'system') {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+      root.classList.add(systemTheme)
+    }
+    root.classList.add(stored)
+  })()
+`
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
@@ -115,6 +137,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           />
         </ThemeProvider>
         <Scripts />
+        <ScriptOnce>{themeScript}</ScriptOnce>
       </body>
     </html>
   )
