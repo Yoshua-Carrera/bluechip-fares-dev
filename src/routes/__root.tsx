@@ -70,9 +70,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        setIsDialogOpen(true)
-        window.removeEventListener('scroll', handleScroll)
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+        setTimeout(() => {
+          setIsDialogOpen(true)
+          window.removeEventListener('scroll', handleScroll)
+        }, 1000 * 25)
       }
     }
 
