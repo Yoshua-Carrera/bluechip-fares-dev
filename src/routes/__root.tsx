@@ -52,7 +52,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         name: 'og:image',
         content:
-          'https://accessglobal.media.clients.ellingtoncms.com/uploads/froala_editor/images/1767001687380.jpeg',
+          'https://github.com/Yoshua-Carrera/bluechip-fares-dev/blob/322dece39bbdf5723da33eaece3dc8740583a0e5/public/logo/bluechip-fares-logo.jpg',
       },
       {
         name: 'og:type',
