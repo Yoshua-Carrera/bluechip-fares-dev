@@ -69,11 +69,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         name: 'og:title',
-        content: 'Bluechip Fares',
+        content: 'Bluechip Fares: house remodeling',
       },
       {
         name: 'og:description',
-        content: 'House remodeling',
+        content: 'House remodeling and general contractor work',
       },
     ],
     links: [
