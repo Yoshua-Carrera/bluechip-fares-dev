@@ -126,7 +126,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Bluechip Fares</title>
         <HeadContent />
       </head>
       <body>
