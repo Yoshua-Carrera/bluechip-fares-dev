@@ -50,29 +50,28 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         title: 'Bluechip Fares',
       },
       {
-        name: 'og:image',
+        property: 'og:image',
         content:
           'https://raw.githubusercontent.com/Yoshua-Carrera/bluechip-fares-dev/322dece39bbdf5723da33eaece3dc8740583a0e5/public/logo/bluechip-fares-logo.jpg',
       },
       {
-        name: 'og:logo',
+        property: 'og:logo',
         content: '/favicon.ico',
       },
       {
-        name: 'og:url',
+        property: 'og:url',
         content: 'https://bluechipfares.com/',
       },
-
       {
-        name: 'og:type',
+        property: 'og:type',
         content: 'website',
       },
       {
-        name: 'og:title',
+        property: 'og:title',
         content: 'Bluechip Fares: house remodeling',
       },
       {
-        name: 'og:description',
+        property: 'og:description',
         content: 'House remodeling and general contractor work',
       },
     ],
