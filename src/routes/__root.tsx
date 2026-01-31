@@ -51,7 +51,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         name: 'og:image',
-        content: '/background-3.jpg',
+        content:
+          'https://accessglobal.media.clients.ellingtoncms.com/uploads/froala_editor/images/1767001687380.jpeg',
       },
       {
         name: 'og:type',
