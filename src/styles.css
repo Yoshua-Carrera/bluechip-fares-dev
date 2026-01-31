@@ -19,7 +19,7 @@ code {
 
 :root {
   --logo: #01418f;
-  --background: oklch(0.1 0.03 250);
+  --background: oklch(0.2 0.03 250);
   --foreground: oklch(0.96 0.06 250);
   --card: oklch(0.15 0.03 250);
   --card-foreground: oklch(0.96 0.06 250);
@@ -34,7 +34,7 @@ code {
   --primary-foreground: oklch(0.1 0.03 250);
   --secondary: oklch(0.76 0.1 70);
   --secondary-foreground: oklch(0.1 0.03 250);
-  --accent: oklch(0.5 0.06 250);
+  --accent: oklch(0.3 0.03 250);
   --accent-foreground: #eee7d9;
   --destructive: oklch(0.7 0.06 30);
   --destructive-foreground: oklch(0.96 0.06 250);
@@ -56,7 +56,7 @@ code {
 
 .light {
   --logo: #01418f;
-  --background: oklch(0.92 0.03 250);
+  --background: oklch(1 0.03 250);
   --foreground: oklch(0.15 0.06 250);
   --card: oklch(0.96 0.03 250);
   --card-foreground: oklch(0.15 0.06 250);
@@ -71,7 +71,7 @@ code {
   --primary-foreground: oklch(1 0.03 250);
   --secondary: oklch(0.4 0.1 70);
   --secondary-foreground: oklch(1 0.03 250);
-  --accent: oklch(1 0.06 250);
+  --accent: oklch(1 0.03 250);
   --accent-foreground: oklch(0.15 0.06 250);
   --destructive: oklch(0.5 0.06 30);
   --destructive-foreground: oklch(1 0.03 250);

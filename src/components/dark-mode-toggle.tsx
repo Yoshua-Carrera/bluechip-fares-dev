@@ -8,7 +8,7 @@ export function DarkModeToggle() {
 
   return (
     <Button
-      className="mr-2 bg-transparent border-[var(--logo)] p-7"
+      className="mr-2 bg-transparent border-[var(--logo)] dark:border-white p-7"
       variant="outline"
       size="icon-lg"
       onClick={() => {

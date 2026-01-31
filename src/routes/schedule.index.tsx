@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { allTalks, allSpeakers } from 'content-collections'
 
 import RemyAssistant from '@/components/RemyAssistant'
+import { format } from 'date-fns'
 
 export const Route = createFileRoute('/schedule/')({
   component: SchedulePage,
@@ -66,17 +67,17 @@ function SchedulePage() {
         {/* Hero section */}
         <div className="relative py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-copper/10 border border-copper/30 text-copper-light text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-copper/10 border border-[var(--accent-foreground)] text-[var(--accent-foreground)] text-sm font-medium">
               <Calendar className="w-4 h-4" />
-              <span>March 15-17, 2026</span>
-              <span className="mx-2 text-copper/40">•</span>
+              <span>{format(Date.now(), 'MMMM/dd/yyyy')}</span>
+              <span className="mx-2 text-white/40">•</span>
               <MapPin className="w-4 h-4" />
-              <span>Paris, France</span>
+              <span>Frisco, TX</span>
             </div>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-cream mb-4">
-              Conference <span className="text-gold italic">Schedule</span>
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-4">
+              Conference <span className="text-copper italic">Schedule</span>
             </h1>
-            <p className="text-xl text-cream/70 max-w-2xl mx-auto font-body">
+            <p className="text-xl text-[var(--accent-foreground)] max-w-2xl mx-auto font-body">
               Three days of masterclasses, demonstrations, and culinary inspiration from the world's
               finest pastry artisans.
             </p>
@@ -91,10 +92,10 @@ function SchedulePage() {
                 <button
                   key={day.day}
                   onClick={() => setSelectedDay(day.day)}
-                  className={`relative px-8 py-4 rounded-xl font-display font-semibold transition-all duration-300 ${
+                  className={`relative px-8 py-4 rounded-xl font-display font-bold transition-all duration-300 ${
                     selectedDay === day.day
-                      ? 'bg-gradient-to-br from-copper to-copper-dark text-charcoal shadow-lg shadow-copper/20'
-                      : 'text-cream/70 hover:text-cream hover:bg-card'
+                      ? 'bg-gradient-to-br from-copper/75 to-copper-dark/75 text-[var(--accent-foreground)] shadow-lg shadow-primary/20'
+                      : 'text-[var(--accent-foreground)]/70 hover:text-[var(--accent-foreground)] hover:bg-card'
                   }`}
                 >
                   <span className="block text-xs uppercase tracking-wider opacity-75">
@@ -112,11 +113,11 @@ function SchedulePage() {
         {/* Day theme header */}
         <div className="max-w-7xl mx-auto px-6 mb-8">
           <div className="text-center">
-            <h2 className="font-display text-3xl font-bold text-cream mb-2">
+            <h2 className="font-display text-3xl font-bold text-[var(--accent-foreground)] mb-2">
               {currentDayData.dayName}:{' '}
-              <span className="text-gold italic">{currentDayData.theme}</span>
+              <span className="text-copper italic">{currentDayData.theme}</span>
             </h2>
-            <p className="text-cream/50 font-body">{currentDayData.date}</p>
+            <p className="text-[var(--accent-foreground)] font-body">{currentDayData.date}</p>
           </div>
         </div>
 
@@ -124,7 +125,7 @@ function SchedulePage() {
         <div className="max-w-5xl mx-auto px-6 pb-20">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 md:left-12 top-0 bottom-0 w-px bg-gradient-to-b from-copper via-gold to-copper/30" />
+            <div className="absolute left-8 md:left-12 top-0 bottom-0 w-px bg-gradient-to-b from-copper via-copper to-copper/30" />
 
             {/* Sessions */}
             <div className="space-y-8">
@@ -135,14 +136,19 @@ function SchedulePage() {
                 const speaker = getSpeakerByName(talk.speaker)
 
                 return (
-                  <Link key={session.talkSlug} to={`/talks/${talk.slug}`} className="group block">
+                  <Link
+                    key={session.talkSlug}
+                    to={'/talks/$slug'}
+                    params={{ slug: talk.slug }}
+                    className="group block"
+                  >
                     <div className="relative flex gap-6 md:gap-10">
                       {/* Time marker */}
                       <div className="flex-shrink-0 w-16 md:w-24 pt-6">
                         <div className="relative">
                           {/* Timeline dot */}
-                          <div className="absolute -right-[13px] md:-right-[17px] top-0 w-6 h-6 rounded-full bg-charcoal border-2 border-gold flex items-center justify-center group-hover:border-copper group-hover:scale-110 transition-all">
-                            <div className="w-2 h-2 rounded-full bg-gold group-hover:bg-copper transition-colors" />
+                          <div className="absolute -right-[100px] md:-right-[35px] top-0 w-6 h-6 rounded-full bg-charcoal border-2 border-copper flex items-center justify-center group-hover:border-copper group-hover:scale-110 transition-all">
+                            <div className="w-2 h-2 rounded-full bg-copper group-hover:bg-copper transition-colors" />
                           </div>
                           <span className="block text-right text-sm md:text-base font-display font-semibold text-copper-light">
                             {session.time}
@@ -153,7 +159,7 @@ function SchedulePage() {
                       {/* Session card */}
                       <div
                         className="flex-1 relative overflow-hidden rounded-2xl bg-card border border-border/50 
-                          group-hover:border-gold/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-gold/5
+                          group-hover:border-copper/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-copper/5
                           group-hover:-translate-y-1"
                         style={{
                           animationDelay: `${index * 100}ms`,
@@ -164,9 +170,9 @@ function SchedulePage() {
                           <img
                             src={`/${talk.image}`}
                             alt={talk.title}
-                            className="w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
+                            className="w-full h-full object-cover group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/95 to-charcoal/80" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/75  via-charcoal/50 to-charcoal/80" />
                         </div>
 
                         {/* Content */}
@@ -174,7 +180,7 @@ function SchedulePage() {
                           {/* Speaker image */}
                           {speaker && (
                             <div className="flex-shrink-0">
-                              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-gold/30 group-hover:border-gold/60 transition-colors shadow-lg">
+                              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-copper/30 group-hover:border-copper/60 transition-colors shadow-lg">
                                 <img
                                   src={`/${speaker.headshot}`}
                                   alt={speaker.name}
@@ -192,7 +198,7 @@ function SchedulePage() {
                               {talk.topics.slice(0, 3).map((topic) => (
                                 <span
                                   key={topic}
-                                  className="px-2.5 py-0.5 text-xs font-medium tracking-wide uppercase bg-gold/10 text-gold border border-gold/20 rounded-full"
+                                  className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
                                 >
                                   {topic}
                                 </span>
@@ -200,7 +206,7 @@ function SchedulePage() {
                             </div>
 
                             {/* Title */}
-                            <h3 className="font-display text-xl md:text-2xl font-semibold text-cream group-hover:text-gold transition-colors mb-2 leading-tight">
+                            <h3 className="font-display text-xl md:text-2xl font-semibold text-cream group-hover:text-copper transition-colors mb-2 leading-tight">
                               {talk.title}
                             </h3>
 
@@ -223,8 +229,8 @@ function SchedulePage() {
 
                           {/* Arrow indicator */}
                           <div className="flex-shrink-0 self-center">
-                            <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-gold/40 transition-all">
-                              <ChevronRight className="w-5 h-5 text-gold group-hover:translate-x-0.5 transition-transform" />
+                            <div className="w-10 h-10 rounded-full bg-copper/10 border border-copper/20 flex items-center justify-center group-hover:bg-copper/20 group-hover:border-copper/40 transition-all">
+                              <ChevronRight className="w-5 h-5 text-copper group-hover:translate-x-0.5 transition-transform" />
                             </div>
                           </div>
                         </div>
@@ -239,15 +245,15 @@ function SchedulePage() {
 
         {/* Bottom CTA */}
         <div className="max-w-4xl mx-auto px-6 pb-20">
-          <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-card to-charcoal border border-border/50 overflow-hidden text-center">
+          <div className="relative p-12 rounded-3xl bg-gradient-to-br dark:from-card dark:to-charcoal light:from-foreground light:to-primary border border-border/50 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-copper/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gold/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-copper/5 rounded-full blur-3xl" />
 
             <div className="relative">
               <h3 className="font-display text-2xl md:text-3xl font-bold text-cream mb-3">
                 Don't Miss a Single Session
               </h3>
-              <p className="text-cream/60 font-body mb-6 max-w-xl mx-auto">
+              <p className="text-cream font-body mb-6 max-w-xl mx-auto text-lg">
                 Each masterclass offers hands-on learning from the world's finest pastry artisans.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -259,7 +265,7 @@ function SchedulePage() {
                 </Link>
                 <Link
                   to="/speakers"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-gold/50 text-gold font-semibold transition-all hover:bg-gold/10 hover:border-gold"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-copper/50 text-copper font-semibold transition-all hover:bg-copper/10 hover:border-copper"
                 >
                   Meet the Speakers
                 </Link>
