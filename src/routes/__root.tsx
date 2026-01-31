@@ -51,12 +51,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         property: 'og:image',
-        content:
-          'https://raw.githubusercontent.com/Yoshua-Carrera/bluechip-fares-dev/322dece39bbdf5723da33eaece3dc8740583a0e5/public/logo/bluechip-fares-logo.jpg',
+        content: '/logo/bluechip-fares-logo.jpg',
       },
       {
-        property: 'og:logo',
-        content: '/favicon.ico',
+        property: 'og:image:type',
+        content: 'image/jpeg',
       },
       {
         property: 'og:url',
