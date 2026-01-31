@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-muted p-4 flex items-center justify-between text-white shadow-lg">
+      <header className="bg-accent p-4 flex items-center justify-between text-white shadow-lg">
         <button
           onClick={() => setIsOpen(true)}
           className="p-2 hover:bg-background rounded-lg transition-colors light:text-[var(--logo)]"
@@ -31,18 +31,18 @@ export default function Header() {
       </header>
 
       <aside
-        className={`fixed top-0 left-0 h-full w-80 bg-gray-900 text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`bg-muted/95 fixed top-0 left-0 h-full w-100 bg-gray-900 text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          <h2 className="text-xl font-bold">Navigation</h2>
+          <h2 className="text-xl text-[var(--accent-foreground)] font-bold">Navigation</h2>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-800 light:hover:bg-gray-800/10 rounded-lg transition-colors"
             aria-label="Close menu"
           >
-            <X size={24} />
+            <X className="text-[var(--accent-foreground)]" size={24} />
           </button>
         </div>
 
@@ -50,14 +50,14 @@ export default function Header() {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Home size={20} />
-            <span className="font-medium">Home</span>
+            <Home className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Home</span>
           </Link>
 
           {/* Demo Links Start */}
@@ -65,40 +65,40 @@ export default function Header() {
           <Link
             to="/schedule"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Globe size={20} />
-            <span className="font-medium">Schedule</span>
+            <Globe className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Schedule</span>
           </Link>
 
           <Link
             to="/speakers"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Globe size={20} />
-            <span className="font-medium">Speakers</span>
+            <Globe className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Speakers</span>
           </Link>
 
           <Link
             to="/talks"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Globe size={20} />
-            <span className="font-medium">Sessions</span>
+            <Globe className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Sessions</span>
           </Link>
 
           {/* Demo Links End */}

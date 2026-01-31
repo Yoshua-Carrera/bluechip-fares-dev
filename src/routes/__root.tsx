@@ -67,11 +67,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [ctaShown, setCtaShown] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+      if (!ctaShown && window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
         setTimeout(() => {
+          setCtaShown(true)
           setIsDialogOpen(true)
           window.removeEventListener('scroll', handleScroll)
         }, 1000 * 30)
