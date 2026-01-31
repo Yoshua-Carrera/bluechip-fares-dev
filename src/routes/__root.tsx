@@ -38,6 +38,7 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
+    title: 'Bluechip Fares',
     meta: [
       {
         charSet: 'utf-8',
@@ -47,12 +48,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Bluechip Fares',
-      },
-      {
         property: 'og:image',
-        content: 'talks/neapolitan-pizza-tradition-meets-innovation.jpg',
-        // https://bluechipfares.com/logo/bluechip-fares-logo.jpg
+        content: 'https://bluechipfares.com/logo/bluechip-fares-logo.jpg',
       },
       {
         property: 'og:image:type',
