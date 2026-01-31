@@ -51,7 +51,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         name: 'og:image',
-        content: '/logo/bluechip-fares-logo.jpg',
+        content: '/logo/bluechip-fares-logo.png',
       },
       {
         name: 'og:type',
