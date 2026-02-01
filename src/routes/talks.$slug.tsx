@@ -41,7 +41,7 @@ function TalkDetailPage() {
         <div className="w-full h-full rounded-2xl overflow-hidden border border-border/50">
           <img src={`/${talk.image}`} alt={talk.title} className="w-full h-full object-cover" />
         </div>
-        <div className="absolute inset-6 bg-gradient-to-t from-charcoal/60 to-transparent rounded-2xl pointer-events-none" />
+        <div className="absolute inset-5 bg-gradient-to-t from-charcoal/60 to-transparent rounded-2xl pointer-events-none" />
       </div>
 
       {/* Content */}

@@ -72,7 +72,7 @@ function HomePage() {
               Look at our work
             </Link>
             <Link
-              to="/talks"
+              to="/schedule"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-4 border-copper/50 text-white font-semibold text-lg transition-all hover:bg-[var(--primary)]/10 hover:border-[var(--primary)]"
             >
               Service catalog

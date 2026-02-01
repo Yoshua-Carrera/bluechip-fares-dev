@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-accent p-4 flex items-center justify-between text-white shadow-lg">
+      <header className="bg-background p-4 flex items-center justify-between text-white shadow-sm shadow-copper">
         <button
           onClick={() => setIsOpen(true)}
           className="p-2 hover:bg-background rounded-lg transition-colors light:text-[var(--logo)]"
@@ -24,7 +24,7 @@ export default function Header() {
         </button>
         <h1 className="flex-1 text-center text-xl font-semibold flex justify-center">
           <Link to="/">
-            <BluechipLogo className="h-20 text-white light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)]" />
+            <BluechipLogo className="h-30  text-white light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)]" />
           </Link>
         </h1>
         <DarkModeToggle></DarkModeToggle>
