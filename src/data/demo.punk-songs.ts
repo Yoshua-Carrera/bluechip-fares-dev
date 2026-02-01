@@ -4,11 +4,13 @@ export const getPunkSongs = createServerFn({
   method: 'GET',
 }).handler(
   async (): Promise<
-    {
+    Array<{
       id: number
       name: string
       artist: string
-    }[]
+    }>
+    // TODO: Simulating async response, will be replaced by real call
+    // eslint-disable-next-line @typescript-eslint/require-await
   > => [
     { id: 1, name: 'Teenage Dirtbag', artist: 'Wheatus' },
     { id: 2, name: 'Smells Like Teen Spirit', artist: 'Nirvana' },

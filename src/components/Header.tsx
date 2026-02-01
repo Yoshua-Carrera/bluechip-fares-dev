@@ -1,13 +1,13 @@
 import { Link } from '@tanstack/react-router'
 
-import BetterAuthHeader from '../integrations/better-auth/header-user.tsx'
-
-import RemyButton from './RemyButton'
-
 import { useState } from 'react'
 import { Globe, Home, Menu, X } from 'lucide-react'
-import { DarkModeToggle } from './dark-mode-toggle.tsx'
+import BetterAuthHeader from '../integrations/better-auth/header-user.tsx'
+
 import BluechipLogo from '../assets/bluechip-fares-logo.svg?react'
+import RemyButton from './RemyButton'
+
+import { DarkModeToggle } from './dark-mode-toggle.tsx'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)

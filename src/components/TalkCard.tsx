@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { Clock, User } from 'lucide-react'
 
-import { type Talk } from 'content-collections'
+import type {Talk} from 'content-collections';
 
 import { Card, CardContent } from '@/components/ui/card'
 

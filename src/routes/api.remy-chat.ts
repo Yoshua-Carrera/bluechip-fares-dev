@@ -6,10 +6,10 @@ import { geminiText } from '@tanstack/ai-gemini'
 import { ollamaText } from '@tanstack/ai-ollama'
 
 import {
-  getSpeakerBySlug,
-  getTalkBySlug,
   getAllSpeakers,
   getAllTalks,
+  getSpeakerBySlug,
+  getTalkBySlug,
   searchConference,
 } from '@/lib/conference-tools'
 
@@ -59,8 +59,8 @@ ${talkSlug ? `CONTEXT: The user is viewing the session with slug "${talkSlug}".`
 Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attendee feel welcome and excited about the culinary journey ahead!`
 
           // Determine the best available provider
-          let provider: string = 'ollama'
-          let model: string = 'mistral:7b'
+          let provider = 'ollama'
+          let model = 'mistral:7b'
           if (process.env.ANTHROPIC_API_KEY) {
             provider = 'anthropic'
             model = 'claude-haiku-4-5'
