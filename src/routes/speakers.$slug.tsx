@@ -1,7 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { marked } from 'marked'
-import { MapPin, Award, ArrowLeft } from 'lucide-react'
-import { Link } from '@tanstack/react-router'
+import { ArrowLeft, Award, MapPin } from 'lucide-react'
 
 import { allSpeakers, allTalks } from 'content-collections'
 
@@ -9,7 +8,7 @@ import RemyAssistant from '@/components/RemyAssistant'
 import TalkCard from '@/components/TalkCard'
 
 export const Route = createFileRoute('/speakers/$slug')({
-  loader: async ({ params }) => {
+  loader: ({ params }) => {
     const speaker = allSpeakers.find((s) => s.slug === params.slug)
     if (!speaker) {
       throw new Error('Speaker not found')

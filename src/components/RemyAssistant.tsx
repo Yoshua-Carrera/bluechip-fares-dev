@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { Send, X, ChefHat, Croissant } from 'lucide-react'
+import { ChefHat, Croissant, Send, X } from 'lucide-react'
 import { Streamdown } from 'streamdown'
 import { Store } from '@tanstack/store'
 
-import { useConferenceChat } from '@/lib/conference-ai-hook'
 import type { ConferenceChatMessages } from '@/lib/conference-ai-hook'
+import { useConferenceChat } from '@/lib/conference-ai-hook'
 
 function Messages({ messages }: { messages: ConferenceChatMessages }) {
   const messagesContainerRef = useRef<HTMLDivElement>(null)

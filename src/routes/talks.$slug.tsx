@@ -1,13 +1,13 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { marked } from 'marked'
-import { Clock, User, ArrowLeft, Tag } from 'lucide-react'
+import { ArrowLeft, Clock, Tag, User } from 'lucide-react'
 
-import { allTalks, allSpeakers } from 'content-collections'
+import { allSpeakers, allTalks } from 'content-collections'
 
 import RemyAssistant from '@/components/RemyAssistant'
 
 export const Route = createFileRoute('/talks/$slug')({
-  loader: async ({ params }) => {
+  loader: ({ params }) => {
     const talk = allTalks.find((t) => t.slug === params.slug)
     if (!talk) {
       throw new Error('Talk not found')

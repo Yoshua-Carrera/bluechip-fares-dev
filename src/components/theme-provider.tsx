@@ -53,9 +53,9 @@ export function ThemeProvider({
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
+    setTheme: (myTheme: Theme) => {
+      localStorage.setItem(storageKey, myTheme)
+      setTheme(myTheme)
     },
   }
 
@@ -69,7 +69,8 @@ export function ThemeProvider({
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext)
 
-  if (context === undefined) throw new Error('useTheme must be used within a ThemeProvider')
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (!context) throw new Error('useTheme must be used within a ThemeProvider')
 
   return context
 }

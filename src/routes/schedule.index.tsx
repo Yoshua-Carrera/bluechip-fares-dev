@@ -1,11 +1,11 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { Clock, Calendar, MapPin, ChevronRight } from 'lucide-react'
+import { Link, createFileRoute } from '@tanstack/react-router'
+import { Calendar, ChevronRight, Clock, MapPin } from 'lucide-react'
 import { useState } from 'react'
 
-import { allTalks, allSpeakers } from 'content-collections'
+import { allSpeakers, allTalks } from 'content-collections'
 
-import RemyAssistant from '@/components/RemyAssistant'
 import { format } from 'date-fns'
+import RemyAssistant from '@/components/RemyAssistant'
 
 export const Route = createFileRoute('/schedule/')({
   component: SchedulePage,
