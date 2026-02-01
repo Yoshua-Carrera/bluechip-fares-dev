@@ -9,7 +9,7 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
-    "check": "prettier --write . && eslint --fix",
+    "pretty": "prettier --write . && eslint --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
