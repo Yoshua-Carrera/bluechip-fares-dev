@@ -96,7 +96,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           setCtaShown(true)
           setIsDialogOpen(true)
           window.removeEventListener('scroll', handleScroll)
-        }, 1000 * 30)
+        }, 1000 * 60)
       }
     }
 

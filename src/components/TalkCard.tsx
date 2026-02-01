@@ -12,7 +12,7 @@ interface TalkCardProps {
 
 export default function TalkCard({ talk, featured = false }: TalkCardProps) {
   return (
-    <Link to={'/talks/$slug'} params={{ slug: talk.slug }} className="group relative block">
+    <Link to={'/schedule'} className="group relative block">
       <Card
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-[16/10]' : 'aspect-[16/9]'}
