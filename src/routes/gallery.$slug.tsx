@@ -7,7 +7,7 @@ import { allSpeakers, allTalks } from 'content-collections'
 import RemyAssistant from '@/components/RemyAssistant'
 import TalkCard from '@/components/TalkCard'
 
-export const Route = createFileRoute('/speakers/$slug')({
+export const Route = createFileRoute('/gallery/$slug')({
   loader: ({ params }) => {
     const speaker = allSpeakers.find((s) => s.slug === params.slug)
     if (!speaker) {
@@ -29,7 +29,7 @@ function SpeakerDetailPage() {
       {/* Back navigation */}
       <div className="max-w-7xl mx-auto px-6 py-4">
         <Link
-          to="/speakers"
+          to="/gallery"
           className="inline-flex items-center gap-2 text-cream/60 hover:text-gold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />

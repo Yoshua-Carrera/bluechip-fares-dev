@@ -1,11 +1,10 @@
 import { Link } from '@tanstack/react-router'
 
 import { useState } from 'react'
-import { Globe, Home, Menu, X } from 'lucide-react'
-import BetterAuthHeader from '../integrations/better-auth/header-user.tsx'
+import { Briefcase, Contact, GalleryHorizontal, Home, Menu, X } from 'lucide-react'
 
 import BluechipLogo from '../assets/bluechip-fares-logo.svg?react'
-import RemyButton from './RemyButton'
+import BluechipLogoComplete from '../assets/bluechip-fares-logo-complete.svg?react'
 
 import { DarkModeToggle } from './dark-mode-toggle.tsx'
 
@@ -20,11 +19,14 @@ export default function Header() {
           className="p-2 hover:bg-background rounded-lg transition-colors light:text-[var(--logo)]"
           aria-label="Open menu"
         >
-          <Menu size={36} className="hover:bg-background" />
+          <Menu
+            size={36}
+            className="hover:bg-[var(--accent-foreground)]/10 hover:rounded-lg hover:cursor-pointer"
+          />
         </button>
         <h1 className="flex-1 text-center text-xl font-semibold flex justify-center">
           <Link to="/">
-            <BluechipLogo className="h-30  text-white light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)]" />
+            <BluechipLogo className="h-35  text-white light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)]" />
           </Link>
         </h1>
         <DarkModeToggle></DarkModeToggle>
@@ -36,7 +38,7 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          <h2 className="text-xl text-[var(--accent-foreground)] font-bold">Navigation</h2>
+          <h2 className="text-xl text-[var(--accent-foreground)] font-bold">Bluechip Fares</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="p-2 hover:bg-gray-800 light:hover:bg-gray-800/10 rounded-lg transition-colors"
@@ -63,7 +65,7 @@ export default function Header() {
           {/* Demo Links Start */}
 
           <Link
-            to="/schedule"
+            to="/services-offered"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
@@ -71,12 +73,12 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Globe className="text-[var(--accent-foreground)]" size={20} />
-            <span className="font-medium text-[var(--accent-foreground)]">Schedule</span>
+            <Briefcase className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Services Offered</span>
           </Link>
 
           <Link
-            to="/speakers"
+            to="/gallery"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
@@ -84,8 +86,8 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Globe className="text-[var(--accent-foreground)]" size={20} />
-            <span className="font-medium text-[var(--accent-foreground)]">Speakers</span>
+            <GalleryHorizontal className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Gallery</span>
           </Link>
 
           <Link
@@ -97,17 +99,20 @@ export default function Header() {
                 'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
-            <Globe className="text-[var(--accent-foreground)]" size={20} />
-            <span className="font-medium text-[var(--accent-foreground)]">Sessions</span>
+            <Contact className="text-[var(--accent-foreground)]" size={20} />
+            <span className="font-medium text-[var(--accent-foreground)]">Contact Us</span>
           </Link>
 
           {/* Demo Links End */}
         </nav>
 
-        <div className="p-4 border-t border-gray-700 bg-gray-800 flex flex-col gap-2">
-          <BetterAuthHeader />
-
-          <RemyButton />
+        <div className="p-4 border-t border-gray-700 bg-gray-800 flex flex-row gap-2 flex justify-center">
+          {/* TODO: Add Auth portal  */}
+          {/* <BetterAuthHeader /> */}
+          {/* <RemyButton /> */}
+          <Link to="/">
+            <BluechipLogoComplete className="h-20  text-white light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)]" />
+          </Link>
         </div>
       </aside>
     </>

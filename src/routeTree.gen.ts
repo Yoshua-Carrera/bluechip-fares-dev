@@ -11,10 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TalksIndexRouteImport } from './routes/talks.index'
-import { Route as SpeakersIndexRouteImport } from './routes/speakers.index'
-import { Route as ScheduleIndexRouteImport } from './routes/schedule.index'
+import { Route as ServicesOfferedIndexRouteImport } from './routes/services-offered.index'
+import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as TalksSlugRouteImport } from './routes/talks.$slug'
-import { Route as SpeakersSlugRouteImport } from './routes/speakers.$slug'
+import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
 import { Route as ApiRemyChatRouteImport } from './routes/api.remy-chat'
 import { Route as DemoApiTqTodosRouteImport } from './routes/demo/_api.tq-todos'
@@ -32,14 +32,14 @@ const TalksIndexRoute = TalksIndexRouteImport.update({
   path: '/talks/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpeakersIndexRoute = SpeakersIndexRouteImport.update({
-  id: '/speakers/',
-  path: '/speakers/',
+const ServicesOfferedIndexRoute = ServicesOfferedIndexRouteImport.update({
+  id: '/services-offered/',
+  path: '/services-offered/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ScheduleIndexRoute = ScheduleIndexRouteImport.update({
-  id: '/schedule/',
-  path: '/schedule/',
+const GalleryIndexRoute = GalleryIndexRouteImport.update({
+  id: '/gallery/',
+  path: '/gallery/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TalksSlugRoute = TalksSlugRouteImport.update({
@@ -47,9 +47,9 @@ const TalksSlugRoute = TalksSlugRouteImport.update({
   path: '/talks/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpeakersSlugRoute = SpeakersSlugRouteImport.update({
-  id: '/speakers/$slug',
-  path: '/speakers/$slug',
+const GallerySlugRoute = GallerySlugRouteImport.update({
+  id: '/gallery/$slug',
+  path: '/gallery/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoBetterAuthRoute = DemoBetterAuthRouteImport.update({
@@ -87,10 +87,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/speakers/$slug': typeof SpeakersSlugRoute
+  '/gallery/$slug': typeof GallerySlugRoute
   '/talks/$slug': typeof TalksSlugRoute
-  '/schedule/': typeof ScheduleIndexRoute
-  '/speakers/': typeof SpeakersIndexRoute
+  '/gallery/': typeof GalleryIndexRoute
+  '/services-offered/': typeof ServicesOfferedIndexRoute
   '/talks/': typeof TalksIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -101,10 +101,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/speakers/$slug': typeof SpeakersSlugRoute
+  '/gallery/$slug': typeof GallerySlugRoute
   '/talks/$slug': typeof TalksSlugRoute
-  '/schedule': typeof ScheduleIndexRoute
-  '/speakers': typeof SpeakersIndexRoute
+  '/gallery': typeof GalleryIndexRoute
+  '/services-offered': typeof ServicesOfferedIndexRoute
   '/talks': typeof TalksIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -116,10 +116,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/speakers/$slug': typeof SpeakersSlugRoute
+  '/gallery/$slug': typeof GallerySlugRoute
   '/talks/$slug': typeof TalksSlugRoute
-  '/schedule/': typeof ScheduleIndexRoute
-  '/speakers/': typeof SpeakersIndexRoute
+  '/gallery/': typeof GalleryIndexRoute
+  '/services-offered/': typeof ServicesOfferedIndexRoute
   '/talks/': typeof TalksIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -132,10 +132,10 @@ export interface FileRouteTypes {
     | '/'
     | '/api/remy-chat'
     | '/demo/better-auth'
-    | '/speakers/$slug'
+    | '/gallery/$slug'
     | '/talks/$slug'
-    | '/schedule/'
-    | '/speakers/'
+    | '/gallery/'
+    | '/services-offered/'
     | '/talks/'
     | '/api/auth/$'
     | '/api/trpc/$'
@@ -146,10 +146,10 @@ export interface FileRouteTypes {
     | '/'
     | '/api/remy-chat'
     | '/demo/better-auth'
-    | '/speakers/$slug'
+    | '/gallery/$slug'
     | '/talks/$slug'
-    | '/schedule'
-    | '/speakers'
+    | '/gallery'
+    | '/services-offered'
     | '/talks'
     | '/api/auth/$'
     | '/api/trpc/$'
@@ -160,10 +160,10 @@ export interface FileRouteTypes {
     | '/'
     | '/api/remy-chat'
     | '/demo/better-auth'
-    | '/speakers/$slug'
+    | '/gallery/$slug'
     | '/talks/$slug'
-    | '/schedule/'
-    | '/speakers/'
+    | '/gallery/'
+    | '/services-offered/'
     | '/talks/'
     | '/api/auth/$'
     | '/api/trpc/$'
@@ -175,10 +175,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiRemyChatRoute: typeof ApiRemyChatRoute
   DemoBetterAuthRoute: typeof DemoBetterAuthRoute
-  SpeakersSlugRoute: typeof SpeakersSlugRoute
+  GallerySlugRoute: typeof GallerySlugRoute
   TalksSlugRoute: typeof TalksSlugRoute
-  ScheduleIndexRoute: typeof ScheduleIndexRoute
-  SpeakersIndexRoute: typeof SpeakersIndexRoute
+  GalleryIndexRoute: typeof GalleryIndexRoute
+  ServicesOfferedIndexRoute: typeof ServicesOfferedIndexRoute
   TalksIndexRoute: typeof TalksIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
@@ -202,18 +202,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TalksIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/speakers/': {
-      id: '/speakers/'
-      path: '/speakers'
-      fullPath: '/speakers/'
-      preLoaderRoute: typeof SpeakersIndexRouteImport
+    '/services-offered/': {
+      id: '/services-offered/'
+      path: '/services-offered'
+      fullPath: '/services-offered/'
+      preLoaderRoute: typeof ServicesOfferedIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/schedule/': {
-      id: '/schedule/'
-      path: '/schedule'
-      fullPath: '/schedule/'
-      preLoaderRoute: typeof ScheduleIndexRouteImport
+    '/gallery/': {
+      id: '/gallery/'
+      path: '/gallery'
+      fullPath: '/gallery/'
+      preLoaderRoute: typeof GalleryIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/talks/$slug': {
@@ -223,11 +223,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TalksSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/speakers/$slug': {
-      id: '/speakers/$slug'
-      path: '/speakers/$slug'
-      fullPath: '/speakers/$slug'
-      preLoaderRoute: typeof SpeakersSlugRouteImport
+    '/gallery/$slug': {
+      id: '/gallery/$slug'
+      path: '/gallery/$slug'
+      fullPath: '/gallery/$slug'
+      preLoaderRoute: typeof GallerySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/better-auth': {
@@ -279,10 +279,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiRemyChatRoute: ApiRemyChatRoute,
   DemoBetterAuthRoute: DemoBetterAuthRoute,
-  SpeakersSlugRoute: SpeakersSlugRoute,
+  GallerySlugRoute: GallerySlugRoute,
   TalksSlugRoute: TalksSlugRoute,
-  ScheduleIndexRoute: ScheduleIndexRoute,
-  SpeakersIndexRoute: SpeakersIndexRoute,
+  GalleryIndexRoute: GalleryIndexRoute,
+  ServicesOfferedIndexRoute: ServicesOfferedIndexRoute,
   TalksIndexRoute: TalksIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiTrpcSplatRoute: ApiTrpcSplatRoute,

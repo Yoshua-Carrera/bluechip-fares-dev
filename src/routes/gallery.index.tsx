@@ -5,7 +5,7 @@ import { allSpeakers } from 'content-collections'
 import SpeakerCard from '@/components/SpeakerCard'
 import RemyAssistant from '@/components/RemyAssistant'
 
-export const Route = createFileRoute('/speakers/')({
+export const Route = createFileRoute('/gallery/')({
   component: SpeakersPage,
 })
 

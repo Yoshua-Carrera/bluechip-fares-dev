@@ -1,5 +1,4 @@
 import { Link } from '@tanstack/react-router'
-import { Clock, User } from 'lucide-react'
 
 import type { Talk } from 'content-collections'
 
@@ -12,7 +11,7 @@ interface TalkCardProps {
 
 export default function TalkCard({ talk, featured = false }: TalkCardProps) {
   return (
-    <Link to={'/schedule'} className="group relative block">
+    <Link to={'/services-offered'} className="group relative block">
       <Card
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-[16/10]' : 'aspect-[16/9]'}
@@ -27,32 +26,15 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
         {/* Content overlay */}
         <CardContent className="absolute bottom-0 left-0 right-0 p-6 z-10">
           <div className="space-y-3">
-            {/* Topics */}
-            <div className="flex flex-wrap gap-2">
-              {talk.topics.slice(0, 2).map((topic) => (
-                <span
-                  key={topic}
-                  className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
-
             {/* Title */}
-            <h3 className="font-display text-xl font-semibold text-cream group-hover:text-copper transition-colors leading-tight">
+            <h3 className="font-display text-4xl font-semibold text-cream group-hover:text-copper transition-colors leading-tight">
               {talk.title}
             </h3>
 
             {/* Speaker & Duration */}
             <div className="flex items-center gap-4 text-cream/60 text-sm">
               <div className="flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5" />
                 <span>{talk.speaker}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5" />
-                <span>{talk.duration}</span>
               </div>
             </div>
           </div>

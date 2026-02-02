@@ -7,7 +7,7 @@ import { allSpeakers, allTalks } from 'content-collections'
 import { format } from 'date-fns'
 import RemyAssistant from '@/components/RemyAssistant'
 
-export const Route = createFileRoute('/schedule/')({
+export const Route = createFileRoute('/services-offered/')({
   component: SchedulePage,
 })
 
@@ -264,7 +264,7 @@ function SchedulePage() {
                   Browse All Sessions
                 </Link>
                 <Link
-                  to="/speakers"
+                  to="/gallery"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-copper/50 text-copper font-semibold transition-all hover:bg-copper/10 hover:border-copper"
                 >
                   Meet the Speakers
