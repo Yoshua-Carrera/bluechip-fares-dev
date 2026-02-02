@@ -66,14 +66,14 @@ function HomePage() {
           {/* CTA buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-5">
             <Link
-              to="/speakers"
+              to="/services-offered"
               className="inline-flex items-center gap-2 px-8 py-4 border-4 border-copper/25 rounded-full bg-gradient-to-r from-white to-white text-charcoal font-semibold text-lg transition-all hover:shadow-lg hover:shadow-[var(--primary)]/30 hover:scale-[1.02]"
             >
               <Users className="w-5 h-5" />
               Look at our work
             </Link>
             <Link
-              to="/schedule"
+              to="/services-offered"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-4 border-copper/50 text-white font-semibold text-lg transition-all hover:bg-[var(--primary)]/10 hover:border-[var(--primary)]"
             >
               Service catalog
@@ -96,7 +96,7 @@ function HomePage() {
               </p>
             </div>
             <Link
-              to="/speakers"
+              to="/gallery"
               className="hidden md:inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-copper/80 transition-colors font-medium"
             >
               View work gallery
@@ -112,7 +112,7 @@ function HomePage() {
 
           <div className="md:hidden mt-8 text-center">
             <Link
-              to="/speakers"
+              to="/services-offered"
               className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-white/80 transition-colors font-bold"
             >
               View all speakers
@@ -140,7 +140,7 @@ function HomePage() {
               </p>
             </div>
             <Link
-              to="/talks"
+              to="/services-offered"
               className="hidden md:inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-copper/80 transition-colors font-medium"
             >
               View all services

@@ -12,7 +12,7 @@ interface SpeakerCardProps {
 
 export default function SpeakerCard({ speaker, featured = false }: SpeakerCardProps) {
   return (
-    <Link to={'/speakers/$slug'} params={{ slug: speaker.slug }} className="group relative block">
+    <Link to={'/gallery/$slug'} params={{ slug: speaker.slug }} className="group relative block">
       <Card
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-square' : 'aspect-square'}
