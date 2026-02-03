@@ -91,7 +91,7 @@ export default function Header() {
           </Link>
 
           <Link
-            to="/talks"
+            to="/contact-us"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
