@@ -29,6 +29,7 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -162,6 +163,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         </ThemeProvider>
         <Scripts />
         <ScriptOnce>{themeScript}</ScriptOnce>
+        <Toaster />
       </body>
     </html>
   )
