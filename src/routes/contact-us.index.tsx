@@ -6,8 +6,9 @@ import { useMaskito } from '@maskito/react'
 import { maskitoPhoneOptionsGenerator } from '@maskito/phone'
 import metadata from 'libphonenumber-js/min/metadata'
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
+import { Info } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import {
   InputGroup,
@@ -58,18 +59,31 @@ function ContactUsPage() {
       onSubmit: formSchema,
     },
     onSubmit: ({ value }) => {
-      console.log({ value })
-      toast.success(parsePhoneNumberFromString(value.phone)?.nationalNumber, {
-        position: 'top-center',
+      toast(` Thanks for contacting us ${value.name}!`, {
+        position: 'bottom-center',
         richColors: true,
+        style: {
+          backgroundColor: 'var(--primary)',
+          color: 'white',
+          opacity: '80%',
+        },
+        icon: <Info />,
       })
     },
   })
 
   return (
-    <section className="py-20 px-6 light:bg-muted/90">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="relative p-12 rounded-3xl bg-gradient-to-br dark:from-card dark:to-charcoal light:from-foreground light:to-primary border border-border/50 overflow-hidden">
+    <section className="pt-6 px-6">
+      <div className="relative py-8 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-4">
+            Contact <span className="text-copper italic">Us</span>
+          </h1>
+        </div>
+      </div>
+
+      <div className="mt-8 max-w-4xl mx-auto text-center">
+        <div className="relative p-12 rounded-3xl bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 border border-[var(--accent-foreground)]/30 overflow-hidden shadow-md shadow-primary/20">
           <form
             onSubmit={(e) => {
               e.preventDefault()
@@ -83,7 +97,9 @@ function ContactUsPage() {
                   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>Name</FieldLabel>
+                      <FieldLabel htmlFor={field.name}>
+                        Name <span className="text-red-600 text-[0.65rem]">* Required</span>
+                      </FieldLabel>
                       <Input
                         id={field.name}
                         name={field.name}
@@ -93,8 +109,11 @@ function ContactUsPage() {
                         aria-invalid={isInvalid}
                         placeholder="Your name"
                         autoComplete="off"
+                        className="border border-copper/15 light:border-primary/85"
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError className="text-red-400" errors={field.state.meta.errors} />
+                      )}
                     </Field>
                   )
                 }}
@@ -105,7 +124,9 @@ function ContactUsPage() {
                   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>E-mail</FieldLabel>
+                      <FieldLabel htmlFor={field.name}>
+                        E-mail <span className="text-red-600 text-[0.65rem]">* Required</span>
+                      </FieldLabel>
                       <Input
                         id={field.name}
                         name={field.name}
@@ -115,8 +136,9 @@ function ContactUsPage() {
                         aria-invalid={isInvalid}
                         placeholder="Your email"
                         autoComplete="off"
+                        className="border border-copper/15 light:border-primary/85"
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      <FieldError className="text-red-400" errors={field.state.meta.errors} />
                     </Field>
                   )
                 }}
@@ -127,7 +149,9 @@ function ContactUsPage() {
                   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>Phone Number</FieldLabel>
+                      <FieldLabel htmlFor={field.name}>
+                        Phone Number <span className="text-red-600 text-[0.65rem]">* Required</span>
+                      </FieldLabel>
                       <Input
                         ref={maskedInputRef}
                         id={field.name}
@@ -137,8 +161,9 @@ function ContactUsPage() {
                         onChange={(e) => field.handleChange(e.target.value)}
                         aria-invalid={isInvalid}
                         autoComplete="off"
+                        className="border border-copper/15 light:border-primary/85"
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      <FieldError className="text-red-400" errors={field.state.meta.errors} />
                     </Field>
                   )
                 }}
@@ -149,8 +174,10 @@ function ContactUsPage() {
                   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>Description</FieldLabel>
-                      <InputGroup>
+                      <FieldLabel htmlFor={field.name}>
+                        Description <span className="text-red-600 text-[0.65rem]">* Required</span>
+                      </FieldLabel>
+                      <InputGroup className="border border-copper/15 light:border-primary/85">
                         <InputGroupTextarea
                           id={field.name}
                           name={field.name}
@@ -168,11 +195,7 @@ function ContactUsPage() {
                           </InputGroupText>
                         </InputGroupAddon>
                       </InputGroup>
-                      <FieldDescription>
-                        Include as much detail as you can regarding the project you want to us to
-                        work on.
-                      </FieldDescription>
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      <FieldError className="text-red-400" errors={field.state.meta.errors} />
                     </Field>
                   )
                 }}
@@ -190,7 +213,11 @@ function ContactUsPage() {
               {/*   }} */}
               {/* /> */}
             </FieldGroup>
-            <Button className="mt-12" size={'lg'} type="submit">
+            <Button
+              className="mt-12 bg-gradient-to-t dark:from-copper/60 dark:to-copper light:from-primary/60 light:to-primary border border-white/25 text text-md"
+              size={'lg'}
+              type="submit"
+            >
               Submit
             </Button>
           </form>

@@ -67,13 +67,6 @@ function SchedulePage() {
         {/* Hero section */}
         <div className="relative py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-copper/10 border border-[var(--accent-foreground)] text-[var(--accent-foreground)] text-sm font-medium">
-              <Calendar className="w-4 h-4" />
-              <span>{format(Date.now(), 'MMMM/dd/yyyy')}</span>
-              <span className="mx-2 text-white/40">•</span>
-              <MapPin className="w-4 h-4" />
-              <span>Frisco, TX</span>
-            </div>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-4">
               Conference <span className="text-copper italic">Schedule</span>
             </h1>
@@ -136,107 +129,100 @@ function SchedulePage() {
                 const speaker = getSpeakerByName(talk.speaker)
 
                 return (
-                  <Link
-                    key={session.talkSlug}
-                    to={'/talks/$slug'}
-                    params={{ slug: talk.slug }}
-                    className="group block"
-                  >
-                    <div className="relative flex gap-6 md:gap-10">
-                      {/* Time marker */}
-                      <div className="flex-shrink-0 w-16 md:w-24 pt-6">
-                        <div className="relative">
-                          {/* Timeline dot */}
-                          <div className="absolute -right-[100px] md:-right-[35px] top-0 w-6 h-6 rounded-full bg-charcoal border-2 border-copper flex items-center justify-center group-hover:border-copper group-hover:scale-110 transition-all">
-                            <div className="w-2 h-2 rounded-full bg-copper group-hover:bg-copper transition-colors" />
-                          </div>
-                          <span className="block text-right text-sm md:text-base font-display font-semibold text-copper-light">
-                            {session.time}
-                          </span>
+                  <div className="relative flex gap-6 md:gap-10">
+                    {/* Time marker */}
+                    <div className="flex-shrink-0 w-16 md:w-24 pt-6">
+                      <div className="relative">
+                        {/* Timeline dot */}
+                        <div className="absolute -right-[100px] md:-right-[35px] top-0 w-6 h-6 rounded-full bg-charcoal border-2 border-copper flex items-center justify-center group-hover:border-copper group-hover:scale-110 transition-all">
+                          <div className="w-2 h-2 rounded-full bg-copper group-hover:bg-copper transition-colors" />
                         </div>
+                        <span className="block text-right text-sm md:text-base font-display font-semibold text-copper-light">
+                          {session.time}
+                        </span>
                       </div>
+                    </div>
 
-                      {/* Session card */}
-                      <div
-                        className="flex-1 relative overflow-hidden rounded-2xl bg-card border border-border/50 
+                    {/* Session card */}
+                    <div
+                      className="flex-1 relative overflow-hidden rounded-2xl bg-card border border-border/50 
                           group-hover:border-copper/50 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-copper/5
                           group-hover:-translate-y-1"
-                        style={{
-                          animationDelay: `${index * 100}ms`,
-                        }}
-                      >
-                        {/* Background image with overlay */}
-                        <div className="absolute inset-0">
-                          <img
-                            src={`/${talk.image}`}
-                            alt={talk.title}
-                            className="w-full h-full object-cover group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/75  via-charcoal/50 to-charcoal/80" />
-                        </div>
+                      style={{
+                        animationDelay: `${index * 100}ms`,
+                      }}
+                    >
+                      {/* Background image with overlay */}
+                      <div className="absolute inset-0">
+                        <img
+                          src={`/${talk.image}`}
+                          alt={talk.title}
+                          className="w-full h-full object-cover group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/75  via-charcoal/50 to-charcoal/80" />
+                      </div>
 
-                        {/* Content */}
-                        <div className="relative p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
-                          {/* Speaker image */}
-                          {speaker && (
-                            <div className="flex-shrink-0">
-                              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-copper/30 group-hover:border-copper/60 transition-colors shadow-lg">
-                                <img
-                                  src={`/${speaker.headshot}`}
-                                  alt={speaker.name}
-                                  className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent" />
-                              </div>
+                      {/* Content */}
+                      <div className="relative p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
+                        {/* Speaker image */}
+                        {speaker && (
+                          <div className="flex-shrink-0">
+                            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-copper/30 group-hover:border-copper/60 transition-colors shadow-lg">
+                              <img
+                                src={`/${speaker.headshot}`}
+                                alt={speaker.name}
+                                className="w-full h-full object-cover"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent" />
                             </div>
-                          )}
+                          </div>
+                        )}
 
-                          {/* Talk info */}
-                          <div className="flex-1 min-w-0">
-                            {/* Topics */}
-                            <div className="flex flex-wrap gap-2 mb-3">
-                              {talk.topics.slice(0, 3).map((topic) => (
-                                <span
-                                  key={topic}
-                                  className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
-                                >
-                                  {topic}
-                                </span>
-                              ))}
-                            </div>
-
-                            {/* Title */}
-                            <h3 className="font-display text-xl md:text-2xl font-semibold text-cream group-hover:text-copper transition-colors mb-2 leading-tight">
-                              {talk.title}
-                            </h3>
-
-                            {/* Speaker & Duration */}
-                            <div className="flex flex-wrap items-center gap-4 text-cream/60 text-sm mb-3">
-                              <span className="font-medium text-copper-light">{talk.speaker}</span>
-                              <div className="flex items-center gap-1.5">
-                                <Clock className="w-3.5 h-3.5" />
-                                <span>{talk.duration}</span>
-                              </div>
-                            </div>
-
-                            {/* Speaker title if available */}
-                            {speaker && (
-                              <p className="text-cream/50 text-sm font-body">
-                                {speaker.title} at {speaker.restaurant}
-                              </p>
-                            )}
+                        {/* Talk info */}
+                        <div className="flex-1 min-w-0">
+                          {/* Topics */}
+                          <div className="flex flex-wrap gap-2 mb-3">
+                            {talk.topics.slice(0, 3).map((topic) => (
+                              <span
+                                key={topic}
+                                className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
+                              >
+                                {topic}
+                              </span>
+                            ))}
                           </div>
 
-                          {/* Arrow indicator */}
-                          <div className="flex-shrink-0 self-center">
-                            <div className="w-10 h-10 rounded-full bg-copper/10 border border-copper/20 flex items-center justify-center group-hover:bg-copper/20 group-hover:border-copper/40 transition-all">
-                              <ChevronRight className="w-5 h-5 text-copper group-hover:translate-x-0.5 transition-transform" />
+                          {/* Title */}
+                          <h3 className="font-display text-xl md:text-2xl font-semibold text-cream group-hover:text-copper transition-colors mb-2 leading-tight">
+                            {talk.title}
+                          </h3>
+
+                          {/* Speaker & Duration */}
+                          <div className="flex flex-wrap items-center gap-4 text-cream/60 text-sm mb-3">
+                            <span className="font-medium text-copper-light">{talk.speaker}</span>
+                            <div className="flex items-center gap-1.5">
+                              <Clock className="w-3.5 h-3.5" />
+                              <span>{talk.duration}</span>
                             </div>
+                          </div>
+
+                          {/* Speaker title if available */}
+                          {speaker && (
+                            <p className="text-cream/50 text-sm font-body">
+                              {speaker.title} at {speaker.restaurant}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Arrow indicator */}
+                        <div className="flex-shrink-0 self-center">
+                          <div className="w-10 h-10 rounded-full bg-copper/10 border border-copper/20 flex items-center justify-center group-hover:bg-copper/20 group-hover:border-copper/40 transition-all">
+                            <ChevronRight className="w-5 h-5 text-copper group-hover:translate-x-0.5 transition-transform" />
                           </div>
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 )
               })}
             </div>
