@@ -1,9 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { chat, maxIterations, toServerSentEventsResponse } from '@tanstack/ai'
-import { anthropicText } from '@tanstack/ai-anthropic'
-import { openaiText } from '@tanstack/ai-openai'
 import { geminiText } from '@tanstack/ai-gemini'
-import { ollamaText } from '@tanstack/ai-ollama'
+import type { GeminiTextAdapter } from '@tanstack/ai-gemini'
 
 import {
   getAllSpeakers,
@@ -28,7 +26,6 @@ export const Route = createFileRoute('/api/remy-chat')({
         try {
           const body = await request.json()
           const { messages, speakerSlug, talkSlug } = body
-          const data = body.data || {}
 
           const SYSTEM_PROMPT = `You are Remy, a charming and knowledgeable culinary assistant for the Haute Pâtisserie 2026 conference in Paris. You have a warm, enthusiastic personality and deep appreciation for the art of pastry and baking.
 
@@ -73,14 +70,13 @@ Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attend
           }
 
           // Adapter factory pattern for multi-vendor support
-          const adapterConfig = {
-            anthropic: () => anthropicText((model || 'claude-haiku-4-5') as any),
-            openai: () => openaiText((model || 'gpt-4o') as any),
-            gemini: () => geminiText((model || 'gemini-2.0-flash-exp') as any),
-            ollama: () => ollamaText((model || 'mistral:7b') as any),
+          const adapterConfig: {
+            gemini: () => GeminiTextAdapter<'gemini-2.5-flash'>
+          } = {
+            gemini: () => geminiText('gemini-2.5-flash'),
           }
 
-          const adapter = adapterConfig[provider]()
+          const adapter = adapterConfig[provider as 'gemini']()
 
           const stream = chat({
             adapter,
