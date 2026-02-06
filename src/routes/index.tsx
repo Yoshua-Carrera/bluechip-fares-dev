@@ -114,7 +114,7 @@ function HomePage() {
 
           <div className="md:hidden mt-8 text-center">
             <Link
-              to="/services-offered"
+              to="/gallery"
               className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-white/80 transition-colors font-bold"
             >
               View work gallery
@@ -158,7 +158,7 @@ function HomePage() {
 
           <div className="md:hidden mt-8 text-center">
             <Link
-              to="/talks"
+              to="/services-offered"
               className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-gold/80 transition-colors font-medium"
             >
               View all sessions
