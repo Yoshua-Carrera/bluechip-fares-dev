@@ -4,9 +4,9 @@ import { geminiText } from '@tanstack/ai-gemini'
 import type { GeminiTextAdapter } from '@tanstack/ai-gemini'
 
 import {
-  getAllSpeakers,
+  getAllGalleries,
   getAllTalks,
-  getSpeakerBySlug,
+  getGalleryBySlug,
   getTalkBySlug,
   searchConference,
 } from '@/lib/conference-tools'
@@ -80,7 +80,13 @@ Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attend
 
           const stream = chat({
             adapter,
-            tools: [getSpeakerBySlug, getTalkBySlug, getAllSpeakers, getAllTalks, searchConference],
+            tools: [
+              getGalleryBySlug,
+              getTalkBySlug,
+              getAllGalleries,
+              getAllTalks,
+              searchConference,
+            ],
             systemPrompts: [SYSTEM_PROMPT],
             agentLoopStrategy: maxIterations(5),
             messages,

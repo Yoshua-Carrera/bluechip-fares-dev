@@ -1,49 +1,37 @@
 import { toolDefinition } from '@tanstack/ai'
 import { z } from 'zod'
 
-import { allSpeakers, allTalks } from 'content-collections'
+import { allGalleries, allTalks } from 'content-collections'
 
 // Tool definition for getting a speaker by slug
-export const getSpeakerBySlugToolDef = toolDefinition({
-  name: 'getSpeakerBySlug',
+export const getGalleryBySlugToolDef = toolDefinition({
+  name: 'getGalleryBySlug',
   description:
-    'Get the full profile and bio of a specific speaker. Use this when asked about a particular speaker.',
+    'Get the full profile and bio of a specific gallery. Use this when asked about a particular gallery.',
   inputSchema: z.object({
-    slug: z.string().describe('The slug of the speaker'),
+    slug: z.string().describe('The slug of the gallery'),
   }),
   outputSchema: z.object({
     name: z.string(),
-    title: z.string(),
-    specialty: z.string(),
-    restaurant: z.string(),
     location: z.string(),
     bio: z.string(),
-    awards: z.array(z.string()),
   }),
 })
 
 // Server implementation
-export const getSpeakerBySlug = getSpeakerBySlugToolDef.server(({ slug }) => {
-  const speaker = allSpeakers.find((s) => s.slug === slug)
-  if (!speaker) {
+export const getGalleryBySlug = getGalleryBySlugToolDef.server(({ slug }) => {
+  const gallery = allGalleries.find((g) => g.slug === slug)
+  if (!gallery) {
     return {
-      name: 'Speaker not found',
-      title: '',
-      specialty: '',
-      restaurant: '',
+      name: 'Gallery not found',
       location: '',
-      bio: 'The requested speaker was not found.',
-      awards: [],
+      bio: 'The requested gallery was not found.',
     }
   }
   return {
-    name: speaker.name,
-    title: speaker.title,
-    specialty: speaker.specialty,
-    restaurant: speaker.restaurant,
-    location: speaker.location,
-    bio: speaker.content,
-    awards: speaker.awards || [],
+    name: gallery.name,
+    location: gallery.location,
+    bio: gallery.content,
   }
 })
 
@@ -85,31 +73,27 @@ export const getTalkBySlug = getTalkBySlugToolDef.server(({ slug }) => {
   }
 })
 
-// Tool definition for listing all speakers
-export const getAllSpeakersToolDef = toolDefinition({
-  name: 'getAllSpeakers',
+// Tool definition for listing all galleries
+export const getAllGalleriesToolDef = toolDefinition({
+  name: 'getAllGalleries',
   description:
-    'Get a list of all speakers at the conference with their names, specialties, and restaurants.',
+    'Get a list of all galleries at the conference with their names, specialties, and restaurants.',
   inputSchema: z.object({}),
   outputSchema: z.array(
     z.object({
       slug: z.string(),
       name: z.string(),
-      specialty: z.string(),
-      restaurant: z.string(),
       location: z.string(),
     }),
   ),
 })
 
 // Server implementation
-export const getAllSpeakers = getAllSpeakersToolDef.server(() => {
-  return allSpeakers.map((speaker) => ({
-    slug: speaker.slug,
-    name: speaker.name,
-    specialty: speaker.specialty,
-    restaurant: speaker.restaurant,
-    location: speaker.location,
+export const getAllGalleries = getAllGalleriesToolDef.server(() => {
+  return allGalleries.map((gallery) => ({
+    slug: gallery.slug,
+    name: gallery.name,
+    location: gallery.location,
   }))
 })
 
@@ -145,17 +129,15 @@ export const getAllTalks = getAllTalksToolDef.server(() => {
 export const searchConferenceToolDef = toolDefinition({
   name: 'searchConference',
   description:
-    'Search for speakers or sessions by keyword. Use this to find content matching user queries about topics, techniques, or names.',
+    'Search for galleries or sessions by keyword. Use this to find content matching user queries about topics, techniques, or names.',
   inputSchema: z.object({
     query: z.string().describe('The search query'),
   }),
   outputSchema: z.object({
-    speakers: z.array(
+    galleries: z.array(
       z.object({
         slug: z.string(),
         name: z.string(),
-        specialty: z.string(),
-        restaurant: z.string(),
       }),
     ),
     talks: z.array(
@@ -173,19 +155,15 @@ export const searchConferenceToolDef = toolDefinition({
 export const searchConference = searchConferenceToolDef.server(({ query }) => {
   const queryLower = query.toLowerCase()
 
-  const matchingSpeakers = allSpeakers
+  const matchingGalleries = allGalleries
     .filter(
-      (speaker) =>
-        speaker.name.toLowerCase().includes(queryLower) ||
-        speaker.specialty.toLowerCase().includes(queryLower) ||
-        speaker.restaurant.toLowerCase().includes(queryLower) ||
-        speaker.content.toLowerCase().includes(queryLower),
+      (gallery) =>
+        gallery.name.toLowerCase().includes(queryLower) ||
+        gallery.content.toLowerCase().includes(queryLower),
     )
-    .map((speaker) => ({
-      slug: speaker.slug,
-      name: speaker.name,
-      specialty: speaker.specialty,
-      restaurant: speaker.restaurant,
+    .map((gallery) => ({
+      slug: gallery.slug,
+      name: gallery.name,
     }))
 
   const matchingTalks = allTalks
@@ -204,7 +182,7 @@ export const searchConference = searchConferenceToolDef.server(({ query }) => {
     }))
 
   return {
-    speakers: matchingSpeakers,
+    galleries: matchingGalleries,
     talks: matchingTalks,
   }
 })
