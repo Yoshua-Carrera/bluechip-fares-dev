@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
-export const useIntersectionObserver = () => {
-  const ref = useRef<Element>(undefined)
+export const useIntersectionObserver = <T extends Element>() => {
+  const ref = useRef<T>(undefined)
   const [isVisible, setIsvisible] = useState(false)
   useEffect(() => {
     const observer = new IntersectionObserver(
