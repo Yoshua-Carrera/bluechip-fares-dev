@@ -1,19 +1,18 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
-import { Calendar, ChevronRight, Clock, MapPin } from 'lucide-react'
+import { ChevronRight, Clock } from 'lucide-react'
 import { useState } from 'react'
 
-import { allSpeakers, allTalks } from 'content-collections'
+import { allGalleries, allTalks } from 'content-collections'
 
-import { format } from 'date-fns'
 import RemyAssistant from '@/components/RemyAssistant'
 
 export const Route = createFileRoute('/services-offered/')({
   component: SchedulePage,
 })
 
-// Helper to get speaker data by name
-function getSpeakerByName(name: string) {
-  return allSpeakers.find((s) => s.name.toLowerCase() === name.toLowerCase())
+// Helper to get gallery data by name
+function getGalleryByName(name: string) {
+  return allGalleries.find((g) => g.name.toLowerCase() === name.toLowerCase())
 }
 
 // Define the conference schedule with time slots
@@ -126,7 +125,8 @@ function SchedulePage() {
                 const talk = allTalks.find((t) => t.slug === session.talkSlug)
                 if (!talk) return null
 
-                const speaker = getSpeakerByName(talk.speaker)
+                // TODO: Change talks to better brand contractor work
+                const gallery = getGalleryByName(talk.speaker)
 
                 return (
                   <div className="relative flex gap-6 md:gap-10">
@@ -165,12 +165,12 @@ function SchedulePage() {
                       {/* Content */}
                       <div className="relative p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
                         {/* Speaker image */}
-                        {speaker && (
+                        {gallery && (
                           <div className="flex-shrink-0">
                             <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-copper/30 group-hover:border-copper/60 transition-colors shadow-lg">
                               <img
-                                src={`/${speaker.headshot}`}
-                                alt={speaker.name}
+                                src={`/${gallery.headshot}`}
+                                alt={gallery.name}
                                 className="w-full h-full object-cover"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent" />
@@ -197,21 +197,15 @@ function SchedulePage() {
                             {talk.title}
                           </h3>
 
-                          {/* Speaker & Duration */}
+                          {/* gallery & Duration */}
                           <div className="flex flex-wrap items-center gap-4 text-cream/60 text-sm mb-3">
+                            {/* // TODO: Change talks to better brand contractor work */}
                             <span className="font-medium text-copper-light">{talk.speaker}</span>
                             <div className="flex items-center gap-1.5">
                               <Clock className="w-3.5 h-3.5" />
                               <span>{talk.duration}</span>
                             </div>
                           </div>
-
-                          {/* Speaker title if available */}
-                          {speaker && (
-                            <p className="text-cream/50 text-sm font-body">
-                              {speaker.title} at {speaker.restaurant}
-                            </p>
-                          )}
                         </div>
 
                         {/* Arrow indicator */}

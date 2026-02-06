@@ -1,14 +1,7 @@
 ---
-name: 'André Costa'
-title: 'Master Confeiteiro'
-specialty: 'Portuguese Pastries & Mediterranean Breads'
-restaurant: 'Pastelaria Ouro'
-location: 'Lisbon, Portugal'
-headshot: 'speakers/andre-costa.jpg'
-awards:
-  - 'Portuguese National Gastronomy Prize 2020'
-  - 'Pastéis de Belém Certified Master'
-  - 'European Baker of the Year 2019'
+name: 'Outdoor deck'
+location: 'Plano, TX'
+headshot: 'gallery/outdoor-deck.jpg'
 ---
 
 André Costa is the guardian of Portugal's rich pastry heritage and an ambassador for Mediterranean bread traditions. His life's work has been dedicated to preserving, perfecting, and sharing the techniques behind iconic Portuguese sweets — from the legendary pastel de nata to the lesser-known regional treasures that deserve global recognition.
