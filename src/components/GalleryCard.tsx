@@ -1,29 +1,34 @@
 import { Link } from '@tanstack/react-router'
 import { MapPin } from 'lucide-react'
 
+import type { Ref } from 'react'
 import type { Gallery } from 'content-collections'
 
 import { Card, CardContent } from '@/components/ui/card'
+import { useIntersectionObserver } from '@/hooks/intersection-observer'
 
 interface SpeakerCardProps {
   gallery: Gallery
   featured?: boolean
 }
 
-export default function SpeakerCard({ gallery, featured = false }: SpeakerCardProps) {
+export default function GalleryCard({ gallery, featured = false }: SpeakerCardProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
   return (
     <Link to={'/gallery/$slug'} params={{ slug: gallery.slug }} className="group relative block">
       <Card
+        ref={ref as Ref<HTMLDivElement>}
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-square' : 'aspect-square'}
-          hover:border-[var(--primary)]`}
+          hover:border-[var(--primary)] fade-in ${isVisible ? 'is-visible' : ''}`}
       >
         {/* Headshot */}
         <div className="absolute inset-0">
           <img
             src={`/${gallery.headshot}`}
             alt={gallery.name}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
         </div>

@@ -2,8 +2,8 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { allGalleries } from 'content-collections'
 
-import SpeakerCard from '@/components/SpeakerCard'
 import RemyAssistant from '@/components/RemyAssistant'
+import GalleryCard from '@/components/GalleryCard'
 
 export const Route = createFileRoute('/gallery/')({
   component: SpeakersPage,
@@ -31,7 +31,7 @@ function SpeakersPage() {
         <div className="max-w-7xl mx-auto px-6 pb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allGalleries.map((gallery) => (
-              <SpeakerCard key={gallery.slug} gallery={gallery} />
+              <GalleryCard key={gallery.slug} gallery={gallery} />
             ))}
           </div>
         </div>

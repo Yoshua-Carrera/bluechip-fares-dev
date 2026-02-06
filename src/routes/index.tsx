@@ -4,18 +4,17 @@ import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 import { allGalleries, allTalks } from 'content-collections'
 import { format } from 'date-fns'
 
-import SpeakerCard from '@/components/SpeakerCard'
 import TalkCard from '@/components/TalkCard'
 import HeroCarousel from '@/components/HeroCarousel'
 import { Button } from '@/components/ui/button'
+import GalleryCard from '@/components/GalleryCard'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
 })
 
 function HomePage() {
-  // TODO:: increase to slice(0, 3) once we have more gallery work
-  const featuredGalleries = allGalleries.slice(0, 2)
+  const featuredGalleries = allGalleries.slice(3, 9)
   const featuredTalks = allTalks.slice(0, 4)
 
   return (
@@ -109,7 +108,7 @@ function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredGalleries.map((gallery) => (
-              <SpeakerCard key={gallery.slug} gallery={gallery} featured />
+              <GalleryCard key={gallery.slug} gallery={gallery} featured />
             ))}
           </div>
 

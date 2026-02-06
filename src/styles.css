@@ -207,3 +207,19 @@ code {
     0 12px 40px oklch(0 0 0 / 0.4),
     0 0 15px var(--primary);
 }
+
+/* Fade in effects */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* Optional: add a slight upward movement */
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out; /* Smooth transition */
+  will-change: opacity, transform; /* Performance optimization */
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none; /* Return to original position */
+}
