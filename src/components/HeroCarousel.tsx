@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const backgrounds = [
-  '/background-1.jpg',
-  '/background-2.jpg',
-  '/background-3.jpg',
-  '/background-4.jpg',
-]
+const backgrounds = ['/bg/bg-1.jpg', '/bg/bg-2.jpg', '/bg/bg-3.jpg', '/bg/bg-4.jpg', '/bg/bg-5.jpg']
 
 export default function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)

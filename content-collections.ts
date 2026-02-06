@@ -1,18 +1,14 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { z } from 'zod'
 
-const speakers = defineCollection({
-  name: 'speakers',
-  directory: 'content/speakers',
+const gallery = defineCollection({
+  name: 'gallery',
+  directory: 'content/gallery',
   include: '**/*.md',
   schema: z.object({
     name: z.string(),
-    title: z.string(),
-    specialty: z.string(),
-    restaurant: z.string(),
     location: z.string(),
     headshot: z.string(),
-    awards: z.array(z.string()).optional(),
     content: z.string(),
   }),
   transform: async (doc) => {
@@ -52,5 +48,5 @@ const talks = defineCollection({
 })
 
 export default defineConfig({
-  collections: [speakers, talks],
+  collections: [gallery, talks],
 })

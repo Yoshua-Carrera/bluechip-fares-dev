@@ -1,7 +1,7 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 
-import { allSpeakers, allTalks } from 'content-collections'
+import { allGalleries, allTalks } from 'content-collections'
 import { format } from 'date-fns'
 
 import SpeakerCard from '@/components/SpeakerCard'
@@ -14,7 +14,8 @@ export const Route = createFileRoute('/')({
 })
 
 function HomePage() {
-  const featuredSpeakers = allSpeakers.slice(0, 3)
+  // TODO:: increase to slice(0, 3) once we have more gallery work
+  const featuredGalleries = allGalleries.slice(0, 2)
   const featuredTalks = allTalks.slice(0, 4)
 
   return (
@@ -50,7 +51,9 @@ function HomePage() {
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-white">{allSpeakers.length}</div>
+              <div className="text-4xl font-display font-bold text-white">
+                {allGalleries.length}
+              </div>
               <div className="text-cream/85 text-sm uppercase tracking-wider">Contractors</div>
             </div>
             <div className="text-center">
@@ -105,8 +108,8 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredSpeakers.map((speaker) => (
-              <SpeakerCard key={speaker.slug} speaker={speaker} featured />
+            {featuredGalleries.map((gallery) => (
+              <SpeakerCard key={gallery.slug} gallery={gallery} featured />
             ))}
           </div>
 
@@ -115,7 +118,7 @@ function HomePage() {
               to="/services-offered"
               className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-white/80 transition-colors font-bold"
             >
-              View all speakers
+              View work gallery
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

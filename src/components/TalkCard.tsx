@@ -34,6 +34,7 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
             {/* Speaker & Duration */}
             <div className="flex items-center gap-4 text-cream/60 text-sm">
               <div className="flex items-center gap-1.5">
+                {/* // TODO: Change talks to better brand contractor work */}
                 <span>{talk.speaker}</span>
               </div>
             </div>

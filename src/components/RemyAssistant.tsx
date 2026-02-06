@@ -26,7 +26,7 @@ function Messages({ messages }: { messages: ConferenceChatMessages }) {
           Bonjour! I'm Remy 👨‍🍳
         </p>
         <p className="text-xs text-cream/40 mt-2 text-center max-w-[220px]">
-          Your culinary guide to Haute Pâtisserie 2026. Ask about speakers, sessions, or pastry
+          Your culinary guide to Haute Pâtisserie 2026. Ask about galleries, sessions, or pastry
           techniques!
         </p>
       </div>
@@ -72,7 +72,7 @@ function Messages({ messages }: { messages: ConferenceChatMessages }) {
 }
 
 interface RemyAssistantProps {
-  speakerSlug?: string
+  gallerySlug?: string
   talkSlug?: string
   contextTitle?: string
 }
@@ -80,9 +80,9 @@ interface RemyAssistantProps {
 // Export store for header control
 export const showRemyAssistant = new Store(false)
 
-export default function RemyAssistant({ speakerSlug, talkSlug, contextTitle }: RemyAssistantProps) {
+export default function RemyAssistant({ gallerySlug, talkSlug, contextTitle }: RemyAssistantProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const { messages, sendMessage, isLoading } = useConferenceChat(speakerSlug, talkSlug)
+  const { messages, sendMessage, isLoading } = useConferenceChat(gallerySlug, talkSlug)
   const [input, setInput] = useState('')
 
   // Sync with store for header control
@@ -162,7 +162,7 @@ export default function RemyAssistant({ speakerSlug, talkSlug, contextTitle }: R
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about speakers, sessions, techniques..."
+              placeholder="Ask about galleries, sessions, techniques..."
               disabled={isLoading}
               className="w-full rounded-xl border border-copper/20 bg-charcoal-light/50 pl-4 pr-12 py-3 text-sm text-cream placeholder-cream/30 focus:outline-none focus:ring-2 focus:ring-copper/40 focus:border-transparent resize-none overflow-hidden disabled:opacity-50 transition-all"
               rows={1}
