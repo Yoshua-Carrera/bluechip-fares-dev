@@ -4,13 +4,16 @@ import { MapPin } from 'lucide-react'
 import type { Gallery } from 'content-collections'
 
 import { Card, CardContent } from '@/components/ui/card'
+import { useIntersectionObserver } from '@/hooks/intersection-observer'
 
 interface SpeakerCardProps {
   gallery: Gallery
   featured?: boolean
 }
 
-export default function SpeakerCard({ gallery, featured = false }: SpeakerCardProps) {
+export default function GalleryCard({ gallery, featured = false }: SpeakerCardProps) {
+  const { ref, isVisible } = useIntersectionObserver()
+
   return (
     <Link to={'/gallery/$slug'} params={{ slug: gallery.slug }} className="group relative block">
       <Card
@@ -21,9 +24,10 @@ export default function SpeakerCard({ gallery, featured = false }: SpeakerCardPr
         {/* Headshot */}
         <div className="absolute inset-0">
           <img
+            ref={ref as any}
             src={`/${gallery.headshot}`}
             alt={gallery.name}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover fade-in ${isVisible ? 'is-visible' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent" />
         </div>
