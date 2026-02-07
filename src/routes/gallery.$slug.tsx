@@ -28,13 +28,15 @@ function SpeakerDetailPage() {
       <RemyAssistant />
 
       {/* Back navigation */}
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 mt-8">
         <Link
           to="/gallery"
-          className="inline-flex items-center gap-2 text-cream/60 hover:text-gold transition-colors"
+          className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-gold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>All Speakers</span>
+          <span className="text-[var(--accent-foreground)] hover:text-copper/80 transition-colors">
+            Back to work gallery
+          </span>
         </Link>
       </div>
 
@@ -55,11 +57,11 @@ function SpeakerDetailPage() {
 
             {/* Info */}
             <div className="lg:col-span-2 flex flex-col justify-center">
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-cream mb-3">
+              <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-3">
                 {gallery.name}
               </h1>
 
-              <div className="flex items-center gap-2 text-cream/60 text-lg mb-8">
+              <div className="flex items-center gap-2 text-copper/80 text-lg mb-8">
                 <MapPin className="w-5 h-5 text-copper" />
                 <span>{gallery.location}</span>
               </div>

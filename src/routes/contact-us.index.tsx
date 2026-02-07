@@ -59,7 +59,7 @@ function ContactUsPage() {
       onSubmit: formSchema,
     },
     onSubmit: ({ value }) => {
-      toast(` Thanks for contacting us ${value.name}!`, {
+      toast(`Thanks for contacting us ${value.name}!`, {
         position: 'bottom-center',
         richColors: true,
         style: {

@@ -1,5 +1,5 @@
 ---
-name: 'Gym vceiling painting'
+name: 'Gym ceiling painting'
 location: 'Plano, TX'
 headshot: 'gallery/ceiling-painting.jpg'
 ---
