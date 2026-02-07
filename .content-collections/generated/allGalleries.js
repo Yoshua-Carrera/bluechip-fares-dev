@@ -20,11 +20,11 @@ export default [
     "headshot": "gallery/blow-in-insulation.jpg",
     "content": "Coming soon.",
     "_meta": {
-      "filePath": "blow-in-isolation.md",
-      "fileName": "blow-in-isolation.md",
+      "filePath": "blow-in-insulation.md",
+      "fileName": "blow-in-insulation.md",
       "directory": ".",
       "extension": "md",
-      "path": "blow-in-isolation"
+      "path": "blow-in-insulation"
     },
     "slug": "blow-in-insulation"
   },
@@ -43,7 +43,7 @@ export default [
     "slug": "new-cabinet-installation"
   },
   {
-    "name": "Gym vceiling painting",
+    "name": "Gym ceiling painting",
     "location": "Plano, TX",
     "headshot": "gallery/ceiling-painting.jpg",
     "content": "Coming soon.",
@@ -54,7 +54,7 @@ export default [
       "extension": "md",
       "path": "ceiling-painting"
     },
-    "slug": "gym-vceiling-painting"
+    "slug": "gym-ceiling-painting"
   },
   {
     "name": "Exterior painting",
@@ -99,18 +99,18 @@ export default [
     "slug": "outdoor-deck"
   },
   {
-    "name": "Outdoor permanent lightning",
+    "name": "Outdoor permanent lighting",
     "location": "Little Elm, TX",
-    "headshot": "gallery/outdoor-lightning.jpg",
+    "headshot": "gallery/outdoor-lighting.jpg",
     "content": "Coming soon.",
     "_meta": {
-      "filePath": "outdoor-lightning.md",
-      "fileName": "outdoor-lightning.md",
+      "filePath": "outdoor-lighting.md",
+      "fileName": "outdoor-lighting.md",
       "directory": ".",
       "extension": "md",
-      "path": "outdoor-lightning"
+      "path": "outdoor-lighting"
     },
-    "slug": "outdoor-permanent-lightning"
+    "slug": "outdoor-permanent-lighting"
   },
   {
     "name": "Outdoor tile instalation",
@@ -129,14 +129,14 @@ export default [
   {
     "name": "Pax closet installation",
     "location": "Little Elm, TX",
-    "headshot": "gallery/pax-closet-intallation.jpg",
+    "headshot": "gallery/pax-closet-installation.jpg",
     "content": "Coming soon.",
     "_meta": {
-      "filePath": "pax-closet-intallation.md",
-      "fileName": "pax-closet-intallation.md",
+      "filePath": "pax-closet-installation.md",
+      "fileName": "pax-closet-installation.md",
       "directory": ".",
       "extension": "md",
-      "path": "pax-closet-intallation"
+      "path": "pax-closet-installation"
     },
     "slug": "pax-closet-installation"
   },
