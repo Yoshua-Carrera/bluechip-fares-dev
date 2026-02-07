@@ -92,21 +92,22 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!ctaShown && window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+        setCtaShown(true)
         setTimeout(() => {
-          setCtaShown(true)
           setIsDialogOpen(true)
-          window.removeEventListener('scroll', handleScroll)
         }, 1000 * 60)
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    if (!ctaShown) {
+      window.addEventListener('scroll', handleScroll)
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [ctaShown])
 
   const themeScript = `
   (function () {
