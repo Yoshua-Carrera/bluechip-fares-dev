@@ -83,13 +83,13 @@ function SpeakerDetailPage() {
       </div>
 
       {/* Bio section */}
-      <div className="px-60 py-12 w-full">
+      <div className="py-12 w-full px-2 flex justify-center">
         <div className="prose prose-lg max-w-none prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed">
           <Accordion
             type="single"
             collapsible
             defaultValue="shipping"
-            className="w-full p-6 bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
+            className="w-full p-6 bg-gradient-to-br dark:from-card dark:to-charcoal/90 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
           >
             {gallery.questions.map((q: string, i: number) => (
               <>
