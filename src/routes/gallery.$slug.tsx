@@ -84,7 +84,7 @@ function SpeakerDetailPage() {
 
       {/* Bio section */}
       <div className="py-12 w-full px-2 flex justify-center">
-        <div className="prose prose-lg max-w-4xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
+        <div className="prose prose-lg w-4xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
           <Accordion
             type="single"
             collapsible
