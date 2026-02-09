@@ -1,11 +1,17 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
-import { marked } from 'marked'
 import { ArrowLeft, MapPin } from 'lucide-react'
 
 import { allGalleries, allTalks } from 'content-collections'
 
+import { useEffect } from 'react'
 import RemyAssistant from '@/components/RemyAssistant'
 import TalkCard from '@/components/TalkCard'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 
 export const Route = createFileRoute('/gallery/$slug')({
   loader: ({ params }) => {
@@ -23,6 +29,12 @@ export const Route = createFileRoute('/gallery/$slug')({
 function SpeakerDetailPage() {
   const { gallery, speakerTalks } = Route.useLoaderData()
 
+  useEffect(() => {
+    console.log({
+      q: gallery.questions[0],
+      a: gallery.answers,
+    })
+  })
   return (
     <div className="min-h-screen">
       <RemyAssistant />
@@ -71,9 +83,27 @@ function SpeakerDetailPage() {
       </div>
 
       {/* Bio section */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="px-60 py-12 w-full">
         <div className="prose prose-lg max-w-none prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed">
-          <div dangerouslySetInnerHTML={{ __html: marked(gallery.content) }} />
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue="shipping"
+            className="w-full p-6 bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
+          >
+            {gallery.questions.map((q: string, i: number) => (
+              <>
+                <AccordionItem value={q + i}>
+                  <AccordionTrigger className="text-[var(--accent-foreground)] mb-2">
+                    {q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[var(--accent-foreground)]">
+                    {gallery.answers[i]}
+                  </AccordionContent>
+                </AccordionItem>
+              </>
+            ))}
+          </Accordion>
         </div>
       </div>
 
