@@ -4,12 +4,12 @@ import type { Service } from 'content-collections'
 
 import { Card, CardContent } from '@/components/ui/card'
 
-interface TalkCardProps {
+interface ServiceCardProps {
   service: Service
   featured?: boolean
 }
 
-export default function ServiceCard({ service, featured = false }: TalkCardProps) {
+export default function ServiceCard({ service, featured = false }: ServiceCardProps) {
   return (
     <Link to={'/services-offered'} className="group relative block">
       <Card

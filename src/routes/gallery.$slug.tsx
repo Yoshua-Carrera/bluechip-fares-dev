@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowLeft, MapPin } from 'lucide-react'
-import { allGalleries, allServices } from 'content-collections'
+import { allGalleries } from 'content-collections'
 import { useEffect } from 'react'
 import type { Ref } from 'react'
 import RemyAssistant from '@/components/RemyAssistant'
@@ -11,7 +11,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { useIntersectionObserver } from '@/hooks/intersection-observer'
-import ServiceCard from '@/components/ServiceCard'
 
 export const Route = createFileRoute('/gallery/$slug')({
   loader: ({ params }) => {
@@ -19,15 +18,13 @@ export const Route = createFileRoute('/gallery/$slug')({
     if (!gallery) {
       throw new Error('Gallery not found')
     }
-
-    const servicesOffered = allServices.filter((s) => s.title === gallery.name)
-    return { gallery, servicesOffered }
+    return { gallery }
   },
-  component: SpeakerDetailPage,
+  component: GalleryDetailPage,
 })
 
-function SpeakerDetailPage() {
-  const { gallery, servicesOffered } = Route.useLoaderData()
+function GalleryDetailPage() {
+  const { gallery } = Route.useLoaderData()
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   useEffect(() => {
@@ -116,20 +113,6 @@ function SpeakerDetailPage() {
           </Accordion>
         </div>
       </div>
-
-      {/* Speaker's talks */}
-      {servicesOffered.length > 0 && (
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <h2 className="font-display text-3xl font-bold text-cream mb-8">
-            Sessions by {gallery.name}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {servicesOffered.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }

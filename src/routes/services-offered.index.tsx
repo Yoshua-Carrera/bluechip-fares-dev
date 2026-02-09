@@ -163,7 +163,7 @@ function SchedulePage() {
 
                       {/* Content */}
                       <div className="relative p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
-                        {/* Speaker image */}
+                        {/* Gallery image */}
                         {gallery && (
                           <div className="flex-shrink-0">
                             <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border-2 border-copper/30 group-hover:border-copper/60 transition-colors shadow-lg">
@@ -177,25 +177,23 @@ function SchedulePage() {
                           </div>
                         )}
 
-                        {/* Talk info */}
+                        {/* Services info */}
                         <div className="flex-1 min-w-0">
-                          {/* Topics */}
-                          {/* <div className="flex flex-wrap gap-2 mb-3"> */}
-                          {/*   {service.topics.slice(0, 3).map((topic) => ( */}
-                          {/*     <span */}
-                          {/*       key={topic} */}
-                          {/*       className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70" */}
-                          {/*     > */}
-                          {/*       {topic} */}
-                          {/*     </span> */}
-                          {/*   ))} */}
-                          {/* </div> */}
-
+                          Topics
+                          <div className="flex flex-wrap gap-2 mb-3">
+                            {service.services.slice(0, 3).map((s) => (
+                              <span
+                                key={s}
+                                className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
+                              >
+                                {s}
+                              </span>
+                            ))}
+                          </div>
                           {/* Title */}
                           <h3 className="font-display text-xl md:text-2xl font-semibold text-cream group-hover:text-copper transition-colors mb-2 leading-tight">
                             {service.title}
                           </h3>
-
                           {/* gallery & Duration */}
                           <div className="flex flex-wrap items-center gap-4 text-cream/60 text-sm mb-3">
                             <span className="font-medium text-copper-light">{service.title}</span>
@@ -232,16 +230,16 @@ function SchedulePage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  to="/talks"
+                  to="/services-offered"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-copper to-copper-dark text-charcoal font-semibold transition-all hover:shadow-lg hover:shadow-copper/30 hover:scale-[1.02]"
                 >
-                  Browse All Sessions
+                  Browse All Services
                 </Link>
                 <Link
                   to="/gallery"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-copper/50 text-copper font-semibold transition-all hover:bg-copper/10 hover:border-copper"
                 >
-                  Meet the Speakers
+                  Meet Out past work
                 </Link>
               </div>
             </div>

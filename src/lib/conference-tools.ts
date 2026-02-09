@@ -35,7 +35,7 @@ export const getGalleryBySlug = getGalleryBySlugToolDef.server(({ slug }) => {
   }
 })
 
-// Tool definition for getting a talk by slug
+// Tool definition for getting a service by slug
 export const getServiceBySlugToolDef = toolDefinition({
   name: 'getServiceBySlug',
   description: 'Get the full details of a specific service offered.',
@@ -93,7 +93,7 @@ export const getAllGalleries = getAllGalleriesToolDef.server(() => {
   }))
 })
 
-// Tool definition for listing all talks
+// Tool definition for listing all services
 export const getAllServicesToolDef = toolDefinition({
   name: 'getAllServices',
   description: 'Get a list of all services/galleries owned by Bluchip.',
