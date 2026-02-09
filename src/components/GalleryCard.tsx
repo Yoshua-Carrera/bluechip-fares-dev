@@ -10,7 +10,7 @@ import { useIntersectionObserver } from '@/hooks/intersection-observer'
 interface GalleryCardProps {
   gallery: Gallery
   featured?: boolean
-  index?: number
+  index: number
 }
 
 export default function GalleryCard({ gallery, featured = false, index = 0 }: GalleryCardProps) {

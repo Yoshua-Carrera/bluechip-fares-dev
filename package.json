@@ -10,6 +10,7 @@
     "lint": "eslint",
     "format": "prettier",
     "pretty": "prettier --write . && eslint --fix",
+    "sanity": "pnpm build && pnpm pretty",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

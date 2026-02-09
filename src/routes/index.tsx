@@ -1,11 +1,13 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute, useNavigate } from '@tanstack/react-router'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 import { allGalleries, allServices } from 'content-collections'
 import { format } from 'date-fns'
+import type { Ref } from 'react'
 import HeroCarousel from '@/components/HeroCarousel'
 import { Button } from '@/components/ui/button'
 import GalleryCard from '@/components/GalleryCard'
 import ServiceCard from '@/components/ServiceCard'
+import { useIntersectionObserver } from '@/hooks/intersection-observer'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -13,7 +15,10 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   const featuredGalleries = allGalleries.slice(3, 9)
-  const featuredServices = allServices.slice(0, 4)
+  const featuredServices = allServices.slice(4, 8)
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -105,8 +110,8 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredGalleries.map((gallery) => (
-              <GalleryCard key={gallery.slug} gallery={gallery} featured />
+            {featuredGalleries.map((gallery, index) => (
+              <GalleryCard key={gallery.slug} gallery={gallery} index={index} featured />
             ))}
           </div>
 
@@ -149,8 +154,8 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {featuredServices.map((service) => (
-              <ServiceCard key={service.slug} service={service} featured />
+            {featuredServices.map((service, index) => (
+              <ServiceCard key={service.slug} service={service} index={index} featured />
             ))}
           </div>
 
@@ -159,7 +164,7 @@ function HomePage() {
               to="/services-offered"
               className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-gold/80 transition-colors font-medium"
             >
-              View all sessions
+              View all services
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -170,7 +175,10 @@ function HomePage() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 light:bg-muted/90">
-        <div className="max-w-4xl mx-auto text-center">
+        <div
+          ref={ref as Ref<HTMLDivElement>}
+          className={`max-w-4xl mx-auto text-center fade-in ${isVisible ? 'is-visible' : ''}`}
+        >
           <div className="relative p-12 rounded-3xl bg-gradient-to-br dark:from-card dark:to-charcoal light:from-foreground light:to-primary border border-border/50 overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-copper/5 rounded-full blur-3xl" />
@@ -187,6 +195,11 @@ function HomePage() {
                 <Button
                   variant={'ghost'}
                   className="hover:bg-transparent hover:text-white dark:hover:bg-transparent"
+                  onClick={() =>
+                    navigate({
+                      to: '/contact-us',
+                    })
+                  }
                 >
                   Contact us
                 </Button>
