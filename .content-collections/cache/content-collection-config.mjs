@@ -1,53 +1,45 @@
 // content-collections.ts
-import { defineCollection, defineConfig } from '@content-collections/core'
-import { z } from 'zod'
+import { defineCollection, defineConfig } from "@content-collections/core";
+import { z } from "zod";
 var gallery = defineCollection({
-  name: 'gallery',
-  directory: 'content/gallery',
-  include: '**/*.md',
+  name: "gallery",
+  directory: "content/gallery",
+  include: "**/*.md",
   schema: z.object({
     name: z.string(),
     location: z.string(),
     headshot: z.string(),
     content: z.string(),
     questions: z.array(z.string()),
-    answers: z.array(z.string()),
+    answers: z.array(z.string())
   }),
   transform: async (doc) => {
     return {
       ...doc,
-      slug: doc.name
-        .toLowerCase()
-        .replace(/[^\w-]+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, ''),
-    }
-  },
-})
-var talks = defineCollection({
-  name: 'talks',
-  directory: 'content/talks',
-  include: '**/*.md',
+      slug: doc.name.toLowerCase().replace(/[^\w-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "")
+    };
+  }
+});
+var services = defineCollection({
+  name: "services",
+  directory: "content/services",
+  include: "**/*.md",
   schema: z.object({
     title: z.string(),
-    speaker: z.string(),
-    duration: z.string(),
     image: z.string(),
-    topics: z.array(z.string()),
-    content: z.string(),
+    services: z.array(z.string()),
+    serviceDescriptions: z.array(z.string())
   }),
   transform: async (doc) => {
     return {
       ...doc,
-      slug: doc.title
-        .toLowerCase()
-        .replace(/[^\w-]+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, ''),
-    }
-  },
-})
+      slug: doc.title.toLowerCase().replace(/[^\w-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "")
+    };
+  }
+});
 var content_collections_default = defineConfig({
-  collections: [gallery, talks],
-})
-export { content_collections_default as default }
+  collections: [gallery, services]
+});
+export {
+  content_collections_default as default
+};

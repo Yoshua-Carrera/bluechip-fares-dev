@@ -5,10 +5,10 @@ import type { GeminiTextAdapter } from '@tanstack/ai-gemini'
 
 import {
   getAllGalleries,
-  getAllTalks,
+  getAllServices,
   getGalleryBySlug,
-  getTalkBySlug,
-  searchConference,
+  getServiceBySlug,
+  searchBlueChipContent,
 } from '@/lib/conference-tools'
 
 export const Route = createFileRoute('/api/remy-chat')({
@@ -82,10 +82,10 @@ Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attend
             adapter,
             tools: [
               getGalleryBySlug,
-              getTalkBySlug,
+              getServiceBySlug,
               getAllGalleries,
-              getAllTalks,
-              searchConference,
+              getAllServices,
+              searchBlueChipContent,
             ],
             systemPrompts: [SYSTEM_PROMPT],
             agentLoopStrategy: maxIterations(5),

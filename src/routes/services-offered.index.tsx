@@ -1,8 +1,8 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
-import { ChevronRight, Clock } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
-import { allGalleries, allTalks } from 'content-collections'
+import { allGalleries, allServices } from 'content-collections'
 
 import RemyAssistant from '@/components/RemyAssistant'
 
@@ -23,9 +23,9 @@ const scheduleData = [
     dayName: 'Day One',
     theme: 'French Foundations',
     sessions: [
-      { time: '9:00 AM', talkSlug: 'french-macaron-mastery' },
-      { time: '11:30 AM', talkSlug: 'croissant-lamination-secrets' },
-      { time: '3:00 PM', talkSlug: 'the-science-of-sugar' },
+      { time: '9:00 AM', serviceSlug: 'french-macaron-mastery' },
+      { time: '11:30 AM', serviceSlug: 'croissant-lamination-secrets' },
+      { time: '3:00 PM', serviceSlug: 'the-science-of-sugar' },
     ],
   },
   {
@@ -34,9 +34,9 @@ const scheduleData = [
     dayName: 'Day Two',
     theme: 'Global Traditions',
     sessions: [
-      { time: '9:00 AM', talkSlug: 'sourdough-from-starter-to-masterpiece' },
-      { time: '11:30 AM', talkSlug: 'umami-in-pastry-east-meets-west' },
-      { time: '2:30 PM', talkSlug: 'savory-breads-of-the-mediterranean' },
+      { time: '9:00 AM', serviceSlug: 'sourdough-from-starter-to-masterpiece' },
+      { time: '11:30 AM', serviceSlug: 'umami-in-pastry-east-meets-west' },
+      { time: '2:30 PM', serviceSlug: 'savory-breads-of-the-mediterranean' },
     ],
   },
   {
@@ -45,10 +45,10 @@ const scheduleData = [
     dayName: 'Day Three',
     theme: 'Artisan Mastery',
     sessions: [
-      { time: '9:00 AM', talkSlug: 'the-art-of-the-perfect-tart' },
+      { time: '9:00 AM', serviceSlug: 'the-art-of-the-perfect-tart' },
       {
         time: '11:00 AM',
-        talkSlug: 'neapolitan-pizza-tradition-meets-innovation',
+        serviceSlug: 'neapolitan-pizza-tradition-meets-innovation',
       },
     ],
   },
@@ -122,11 +122,10 @@ function SchedulePage() {
             {/* Sessions */}
             <div className="space-y-8">
               {currentDayData.sessions.map((session, index) => {
-                const talk = allTalks.find((t) => t.slug === session.talkSlug)
-                if (!talk) return null
+                const service = allServices.find((s) => s.slug === session.serviceSlug)
+                if (!service) return null
 
-                // TODO: Change talks to better brand contractor work
-                const gallery = getGalleryByName(talk.speaker)
+                const gallery = getGalleryByName(service.title)
 
                 return (
                   <div className="relative flex gap-6 md:gap-10">
@@ -155,8 +154,8 @@ function SchedulePage() {
                       {/* Background image with overlay */}
                       <div className="absolute inset-0">
                         <img
-                          src={`/${talk.image}`}
-                          alt={talk.title}
+                          src={`/${service.image}`}
+                          alt={service.title}
                           className="w-full h-full object-cover group-hover:opacity-40 group-hover:scale-105 transition-all duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/75  via-charcoal/50 to-charcoal/80" />
@@ -181,30 +180,25 @@ function SchedulePage() {
                         {/* Talk info */}
                         <div className="flex-1 min-w-0">
                           {/* Topics */}
-                          <div className="flex flex-wrap gap-2 mb-3">
-                            {talk.topics.slice(0, 3).map((topic) => (
-                              <span
-                                key={topic}
-                                className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70"
-                              >
-                                {topic}
-                              </span>
-                            ))}
-                          </div>
+                          {/* <div className="flex flex-wrap gap-2 mb-3"> */}
+                          {/*   {service.topics.slice(0, 3).map((topic) => ( */}
+                          {/*     <span */}
+                          {/*       key={topic} */}
+                          {/*       className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-[var(--primary)]/10 text-white text-bold rounded-full border border-copper/70" */}
+                          {/*     > */}
+                          {/*       {topic} */}
+                          {/*     </span> */}
+                          {/*   ))} */}
+                          {/* </div> */}
 
                           {/* Title */}
                           <h3 className="font-display text-xl md:text-2xl font-semibold text-cream group-hover:text-copper transition-colors mb-2 leading-tight">
-                            {talk.title}
+                            {service.title}
                           </h3>
 
                           {/* gallery & Duration */}
                           <div className="flex flex-wrap items-center gap-4 text-cream/60 text-sm mb-3">
-                            {/* // TODO: Change talks to better brand contractor work */}
-                            <span className="font-medium text-copper-light">{talk.speaker}</span>
-                            <div className="flex items-center gap-1.5">
-                              <Clock className="w-3.5 h-3.5" />
-                              <span>{talk.duration}</span>
-                            </div>
+                            <span className="font-medium text-copper-light">{service.title}</span>
                           </div>
                         </div>
 

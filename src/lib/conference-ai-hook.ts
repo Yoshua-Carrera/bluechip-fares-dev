@@ -6,14 +6,14 @@ const defaultChatOptions = createChatClientOptions({
   connection: fetchServerSentEvents('/api/remy-chat'),
 })
 
-export type ConferenceChatMessages = InferChatMessages<typeof defaultChatOptions>
+export type BluechipChatMessages = InferChatMessages<typeof defaultChatOptions>
 
-export const useConferenceChat = (speakerSlug?: string, talkSlug?: string) => {
+export const useConferenceChat = (gallerySlug?: string, serviceSlug?: string) => {
   const chatOptions = createChatClientOptions({
     connection: fetchServerSentEvents('/api/remy-chat', {
       body: {
-        speakerSlug,
-        talkSlug,
+        gallerySlug,
+        serviceSlug,
       },
     }),
   })

@@ -3,10 +3,10 @@ import { ChefHat, Croissant, Send, X } from 'lucide-react'
 import { Streamdown } from 'streamdown'
 import { Store } from '@tanstack/store'
 
-import type { ConferenceChatMessages } from '@/lib/conference-ai-hook'
+import type { BluechipChatMessages } from '@/lib/conference-ai-hook'
 import { useConferenceChat } from '@/lib/conference-ai-hook'
 
-function Messages({ messages }: { messages: ConferenceChatMessages }) {
+function Messages({ messages }: { messages: BluechipChatMessages }) {
   const messagesContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -73,16 +73,20 @@ function Messages({ messages }: { messages: ConferenceChatMessages }) {
 
 interface RemyAssistantProps {
   gallerySlug?: string
-  talkSlug?: string
+  serviceSlug?: string
   contextTitle?: string
 }
 
 // Export store for header control
 export const showRemyAssistant = new Store(false)
 
-export default function RemyAssistant({ gallerySlug, talkSlug, contextTitle }: RemyAssistantProps) {
+export default function RemyAssistant({
+  gallerySlug,
+  serviceSlug,
+  contextTitle,
+}: RemyAssistantProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const { messages, sendMessage, isLoading } = useConferenceChat(gallerySlug, talkSlug)
+  const { messages, sendMessage, isLoading } = useConferenceChat(gallerySlug, serviceSlug)
   const [input, setInput] = useState('')
 
   // Sync with store for header control

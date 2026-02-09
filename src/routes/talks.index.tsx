@@ -1,9 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { allTalks } from 'content-collections'
+import { allServices } from 'content-collections'
 
-import TalkCard from '@/components/TalkCard'
 import RemyAssistant from '@/components/RemyAssistant'
+import ServiceCard from '@/components/ServiceCard'
 
 export const Route = createFileRoute('/talks/')({
   component: TalksPage,
@@ -29,8 +29,8 @@ function TalksPage() {
         {/* Talks grid */}
         <div className="max-w-7xl mx-auto px-6 pb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {allTalks.map((talk) => (
-              <TalkCard key={talk.slug} talk={talk} />
+            {allServices.map((service) => (
+              <ServiceCard key={service.slug} service={service} />
             ))}
           </div>
         </div>
