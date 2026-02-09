@@ -10,9 +10,10 @@ import { useIntersectionObserver } from '@/hooks/intersection-observer'
 interface SpeakerCardProps {
   gallery: Gallery
   featured?: boolean
+  index?: number
 }
 
-export default function GalleryCard({ gallery, featured = false }: SpeakerCardProps) {
+export default function GalleryCard({ gallery, featured = false, index = 0 }: SpeakerCardProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   return (
@@ -22,6 +23,7 @@ export default function GalleryCard({ gallery, featured = false }: SpeakerCardPr
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-square' : 'aspect-square'}
           hover:border-[var(--primary)] fade-in ${isVisible ? 'is-visible' : ''}`}
+        style={{ transitionDelay: `${index * 0.15}s` }}
       >
         {/* Headshot */}
         <div className="absolute inset-0">

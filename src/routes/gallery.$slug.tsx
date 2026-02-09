@@ -1,9 +1,8 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowLeft, MapPin } from 'lucide-react'
-
 import { allGalleries, allTalks } from 'content-collections'
-
 import { useEffect } from 'react'
+import type { Ref } from 'react'
 import RemyAssistant from '@/components/RemyAssistant'
 import TalkCard from '@/components/TalkCard'
 import {
@@ -12,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { useIntersectionObserver } from '@/hooks/intersection-observer'
 
 export const Route = createFileRoute('/gallery/$slug')({
   loader: ({ params }) => {
@@ -28,13 +28,12 @@ export const Route = createFileRoute('/gallery/$slug')({
 
 function SpeakerDetailPage() {
   const { gallery, speakerTalks } = Route.useLoaderData()
+  const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   useEffect(() => {
-    console.log({
-      q: gallery.questions[0],
-      a: gallery.answers,
-    })
-  })
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="min-h-screen">
       <RemyAssistant />
@@ -57,7 +56,11 @@ function SpeakerDetailPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Photo */}
-            <div className="lg:col-span-1">
+            <div
+              ref={ref as Ref<HTMLDivElement>}
+              className={`lg:col-span-1 fade-in ${isVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: '0.15s' }}
+            >
               <div className="aspect-square rounded-2xl overflow-hidden border border-border/50">
                 <img
                   src={`/${gallery.headshot}`}
@@ -68,7 +71,11 @@ function SpeakerDetailPage() {
             </div>
 
             {/* Info */}
-            <div className="lg:col-span-2 flex flex-col justify-center">
+            <div
+              ref={ref as Ref<HTMLDivElement>}
+              className={`lg:col-span-2 flex flex-col justify-center fade-in ${isVisible ? 'is-visible' : ''}`}
+              style={{ transitionDelay: '0.2s' }}
+            >
               <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-3">
                 {gallery.name}
               </h1>
@@ -83,7 +90,10 @@ function SpeakerDetailPage() {
       </div>
 
       {/* Bio section */}
-      <div className="py-12 w-full px-2 flex justify-center">
+      <div
+        className={`py-12 w-full px-2 flex justify-center fade-in ${isVisible ? 'is-visible' : ''}`}
+        style={{ transitionDelay: '0.30s' }}
+      >
         <div className="prose prose-lg w-4xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
           <Accordion
             type="single"

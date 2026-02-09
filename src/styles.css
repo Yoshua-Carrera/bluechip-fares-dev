@@ -214,8 +214,8 @@ code {
   opacity: 0;
   transform: translateY(20px); /* Optional: add a slight upward movement */
   transition:
-    opacity 1s ease-out,
-    transform 1s ease-out; /* Smooth transition */
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out; /* Smooth transition */
   will-change: opacity, transform; /* Performance optimization */
 }
 
