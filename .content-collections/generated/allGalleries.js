@@ -4,6 +4,16 @@ export default [
     location: 'Houston, TX',
     headshot: 'gallery/bathroom.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What was the main goal of this bathroom remodel?',
+      'What are the key features of the new design?',
+      'How long did the remodeling process take?',
+    ],
+    answers: [
+      'The main goal was to modernize the bathroom and improve its functionality. We focused on creating a more open and brighter space.',
+      'The new design features a walk-in shower with frameless glass doors, a double vanity with quartz countertops, and heated tile floors.',
+      'The entire remodeling process took approximately 4 weeks, from demolition to the final touches.',
+    ],
     _meta: {
       filePath: 'bathroom.md',
       fileName: 'bathroom.md',
@@ -18,6 +28,16 @@ export default [
     location: 'Addison, TX',
     headshot: 'gallery/blow-in-insulation.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What are the benefits of blow-in insulation?',
+      'What material was used for the insulation?',
+      'How has the new insulation impacted energy consumption?',
+    ],
+    answers: [
+      "Blow-in insulation is excellent for improving a home's energy efficiency, reducing noise, and it's a quick installation process.",
+      'We used fiberglass blow-in insulation, which is a popular choice for its thermal performance and fire resistance.',
+      'The homeowners reported a significant decrease in their energy bills, especially during the winter months.',
+    ],
     _meta: {
       filePath: 'blow-in-insulation.md',
       fileName: 'blow-in-insulation.md',
@@ -32,6 +52,16 @@ export default [
     location: 'Lewisville, TX',
     headshot: 'gallery/cabinet-installation.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What type of cabinets were installed?',
+      "How does the new cabinet layout improve the kitchen's functionality?",
+      'What was the most challenging part of this installation?',
+    ],
+    answers: [
+      'We installed custom-built Shaker-style cabinets, which are known for their timeless design and durability.',
+      'The new layout includes a large island with extra storage and a dedicated pantry cabinet, which significantly improves organization and workflow.',
+      'The most challenging aspect was working with the uneven walls of an older home. We had to scribe the cabinets to ensure a seamless fit.',
+    ],
     _meta: {
       filePath: 'cabinet-installation.md',
       fileName: 'cabinet-installation.md',
@@ -46,6 +76,16 @@ export default [
     location: 'Plano, TX',
     headshot: 'gallery/ceiling-painting.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What was the scope of this project?',
+      'What type of paint was used and why?',
+      "How did you manage the project without disrupting the gym's operations?",
+    ],
+    answers: [
+      'The project involved painting the entire ceiling of a 10,000 sq. ft. gym, including all the ductwork and structural elements.',
+      'We used a high-durability, low-VOC industrial paint to withstand the high-traffic environment and to minimize odors.',
+      "We worked during the gym's off-hours, overnight, to ensure there was no disruption to their business.",
+    ],
     _meta: {
       filePath: 'ceiling-painting.md',
       fileName: 'ceiling-painting.md',
@@ -60,6 +100,16 @@ export default [
     location: 'San Antonio, TX',
     headshot: 'gallery/exterior-painting.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What preparation work was involved before painting?',
+      'What type of paint was used for this project?',
+      'How long is the paint expected to last?',
+    ],
+    answers: [
+      'We started with a thorough pressure wash to remove dirt and old paint. We also repaired some minor cracks in the siding.',
+      'We used a high-quality acrylic latex paint, which is known for its durability and resistance to weathering.',
+      'With proper maintenance, the paint should last between 7 to 10 years.',
+    ],
     _meta: {
       filePath: 'exterior-painting.md',
       fileName: 'exterior-painting.md',
@@ -74,6 +124,16 @@ export default [
     location: 'Celina, TX',
     headshot: 'gallery/kitchen-remodeling.jpg',
     content: 'Coming soon.',
+    questions: [
+      "What was the client's vision for this kitchen?",
+      'What are some of the standout features of the new kitchen?',
+      'How did you address the lighting in the new kitchen?',
+    ],
+    answers: [
+      'The client wanted a modern farmhouse-style kitchen with a large island for entertaining.',
+      'The standout features include a beautiful quartz countertop with a waterfall edge, a farmhouse sink, and custom-built open shelving.',
+      'We installed a combination of recessed lighting, under-cabinet lighting, and two large pendant lights over the island to create a bright and inviting space.',
+    ],
     _meta: {
       filePath: 'kitchen-remodeling.md',
       fileName: 'kitchen-remodeling.md',
@@ -88,6 +148,16 @@ export default [
     location: 'Plano, TX',
     headshot: 'gallery/outdoor-deck.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What materials were used to build this deck?',
+      'What are the advantages of a composite deck?',
+      'Does this deck require a lot of maintenance?',
+    ],
+    answers: [
+      'This deck is built with composite decking, which is a mix of wood fibers and recycled plastic.',
+      'Composite decking is extremely durable, resistant to rot and insects, and comes in a wide variety of colors and finishes.',
+      "No, it's very low-maintenance. It doesn't require sanding, staining, or sealing like a traditional wood deck.",
+    ],
     _meta: {
       filePath: 'outdoor-deck.md',
       fileName: 'outdoor-deck.md',
@@ -102,6 +172,16 @@ export default [
     location: 'Little Elm, TX',
     headshot: 'gallery/outdoor-lighting.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What was the main purpose of this lighting installation?',
+      'What type of lights were used?',
+      'Are these lights energy-efficient?',
+    ],
+    answers: [
+      "The main purpose was to enhance the home's curb appeal and improve security.",
+      'We used low-voltage LED lights, which are safe, durable, and provide a warm, inviting glow.',
+      'Yes, LED lights are extremely energy-efficient and have a very long lifespan, which will save the homeowner money in the long run.',
+    ],
     _meta: {
       filePath: 'outdoor-lighting.md',
       fileName: 'outdoor-lighting.md',
@@ -116,6 +196,16 @@ export default [
     location: 'Little Elm, TX',
     headshot: 'gallery/outdoor-tile.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What type of tile was used for this patio?',
+      'How do you ensure the tile is durable enough for outdoor use?',
+      'What is the best way to clean and maintain outdoor tile?',
+    ],
+    answers: [
+      "We used porcelain tile, which is a great choice for outdoor patios because it's dense, durable, and water-resistant.",
+      'We used a special outdoor-rated tile and a flexible, waterproof grout to prevent cracking from temperature changes.',
+      "Regular sweeping and occasional mopping with a pH-neutral cleaner is all that's needed to keep this tile looking great.",
+    ],
     _meta: {
       filePath: 'outdoor-tile.md',
       fileName: 'outdoor-tile.md',
@@ -130,6 +220,16 @@ export default [
     location: 'Little Elm, TX',
     headshot: 'gallery/pax-closet-installation.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What are the benefits of a PAX closet system?',
+      'How customizable is the PAX system?',
+      'How long does it take to install a PAX closet?',
+    ],
+    answers: [
+      "The IKEA PAX system is a versatile and affordable way to create a custom closet solution. It's highly adaptable to different spaces and needs.",
+      "It's extremely customizable. You can choose from a variety of frame sizes, door styles, and interior organizers like drawers, shelves, and hanging rods.",
+      'A typical PAX closet installation can be completed in a single day, depending on the size and complexity of the design.',
+    ],
     _meta: {
       filePath: 'pax-closet-installation.md',
       fileName: 'pax-closet-installation.md',
@@ -144,6 +244,16 @@ export default [
     location: 'Aubrey, TX',
     headshot: 'gallery/restroom-remodeling.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What were the primary goals for this restroom remodel?',
+      'What durable and low-maintenance materials were used in this project?',
+      'How did you ensure the new restroom design complies with ADA accessibility standards?',
+    ],
+    answers: [
+      'The main goals were to create a more modern, hygienic, and user-friendly restroom for a high-traffic commercial space.',
+      'We used durable materials such as quartz for the countertops, ceramic tile for the floors and walls, and touchless fixtures to minimize maintenance and improve hygiene.',
+      'The new design fully complies with ADA standards, featuring accessible stalls, grab bars, and a roll-under sink to ensure equal access for all users.',
+    ],
     _meta: {
       filePath: 'restroom-remodeling.md',
       fileName: 'restroom-remodeling.md',
@@ -158,6 +268,16 @@ export default [
     location: 'Aubrey, TX',
     headshot: 'gallery/tile-work.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What type of tile was used in this shower?',
+      'What is the most important aspect of a successful shower tile installation?',
+      'How do you prevent leaks in a tiled shower?',
+    ],
+    answers: [
+      'This shower features a classic subway tile on the walls and a beautiful mosaic tile on the floor.',
+      'The most important aspect is proper waterproofing. We use a multi-layer system to ensure the shower is completely watertight.',
+      'We use a high-quality waterproofing membrane behind the tile and a flexible, waterproof grout to create a durable, leak-proof barrier.',
+    ],
     _meta: {
       filePath: 'tile-work.md',
       fileName: 'tile-work.md',
@@ -172,6 +292,16 @@ export default [
     location: 'Little Elm, TX',
     headshot: 'gallery/wall-wood-stain.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What was the process for staining this wood wall?',
+      'What type of stain was used?',
+      'How do you protect the stained wood?',
+    ],
+    answers: [
+      'We started by sanding the wood to create a smooth surface. Then we applied a pre-stain conditioner to ensure the stain would be absorbed evenly. Finally, we applied two coats of stain.',
+      'We used an oil-based stain to bring out the natural grain and beauty of the wood.',
+      'After the stain was dry, we applied three coats of a polyurethane sealer to protect the wood from scratches and spills.',
+    ],
     _meta: {
       filePath: 'wall-wood-stain.md',
       fileName: 'wall-wood-stain.md',
@@ -186,6 +316,16 @@ export default [
     location: 'Frisco, TX',
     headshot: 'gallery/wood-accent-wall.jpg',
     content: 'Coming soon.',
+    questions: [
+      'What was the inspiration for this wood accent wall?',
+      'What kind of wood was used for this project?',
+      'How is the wood attached to the wall?',
+    ],
+    answers: [
+      'The homeowner wanted to add a warm, rustic element to their living room. We designed this accent wall to be the focal point of the space.',
+      'We used reclaimed barn wood to create this beautiful and unique accent wall.',
+      'The wood is attached to the wall with a combination of construction adhesive and finishing nails to ensure a secure and seamless installation.',
+    ],
     _meta: {
       filePath: 'wood-accent-wall.md',
       fileName: 'wood-accent-wall.md',

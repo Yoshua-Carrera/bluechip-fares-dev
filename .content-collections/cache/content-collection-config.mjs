@@ -10,6 +10,8 @@ var gallery = defineCollection({
     location: z.string(),
     headshot: z.string(),
     content: z.string(),
+    questions: z.array(z.string()),
+    answers: z.array(z.string()),
   }),
   transform: async (doc) => {
     return {

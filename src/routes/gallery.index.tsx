@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-
 import { allGalleries } from 'content-collections'
-
+import { useEffect } from 'react'
 import RemyAssistant from '@/components/RemyAssistant'
 import GalleryCard from '@/components/GalleryCard'
 
@@ -10,6 +9,10 @@ export const Route = createFileRoute('/gallery/')({
 })
 
 function SpeakersPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <RemyAssistant />
@@ -30,8 +33,8 @@ function SpeakersPage() {
         {/* Speakers grid */}
         <div className="max-w-7xl mx-auto px-6 pb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allGalleries.map((gallery) => (
-              <GalleryCard key={gallery.slug} gallery={gallery} />
+            {allGalleries.map((gallery, index) => (
+              <GalleryCard key={gallery.slug} gallery={gallery} index={index} />
             ))}
           </div>
         </div>
