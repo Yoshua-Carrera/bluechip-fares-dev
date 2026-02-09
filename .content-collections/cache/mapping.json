@@ -17,7 +17,8 @@
     "sourdough-from-starter-to-masterpiece": [],
     "the-art-of-the-perfect-tart": [],
     "the-science-of-sugar": [],
-    "umami-in-pastry-east-meets-west": []
+    "umami-in-pastry-east-meets-west": [],
+    "painting": []
   },
   "gallery": {
     "bathroom": [],
@@ -37,5 +38,6 @@
     "blow-in-insulation": [],
     "outdoor-lighting": [],
     "pax-closet-installation": []
-  }
+  },
+  "services": { "painting": [] }
 }

@@ -1,15 +1,15 @@
 import { Link } from '@tanstack/react-router'
 
-import type { Talk } from 'content-collections'
+import type { Service } from 'content-collections'
 
 import { Card, CardContent } from '@/components/ui/card'
 
-interface TalkCardProps {
-  talk: Talk
+interface ServiceCardProps {
+  service: Service
   featured?: boolean
 }
 
-export default function TalkCard({ talk, featured = false }: TalkCardProps) {
+export default function ServiceCard({ service, featured = false }: ServiceCardProps) {
   return (
     <Link to={'/services-offered'} className="group relative block">
       <Card
@@ -19,7 +19,11 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
       >
         {/* Image */}
         <div className="absolute inset-0">
-          <img src={`/${talk.image}`} alt={talk.title} className="w-full h-full object-cover" />
+          <img
+            src={`/${service.image}`}
+            alt={service.title}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
         </div>
 
@@ -28,16 +32,8 @@ export default function TalkCard({ talk, featured = false }: TalkCardProps) {
           <div className="space-y-3">
             {/* Title */}
             <h3 className="font-display text-4xl font-semibold text-cream group-hover:text-copper transition-colors leading-tight">
-              {talk.title}
+              {service.title}
             </h3>
-
-            {/* Speaker & Duration */}
-            <div className="flex items-center gap-4 text-cream/60 text-sm">
-              <div className="flex items-center gap-1.5">
-                {/* // TODO: Change talks to better brand contractor work */}
-                <span>{talk.speaker}</span>
-              </div>
-            </div>
           </div>
         </CardContent>
 

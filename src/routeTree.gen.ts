@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as TalksIndexRouteImport } from './routes/talks.index'
 import { Route as ServicesOfferedIndexRouteImport } from './routes/services-offered.index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as ContactUsIndexRouteImport } from './routes/contact-us.index'
@@ -25,11 +24,6 @@ import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TalksIndexRoute = TalksIndexRouteImport.update({
-  id: '/talks/',
-  path: '/talks/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesOfferedIndexRoute = ServicesOfferedIndexRouteImport.update({
@@ -91,7 +85,6 @@ export interface FileRoutesByFullPath {
   '/contact-us/': typeof ContactUsIndexRoute
   '/gallery/': typeof GalleryIndexRoute
   '/services-offered/': typeof ServicesOfferedIndexRoute
-  '/talks/': typeof TalksIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/names': typeof DemoApiNamesRoute
@@ -105,7 +98,6 @@ export interface FileRoutesByTo {
   '/contact-us': typeof ContactUsIndexRoute
   '/gallery': typeof GalleryIndexRoute
   '/services-offered': typeof ServicesOfferedIndexRoute
-  '/talks': typeof TalksIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/names': typeof DemoApiNamesRoute
@@ -120,7 +112,6 @@ export interface FileRoutesById {
   '/contact-us/': typeof ContactUsIndexRoute
   '/gallery/': typeof GalleryIndexRoute
   '/services-offered/': typeof ServicesOfferedIndexRoute
-  '/talks/': typeof TalksIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/_api/names': typeof DemoApiNamesRoute
@@ -136,7 +127,6 @@ export interface FileRouteTypes {
     | '/contact-us/'
     | '/gallery/'
     | '/services-offered/'
-    | '/talks/'
     | '/api/auth/$'
     | '/api/trpc/$'
     | '/demo/names'
@@ -150,7 +140,6 @@ export interface FileRouteTypes {
     | '/contact-us'
     | '/gallery'
     | '/services-offered'
-    | '/talks'
     | '/api/auth/$'
     | '/api/trpc/$'
     | '/demo/names'
@@ -164,7 +153,6 @@ export interface FileRouteTypes {
     | '/contact-us/'
     | '/gallery/'
     | '/services-offered/'
-    | '/talks/'
     | '/api/auth/$'
     | '/api/trpc/$'
     | '/demo/_api/names'
@@ -179,7 +167,6 @@ export interface RootRouteChildren {
   ContactUsIndexRoute: typeof ContactUsIndexRoute
   GalleryIndexRoute: typeof GalleryIndexRoute
   ServicesOfferedIndexRoute: typeof ServicesOfferedIndexRoute
-  TalksIndexRoute: typeof TalksIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
@@ -193,13 +180,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/talks/': {
-      id: '/talks/'
-      path: '/talks'
-      fullPath: '/talks/'
-      preLoaderRoute: typeof TalksIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services-offered/': {
@@ -283,7 +263,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactUsIndexRoute: ContactUsIndexRoute,
   GalleryIndexRoute: GalleryIndexRoute,
   ServicesOfferedIndexRoute: ServicesOfferedIndexRoute,
-  TalksIndexRoute: TalksIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiTrpcSplatRoute: ApiTrpcSplatRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,

@@ -5,10 +5,10 @@ import type { GeminiTextAdapter } from '@tanstack/ai-gemini'
 
 import {
   getAllGalleries,
-  getAllTalks,
+  getAllServices,
   getGalleryBySlug,
-  getTalkBySlug,
-  searchConference,
+  getServiceBySlug,
+  searchBlueChipContent,
 } from '@/lib/conference-tools'
 
 export const Route = createFileRoute('/api/remy-chat')({
@@ -25,7 +25,7 @@ export const Route = createFileRoute('/api/remy-chat')({
 
         try {
           const body = await request.json()
-          const { messages, speakerSlug, talkSlug } = body
+          const { messages, galerySlug, serviceSlug } = body
 
           const SYSTEM_PROMPT = `You are Remy, a charming and knowledgeable culinary assistant for the Haute Pâtisserie 2026 conference in Paris. You have a warm, enthusiastic personality and deep appreciation for the art of pastry and baking.
 
@@ -36,22 +36,22 @@ PERSONALITY:
 - Helpful and encouraging to both novices and professionals
 
 CAPABILITIES:
-1. Use getSpeakerBySlug to get detailed information about a specific speaker
-2. Use getTalkBySlug to get detailed information about a specific session
-3. Use getAllSpeakers to see the complete speaker lineup
-4. Use getAllTalks to see all available sessions
-5. Use searchConference to find speakers or sessions matching a topic or keyword
+1. Use getGalleryBySlug to get detailed information about a specific galery
+2. Use getServiceBySlug to get detailed information about a specific session
+3. Use getAllGallerys to see the complete galery lineup
+4. Use getAllServices to see all available sessions
+5. Use searchConference to find galerys or sessions matching a topic or keyword
 
 INSTRUCTIONS:
-- When asked about the conference, speakers, or sessions, use your tools to provide accurate information
+- When asked about the conference, galerys, or sessions, use your tools to provide accurate information
 - Help attendees find sessions that match their interests
-- Share enthusiasm about the speakers and their expertise
+- Share enthusiasm about the galerys and their expertise
 - If asked about pastry techniques, you can provide general knowledge while recommending relevant sessions
 - Keep responses conversational but informative
 - When recommending sessions, explain why they might be interesting based on the user's query
 
-${speakerSlug ? `CONTEXT: The user is viewing the profile of the speaker with slug "${speakerSlug}".` : ''}
-${talkSlug ? `CONTEXT: The user is viewing the session with slug "${talkSlug}".` : ''}
+${galerySlug ? `CONTEXT: The user is viewing the profile of the galery with slug "${galerySlug}".` : ''}
+${serviceSlug ? `CONTEXT: The user is viewing the session with slug "${serviceSlug}".` : ''}
 
 Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attendee feel welcome and excited about the culinary journey ahead!`
 
@@ -82,10 +82,10 @@ Remember: You are the friendly face of Haute Pâtisserie 2026. Make every attend
             adapter,
             tools: [
               getGalleryBySlug,
-              getTalkBySlug,
+              getServiceBySlug,
               getAllGalleries,
-              getAllTalks,
-              searchConference,
+              getAllServices,
+              searchBlueChipContent,
             ],
             systemPrompts: [SYSTEM_PROMPT],
             agentLoopStrategy: maxIterations(5),

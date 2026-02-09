@@ -7,13 +7,13 @@ import type { Gallery } from 'content-collections'
 import { Card, CardContent } from '@/components/ui/card'
 import { useIntersectionObserver } from '@/hooks/intersection-observer'
 
-interface SpeakerCardProps {
+interface GalleryCardProps {
   gallery: Gallery
   featured?: boolean
   index?: number
 }
 
-export default function GalleryCard({ gallery, featured = false, index = 0 }: SpeakerCardProps) {
+export default function GalleryCard({ gallery, featured = false, index = 0 }: GalleryCardProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   return (

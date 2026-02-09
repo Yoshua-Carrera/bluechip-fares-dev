@@ -1,10 +1,9 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowLeft, MapPin } from 'lucide-react'
-import { allGalleries, allTalks } from 'content-collections'
+import { allGalleries } from 'content-collections'
 import { useEffect } from 'react'
 import type { Ref } from 'react'
 import RemyAssistant from '@/components/RemyAssistant'
-import TalkCard from '@/components/TalkCard'
 import {
   Accordion,
   AccordionContent,
@@ -19,15 +18,13 @@ export const Route = createFileRoute('/gallery/$slug')({
     if (!gallery) {
       throw new Error('Gallery not found')
     }
-
-    const speakerTalks = allTalks.filter((t) => t.speaker === gallery.name)
-    return { gallery, speakerTalks }
+    return { gallery }
   },
-  component: SpeakerDetailPage,
+  component: GalleryDetailPage,
 })
 
-function SpeakerDetailPage() {
-  const { gallery, speakerTalks } = Route.useLoaderData()
+function GalleryDetailPage() {
+  const { gallery } = Route.useLoaderData()
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   useEffect(() => {
@@ -116,20 +113,6 @@ function SpeakerDetailPage() {
           </Accordion>
         </div>
       </div>
-
-      {/* Speaker's talks */}
-      {speakerTalks.length > 0 && (
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <h2 className="font-display text-3xl font-bold text-cream mb-8">
-            Sessions by {gallery.name}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {speakerTalks.map((talk) => (
-              <TalkCard key={talk.slug} talk={talk} />
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }

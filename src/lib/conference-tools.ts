@@ -1,7 +1,7 @@
 import { toolDefinition } from '@tanstack/ai'
 import { z } from 'zod'
 
-import { allGalleries, allTalks } from 'content-collections'
+import { allGalleries, allServices } from 'content-collections'
 
 // Tool definition for getting a speaker by slug
 export const getGalleryBySlugToolDef = toolDefinition({
@@ -35,41 +35,37 @@ export const getGalleryBySlug = getGalleryBySlugToolDef.server(({ slug }) => {
   }
 })
 
-// Tool definition for getting a talk by slug
-export const getTalkBySlugToolDef = toolDefinition({
-  name: 'getTalkBySlug',
-  description:
-    'Get the full details of a specific session/talk. Use this when asked about a particular session.',
+// Tool definition for getting a service by slug
+export const getServiceBySlugToolDef = toolDefinition({
+  name: 'getServiceBySlug',
+  description: 'Get the full details of a specific service offered.',
   inputSchema: z.object({
-    slug: z.string().describe('The slug of the talk'),
+    slug: z.string().describe('The slug of the service'),
   }),
   outputSchema: z.object({
     title: z.string(),
-    speaker: z.string(),
-    duration: z.string(),
-    topics: z.array(z.string()),
-    description: z.string(),
+    image: z.string(),
+    services: z.array(z.string()),
+    serviceDescriptions: z.array(z.string()),
   }),
 })
 
 // Server implementation
-export const getTalkBySlug = getTalkBySlugToolDef.server(({ slug }) => {
-  const talk = allTalks.find((t) => t.slug === slug)
-  if (!talk) {
+export const getServiceBySlug = getServiceBySlugToolDef.server(({ slug }) => {
+  const service = allServices.find((s) => s.slug === slug)
+  if (!service) {
     return {
-      title: 'Session not found',
-      speaker: '',
-      duration: '',
-      topics: [],
-      description: 'The requested session was not found.',
+      title: 'Service not found',
+      image: '',
+      services: [],
+      serviceDescriptions: [],
     }
   }
   return {
-    title: talk.title,
-    speaker: talk.speaker,
-    duration: talk.duration,
-    topics: talk.topics,
-    description: talk.content,
+    title: service.title,
+    image: service.image,
+    services: service.services,
+    serviceDescriptions: service.serviceDescriptions,
   }
 })
 
@@ -77,7 +73,7 @@ export const getTalkBySlug = getTalkBySlugToolDef.server(({ slug }) => {
 export const getAllGalleriesToolDef = toolDefinition({
   name: 'getAllGalleries',
   description:
-    'Get a list of all galleries at the conference with their names, specialties, and restaurants.',
+    'Get a list of all galleries at Bluechip with their names, specialties, and restaurants.',
   inputSchema: z.object({}),
   outputSchema: z.array(
     z.object({
@@ -97,37 +93,35 @@ export const getAllGalleries = getAllGalleriesToolDef.server(() => {
   }))
 })
 
-// Tool definition for listing all talks
-export const getAllTalksToolDef = toolDefinition({
-  name: 'getAllTalks',
-  description:
-    'Get a list of all sessions/talks at the conference with their titles, speakers, and topics.',
+// Tool definition for listing all services
+export const getAllServicesToolDef = toolDefinition({
+  name: 'getAllServices',
+  description: 'Get a list of all services/galleries owned by Bluchip.',
   inputSchema: z.object({}),
   outputSchema: z.array(
     z.object({
-      slug: z.string(),
       title: z.string(),
-      speaker: z.string(),
-      duration: z.string(),
-      topics: z.array(z.string()),
+      image: z.string(),
+      services: z.array(z.string()),
+      serviceDescriptions: z.array(z.string()),
     }),
   ),
 })
 
 // Server implementation
-export const getAllTalks = getAllTalksToolDef.server(() => {
-  return allTalks.map((talk) => ({
-    slug: talk.slug,
-    title: talk.title,
-    speaker: talk.speaker,
-    duration: talk.duration,
-    topics: talk.topics,
+export const getAllServices = getAllServicesToolDef.server(() => {
+  return allServices.map((service) => ({
+    slug: service.slug,
+    title: service.title,
+    image: service.image,
+    services: service.services,
+    serviceDescriptions: service.serviceDescriptions,
   }))
 })
 
-// Tool definition for searching conference content
-export const searchConferenceToolDef = toolDefinition({
-  name: 'searchConference',
+// Tool definition for searching Bluechip content
+export const searchBlueChipContentToolDef = toolDefinition({
+  name: 'searchBlueChipContent',
   description:
     'Search for galleries or sessions by keyword. Use this to find content matching user queries about topics, techniques, or names.',
   inputSchema: z.object({
@@ -140,19 +134,20 @@ export const searchConferenceToolDef = toolDefinition({
         name: z.string(),
       }),
     ),
-    talks: z.array(
+    services: z.array(
       z.object({
         slug: z.string(),
         title: z.string(),
-        speaker: z.string(),
-        topics: z.array(z.string()),
+        image: z.string(),
+        services: z.array(z.string()),
+        serviceDescriptions: z.array(z.string()),
       }),
     ),
   }),
 })
 
 // Server implementation
-export const searchConference = searchConferenceToolDef.server(({ query }) => {
+export const searchBlueChipContent = searchBlueChipContentToolDef.server(({ query }) => {
   const queryLower = query.toLowerCase()
 
   const matchingGalleries = allGalleries
@@ -166,23 +161,24 @@ export const searchConference = searchConferenceToolDef.server(({ query }) => {
       name: gallery.name,
     }))
 
-  const matchingTalks = allTalks
+  const matchingServices = allServices
     .filter(
-      (talk) =>
-        talk.title.toLowerCase().includes(queryLower) ||
-        talk.speaker.toLowerCase().includes(queryLower) ||
-        talk.topics.some((topic) => topic.toLowerCase().includes(queryLower)) ||
-        talk.content.toLowerCase().includes(queryLower),
+      (service) =>
+        service.title.toLowerCase().includes(queryLower) ||
+        service.image.toLowerCase().includes(queryLower) ||
+        service.services.some((topic) => topic.toLowerCase().includes(queryLower)) ||
+        service.serviceDescriptions.some((topic) => topic.toLowerCase().includes(queryLower)),
     )
-    .map((talk) => ({
-      slug: talk.slug,
-      title: talk.title,
-      speaker: talk.speaker,
-      topics: talk.topics,
+    .map((service) => ({
+      slug: service.slug,
+      title: service.title,
+      image: service.image,
+      services: service.services,
+      serviceDescriptions: service.serviceDescriptions,
     }))
 
   return {
     galleries: matchingGalleries,
-    talks: matchingTalks,
+    services: matchingServices,
   }
 })

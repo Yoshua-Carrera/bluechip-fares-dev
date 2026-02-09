@@ -25,17 +25,15 @@ const gallery = defineCollection({
   },
 })
 
-const talks = defineCollection({
-  name: 'talks',
-  directory: 'content/talks',
+const services = defineCollection({
+  name: 'services',
+  directory: 'content/services',
   include: '**/*.md',
   schema: z.object({
     title: z.string(),
-    speaker: z.string(),
-    duration: z.string(),
     image: z.string(),
-    topics: z.array(z.string()),
-    content: z.string(),
+    services: z.array(z.string()),
+    serviceDescriptions: z.array(z.string()),
   }),
   transform: async (doc) => {
     return {
@@ -50,5 +48,5 @@ const talks = defineCollection({
 })
 
 export default defineConfig({
-  collections: [gallery, talks],
+  collections: [gallery, services],
 })

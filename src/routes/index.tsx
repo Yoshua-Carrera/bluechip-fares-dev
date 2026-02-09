@@ -1,13 +1,11 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
-
-import { allGalleries, allTalks } from 'content-collections'
+import { allGalleries, allServices } from 'content-collections'
 import { format } from 'date-fns'
-
-import TalkCard from '@/components/TalkCard'
 import HeroCarousel from '@/components/HeroCarousel'
 import { Button } from '@/components/ui/button'
 import GalleryCard from '@/components/GalleryCard'
+import ServiceCard from '@/components/ServiceCard'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -15,7 +13,7 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   const featuredGalleries = allGalleries.slice(3, 9)
-  const featuredTalks = allTalks.slice(0, 4)
+  const featuredServices = allServices.slice(0, 4)
 
   return (
     <>
@@ -56,8 +54,8 @@ function HomePage() {
               <div className="text-cream/85 text-sm uppercase tracking-wider">Contractors</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-display font-bold text-white">{allTalks.length}</div>
-              <div className="text-cream/85 text-sm uppercase tracking-wider">Hours a day</div>
+              <div className="text-4xl font-display font-bold text-white">{allServices.length}</div>
+              <div className="text-cream/85 text-sm uppercase tracking-wider">Services offered</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-display font-bold text-white">7</div>
@@ -151,8 +149,8 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {featuredTalks.map((talk) => (
-              <TalkCard key={talk.slug} talk={talk} featured />
+            {featuredServices.map((service) => (
+              <ServiceCard key={service.slug} service={service} featured />
             ))}
           </div>
 
