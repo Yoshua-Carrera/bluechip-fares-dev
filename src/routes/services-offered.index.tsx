@@ -230,10 +230,10 @@ function SchedulePage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  to="/services-offered"
+                  to="/contact-us"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-copper to-copper-dark text-charcoal font-semibold transition-all hover:shadow-lg hover:shadow-copper/30 hover:scale-[1.02]"
                 >
-                  Browse All Services
+                  Ready to get started
                 </Link>
                 <Link
                   to="/gallery"

@@ -39,5 +39,17 @@
     "outdoor-lighting": [],
     "pax-closet-installation": []
   },
-  "services": { "painting": [] }
+  "services": {
+    "painting": [],
+    "painting-services": [],
+    "Resurfacing-services": [],
+    "resurfacing-services": [],
+    "carpet-cleaning": [],
+    "air-conditioning": [],
+    "housekeeping": [],
+    "landscaping": [],
+    "extras": [],
+    "flooring-and-tile": [],
+    "resurfacing": []
+  }
 }
