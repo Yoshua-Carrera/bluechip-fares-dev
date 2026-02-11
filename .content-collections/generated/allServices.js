@@ -1,7 +1,8 @@
 export default [
   {
     title: 'Air Conditioning',
-    image: 'services/air-conditioning.jpg',
+    image:
+      'https://www.waychoffsac.com/wp-content/uploads/2022/10/Heat-Pump-Repair-Jacksonville-Waychoffs.jpg',
     services: [
       'Cleaning vents and return vents',
       'Dryer vents',
@@ -30,7 +31,8 @@ export default [
   },
   {
     title: 'Carpet Cleaning',
-    image: 'services/carpet-cleaning.jpg',
+    image:
+      'https://www.checkbook.org/V2/graphics/articles/Carpet-and-Rug-Cleaners/1024/hot_water_extraction.jpg',
     services: [
       'General cleaning',
       'Buffer',
@@ -69,7 +71,8 @@ export default [
   },
   {
     title: 'Extras',
-    image: 'services/extras.jpg',
+    image:
+      'https://www.aggeneralconstruction.com/wp-content/uploads/2024/01/shutterstock_271213580.jpg',
     services: [
       'Pressure washing',
       'Driveway cleaning',
@@ -114,7 +117,7 @@ export default [
   },
   {
     title: 'Flooring and Tile',
-    image: 'services/flooring-and-tile.jpg',
+    image: 'https://www.jforecarpetcleaning.com/images/tiles-installation-08.webp',
     services: [
       'Hardwood installation',
       'Carpet installation',
@@ -151,7 +154,8 @@ export default [
   },
   {
     title: 'Housekeeping',
-    image: '',
+    image:
+      'https://t3.ftcdn.net/jpg/03/97/68/28/360_F_397682830_BxIexiqMjZ92ejuEVIz4ZUtVjf5AGdmI.jpg',
     services: [
       'Full cleaning',
       'Touch up cleaning',
@@ -184,7 +188,8 @@ export default [
   },
   {
     title: 'Landscaping',
-    image: '',
+    image:
+      'https://t3.ftcdn.net/jpg/03/20/82/32/360_F_320823232_QtVEoqqcDPaSo7rclYLgcTBJNSomIFcZ.jpg',
     services: [
       'Lawn and garden maintenance',
       'Planting and horticulture',
@@ -260,7 +265,7 @@ export default [
   },
   {
     title: 'Resurfacing services',
-    image: '',
+    image: 'https://www.maulasphalt.com/wp-content/uploads/2024/11/GettyImages-1774917529.jpg',
     services: [
       'Kitchen countertops',
       'Bathroom countertops',

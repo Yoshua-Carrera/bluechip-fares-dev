@@ -1,7 +1,6 @@
 ---
 title: 'Housekeeping'
-# image: 'services/housekeeping.jpg'
-image: ''
+image: 'https://t3.ftcdn.net/jpg/03/97/68/28/360_F_397682830_BxIexiqMjZ92ejuEVIz4ZUtVjf5AGdmI.jpg'
 services:
   - 'Full cleaning'
   - 'Touch up cleaning'

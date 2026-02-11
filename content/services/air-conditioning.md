@@ -1,6 +1,6 @@
 ---
 title: 'Air Conditioning'
-image: 'services/air-conditioning.jpg'
+image: 'https://www.waychoffsac.com/wp-content/uploads/2022/10/Heat-Pump-Repair-Jacksonville-Waychoffs.jpg'
 services:
   - 'Cleaning vents and return vents'
   - 'Dryer vents'

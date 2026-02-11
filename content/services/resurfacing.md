@@ -1,7 +1,6 @@
 ---
 title: 'Resurfacing services'
-# image: 'services/resurfacing-services.jpg'
-image: ''
+image: 'https://www.maulasphalt.com/wp-content/uploads/2024/11/GettyImages-1774917529.jpg'
 services:
   - 'Kitchen countertops'
   - 'Bathroom countertops'

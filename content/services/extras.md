@@ -1,6 +1,6 @@
 ---
 title: 'Extras'
-image: 'services/extras.jpg'
+image: 'https://www.aggeneralconstruction.com/wp-content/uploads/2024/01/shutterstock_271213580.jpg'
 services:
   - 'Pressure washing'
   - 'Driveway cleaning'

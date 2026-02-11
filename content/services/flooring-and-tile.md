@@ -1,6 +1,6 @@
 ---
 title: 'Flooring and Tile'
-image: 'services/flooring-and-tile.jpg'
+image: 'https://www.jforecarpetcleaning.com/images/tiles-installation-08.webp'
 services:
   - 'Hardwood installation'
   - 'Carpet installation'

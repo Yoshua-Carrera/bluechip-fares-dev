@@ -1,7 +1,6 @@
 ---
 title: 'Landscaping'
-# image: 'services/landscaping.jpg'
-image: ''
+image: 'https://t3.ftcdn.net/jpg/03/20/82/32/360_F_320823232_QtVEoqqcDPaSo7rclYLgcTBJNSomIFcZ.jpg'
 services:
   - 'Lawn and garden maintenance'
   - 'Planting and horticulture'
