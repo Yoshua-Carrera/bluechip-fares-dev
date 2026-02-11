@@ -37,13 +37,13 @@ export default function ServiceCard({ service, featured = false, index }: Servic
         </div>
 
         {/* Content overlay */}
-        <CardContent className="absolute bottom-0 left-0 right-0 p-6 z-10">
-          <div className="space-y-3">
-            {/* Title */}
-            <h3 className="font-display text-4xl font-semibold text-cream group-hover:text-copper transition-colors leading-tight">
-              {service.title}
-            </h3>
-          </div>
+        <CardContent className="flex justify-center items-center h-screen  z-10">
+          {/* <div className="space-y-3"> */}
+          {/* Title */}
+          <h3 className="font-display text-center font-semibold text-cream group-hover:text-copper transition-colors leading-tight text-4xl lg:text-6xl">
+            {service.title}
+          </h3>
+          {/* </div> */}
         </CardContent>
 
         {/* Decorative accent */}

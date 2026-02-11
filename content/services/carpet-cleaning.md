@@ -1,6 +1,6 @@
 ---
 title: 'Carpet Cleaning'
-image: 'services/carpet-cleaning.jpg'
+image: 'https://www.checkbook.org/V2/graphics/articles/Carpet-and-Rug-Cleaners/1024/hot_water_extraction.jpg'
 services:
   - 'General cleaning'
   - 'Buffer'
