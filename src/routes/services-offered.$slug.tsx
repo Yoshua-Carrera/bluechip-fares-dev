@@ -122,12 +122,10 @@ function ServicesOfferedPage() {
               <ServiceCard service={service} />
             </div>
             <div className={`py-4 w-full px-2 flex justify-center fade-in is-visible`}>
-              <div className="prose prose-lg w-4xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
+              <div className="prose prose-lg w-6xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
                 <Accordion
-                  type="single"
-                  collapsible
-                  defaultValue="shipping"
-                  className="w-full p-6 bg-gradient-to-br dark:from-card dark:to-charcoal/90 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
+                  type="multiple"
+                  className="w-full p-6 bg-gradient-to-br dark:from-card/25 dark:to-charcoal/50 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
                 >
                   {service.services.map((q: string, i: number) => (
                     <>
