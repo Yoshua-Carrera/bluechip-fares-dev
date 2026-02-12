@@ -9,14 +9,18 @@ import { useIntersectionObserver } from '@/hooks/intersection-observer'
 interface ServiceCardProps {
   service: Service
   featured?: boolean
-  index: number
+  index?: number
 }
 
-export default function ServiceCard({ service, featured = false, index }: ServiceCardProps) {
+export default function ServiceCard({ service, featured = false, index = 0 }: ServiceCardProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   return (
-    <Link to={'/services-offered'} className="group relative block">
+    <Link
+      to="/services-offered/$slug"
+      params={{ slug: service.slug }}
+      className="group relative block"
+    >
       <Card
         ref={ref as Ref<HTMLDivElement>}
         className={`relative overflow-hidden bg-card border-border/50 card-hover
