@@ -13,18 +13,36 @@ export const Route = createFileRoute('/not-found/')({
 
 export function NotFoundPage() {
   return (
-    <Empty>
+    <Empty className="mt-12">
       <EmptyHeader>
         <EmptyTitle>404 - Not Found</EmptyTitle>
-        <EmptyDescription>
+        <EmptyDescription className="mt-4">
           The page you&apos;re looking for doesn&apos;t exist. Try searching for what you need
           below.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <EmptyDescription>
-          Need help? <a href="/contact-us">Contact us</a>
+          <div className="flex gap-4 flex-col">
+            <span>
+              Need help?{' '}
+              <a className="text-copper" href="/contact-us">
+                Contact us
+              </a>
+            </span>
+            <span>
+              Go back{' '}
+              <a className="text-copper" href="/">
+                home
+              </a>
+              ?
+            </span>
+          </div>
         </EmptyDescription>
+        <img
+          src="https://animalclinicofbutler.com/wp-content/uploads/2023/05/black-cat-cutout.png"
+          className="w-2/5"
+        />
       </EmptyContent>
     </Empty>
   )
