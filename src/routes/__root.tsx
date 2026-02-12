@@ -3,6 +3,7 @@ import {
   ScriptOnce,
   Scripts,
   createRootRouteWithContext,
+  useNavigate,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
@@ -89,6 +90,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 function RootDocument({ children }: { children: React.ReactNode }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [ctaShown, setCtaShown] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -144,7 +146,16 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                     and we'll give you honest advice (no pitch).
                   </DialogDescription>
                 </DialogHeader>
-                <Button className="bg-primary">Let's talk now</Button>
+                <Button
+                  onClick={() =>
+                    navigate({
+                      to: '/contact-us',
+                    })
+                  }
+                  className="bg-primary"
+                >
+                  Let's talk now
+                </Button>
               </DialogContent>
             </Dialog>
           )}

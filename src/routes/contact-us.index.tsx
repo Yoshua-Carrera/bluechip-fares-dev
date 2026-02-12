@@ -153,6 +153,7 @@ function ContactUsPage() {
                         Phone Number <span className="text-red-600 text-[0.65rem]">* Required</span>
                       </FieldLabel>
                       <Input
+                        type="tel"
                         ref={maskedInputRef}
                         id={field.name}
                         name={field.name}
