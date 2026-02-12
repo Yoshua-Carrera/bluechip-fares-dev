@@ -93,7 +93,7 @@ function ServicesOfferedPage() {
         >
           <ComboboxInput
             placeholder="Select a service to learn more"
-            className={'w-11/12 md:w-2/5'}
+            className={'w-11/12 md:w-2/5 max-w-[900px] h-14 font-semibold border border-copper'}
             value={currentSelected}
           />
           <ComboboxContent>
