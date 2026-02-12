@@ -54,6 +54,10 @@ function ServicesOfferedPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     setCurrentSelected(service.title)
   }, [service])
 
