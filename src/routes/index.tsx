@@ -15,7 +15,7 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   const featuredGalleries = allGalleries.slice(3, 9)
-  const featuredServices = allServices.slice(4, 8)
+  const featuredServices = allServices
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   const navigate = useNavigate()
@@ -71,14 +71,15 @@ function HomePage() {
           {/* CTA buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-5">
             <Link
-              to="/services-offered"
+              to="/gallery"
               className="inline-flex items-center gap-2 px-8 py-4 border-4 border-copper/25 rounded-full bg-gradient-to-r from-white to-white text-charcoal font-semibold text-lg transition-all hover:shadow-lg hover:shadow-[var(--primary)]/30 hover:scale-[1.02]"
             >
               <Users className="w-5 h-5" />
               Look at our work
             </Link>
             <Link
-              to="/services-offered"
+              to="/services-offered/$slug"
+              params={{ slug: 'all' }}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-4 border-copper/50 text-white font-semibold text-lg transition-all hover:bg-[var(--primary)]/10 hover:border-[var(--primary)]"
             >
               Service catalog
@@ -145,7 +146,8 @@ function HomePage() {
               </p>
             </div>
             <Link
-              to="/services-offered"
+              to="/services-offered/$slug"
+              params={{ slug: 'all' }}
               className="hidden md:inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-copper/80 transition-colors font-medium"
             >
               View all services
@@ -161,7 +163,8 @@ function HomePage() {
 
           <div className="md:hidden mt-8 text-center">
             <Link
-              to="/services-offered"
+              to="/services-offered/$slug"
+              params={{ slug: 'all' }}
               className="inline-flex items-center gap-2 text-[var(--accent-foreground)] hover:text-gold/80 transition-colors font-medium"
             >
               View all services

@@ -10,9 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesOfferedIndexRouteImport } from './routes/services-offered.index'
+import { Route as NotFoundIndexRouteImport } from './routes/not-found.index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as ContactUsIndexRouteImport } from './routes/contact-us.index'
+import { Route as ServicesOfferedSlugRouteImport } from './routes/services-offered.$slug'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
 import { Route as ApiRemyChatRouteImport } from './routes/api.remy-chat'
@@ -26,9 +27,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesOfferedIndexRoute = ServicesOfferedIndexRouteImport.update({
-  id: '/services-offered/',
-  path: '/services-offered/',
+const NotFoundIndexRoute = NotFoundIndexRouteImport.update({
+  id: '/not-found/',
+  path: '/not-found/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryIndexRoute = GalleryIndexRouteImport.update({
@@ -39,6 +40,11 @@ const GalleryIndexRoute = GalleryIndexRouteImport.update({
 const ContactUsIndexRoute = ContactUsIndexRouteImport.update({
   id: '/contact-us/',
   path: '/contact-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesOfferedSlugRoute = ServicesOfferedSlugRouteImport.update({
+  id: '/services-offered/$slug',
+  path: '/services-offered/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GallerySlugRoute = GallerySlugRouteImport.update({
@@ -82,9 +88,10 @@ export interface FileRoutesByFullPath {
   '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/services-offered/$slug': typeof ServicesOfferedSlugRoute
   '/contact-us/': typeof ContactUsIndexRoute
   '/gallery/': typeof GalleryIndexRoute
-  '/services-offered/': typeof ServicesOfferedIndexRoute
+  '/not-found/': typeof NotFoundIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/names': typeof DemoApiNamesRoute
@@ -95,9 +102,10 @@ export interface FileRoutesByTo {
   '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/services-offered/$slug': typeof ServicesOfferedSlugRoute
   '/contact-us': typeof ContactUsIndexRoute
   '/gallery': typeof GalleryIndexRoute
-  '/services-offered': typeof ServicesOfferedIndexRoute
+  '/not-found': typeof NotFoundIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/names': typeof DemoApiNamesRoute
@@ -109,9 +117,10 @@ export interface FileRoutesById {
   '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/services-offered/$slug': typeof ServicesOfferedSlugRoute
   '/contact-us/': typeof ContactUsIndexRoute
   '/gallery/': typeof GalleryIndexRoute
-  '/services-offered/': typeof ServicesOfferedIndexRoute
+  '/not-found/': typeof NotFoundIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/_api/names': typeof DemoApiNamesRoute
@@ -124,9 +133,10 @@ export interface FileRouteTypes {
     | '/api/remy-chat'
     | '/demo/better-auth'
     | '/gallery/$slug'
+    | '/services-offered/$slug'
     | '/contact-us/'
     | '/gallery/'
-    | '/services-offered/'
+    | '/not-found/'
     | '/api/auth/$'
     | '/api/trpc/$'
     | '/demo/names'
@@ -137,9 +147,10 @@ export interface FileRouteTypes {
     | '/api/remy-chat'
     | '/demo/better-auth'
     | '/gallery/$slug'
+    | '/services-offered/$slug'
     | '/contact-us'
     | '/gallery'
-    | '/services-offered'
+    | '/not-found'
     | '/api/auth/$'
     | '/api/trpc/$'
     | '/demo/names'
@@ -150,9 +161,10 @@ export interface FileRouteTypes {
     | '/api/remy-chat'
     | '/demo/better-auth'
     | '/gallery/$slug'
+    | '/services-offered/$slug'
     | '/contact-us/'
     | '/gallery/'
-    | '/services-offered/'
+    | '/not-found/'
     | '/api/auth/$'
     | '/api/trpc/$'
     | '/demo/_api/names'
@@ -164,9 +176,10 @@ export interface RootRouteChildren {
   ApiRemyChatRoute: typeof ApiRemyChatRoute
   DemoBetterAuthRoute: typeof DemoBetterAuthRoute
   GallerySlugRoute: typeof GallerySlugRoute
+  ServicesOfferedSlugRoute: typeof ServicesOfferedSlugRoute
   ContactUsIndexRoute: typeof ContactUsIndexRoute
   GalleryIndexRoute: typeof GalleryIndexRoute
-  ServicesOfferedIndexRoute: typeof ServicesOfferedIndexRoute
+  NotFoundIndexRoute: typeof NotFoundIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
@@ -182,11 +195,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services-offered/': {
-      id: '/services-offered/'
-      path: '/services-offered'
-      fullPath: '/services-offered/'
-      preLoaderRoute: typeof ServicesOfferedIndexRouteImport
+    '/not-found/': {
+      id: '/not-found/'
+      path: '/not-found'
+      fullPath: '/not-found/'
+      preLoaderRoute: typeof NotFoundIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery/': {
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/contact-us'
       fullPath: '/contact-us/'
       preLoaderRoute: typeof ContactUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services-offered/$slug': {
+      id: '/services-offered/$slug'
+      path: '/services-offered/$slug'
+      fullPath: '/services-offered/$slug'
+      preLoaderRoute: typeof ServicesOfferedSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery/$slug': {
@@ -260,9 +280,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiRemyChatRoute: ApiRemyChatRoute,
   DemoBetterAuthRoute: DemoBetterAuthRoute,
   GallerySlugRoute: GallerySlugRoute,
+  ServicesOfferedSlugRoute: ServicesOfferedSlugRoute,
   ContactUsIndexRoute: ContactUsIndexRoute,
   GalleryIndexRoute: GalleryIndexRoute,
-  ServicesOfferedIndexRoute: ServicesOfferedIndexRoute,
+  NotFoundIndexRoute: NotFoundIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiTrpcSplatRoute: ApiTrpcSplatRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
