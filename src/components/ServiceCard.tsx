@@ -10,9 +10,15 @@ interface ServiceCardProps {
   service: Service
   featured?: boolean
   index?: number
+  stagger?: number
 }
 
-export default function ServiceCard({ service, featured = false, index = 0 }: ServiceCardProps) {
+export default function ServiceCard({
+  service,
+  featured = false,
+  index = 0,
+  stagger = 0.15,
+}: ServiceCardProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLDivElement>()
 
   return (
@@ -26,7 +32,7 @@ export default function ServiceCard({ service, featured = false, index = 0 }: Se
         className={`relative overflow-hidden bg-card border-border/50 card-hover
           ${featured ? 'aspect-[16/10]' : 'aspect-[16/9]'} fade-in ${isVisible ? 'is-visible' : ''}
           hover:border-gold/50`}
-        style={{ transitionDelay: `${index * 0.15}s` }}
+        style={{ transitionDelay: `${index * stagger}s` }}
       >
         {/* Image */}
         <div className="absolute inset-0">

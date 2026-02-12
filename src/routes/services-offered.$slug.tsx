@@ -93,7 +93,7 @@ function ServicesOfferedPage() {
         >
           <ComboboxInput
             placeholder="Select a service to learn more"
-            className={'w-11/12 md:w-2/5'}
+            className={'w-11/12 md:w-2/5 max-w-[900px] h-14 font-semibold border border-copper'}
             value={currentSelected}
           />
           <ComboboxContent>
@@ -111,23 +111,21 @@ function ServicesOfferedPage() {
         {currentSelected === 'All' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allServices.map((s, index) => (
-              <ServiceCard key={s.slug} service={s} index={index} />
+              <ServiceCard key={s.slug} service={s} index={index} stagger={0.05} />
             ))}
           </div>
         )}
 
         {currentSelected !== 'All' && (
           <>
-            <div className="w-11/12 md:w-2/5 mt-4">
+            <div className="w-11/12 md:w-2/5 max-w-[900px] mt-4">
               <ServiceCard service={service} />
             </div>
             <div className={`py-4 w-full px-2 flex justify-center fade-in is-visible`}>
-              <div className="prose prose-lg w-4xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
+              <div className="prose prose-lg w-6xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
                 <Accordion
-                  type="single"
-                  collapsible
-                  defaultValue="shipping"
-                  className="w-full p-6 bg-gradient-to-br dark:from-card dark:to-charcoal/90 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
+                  type="multiple"
+                  className="w-full p-6 bg-gradient-to-br dark:from-card/25 dark:to-charcoal/50 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
                 >
                   {service.services.map((q: string, i: number) => (
                     <>
