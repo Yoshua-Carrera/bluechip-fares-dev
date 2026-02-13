@@ -12,6 +12,7 @@ export default [
       'neon-vite-plugin.ts',
       '.storybook/*',
       '.content-collections/*',
+      '.netlify',
     ],
   },
 ]
