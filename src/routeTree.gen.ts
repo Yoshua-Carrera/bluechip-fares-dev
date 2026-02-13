@@ -17,6 +17,7 @@ import { Route as ServicesOfferedSlugRouteImport } from './routes/services-offer
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
 import { Route as ApiRemyChatRouteImport } from './routes/api.remy-chat'
+import { Route as ApiContactUsFormIndexRouteImport } from './routes/api/contact-us-form/index'
 import { Route as DemoApiTqTodosRouteImport } from './routes/demo/_api.tq-todos'
 import { Route as DemoApiNamesRouteImport } from './routes/demo/_api.names'
 import { Route as ApiTrpcSplatRouteImport } from './routes/api.trpc.$'
@@ -62,6 +63,11 @@ const ApiRemyChatRoute = ApiRemyChatRouteImport.update({
   path: '/api/remy-chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactUsFormIndexRoute = ApiContactUsFormIndexRouteImport.update({
+  id: '/api/contact-us-form/',
+  path: '/api/contact-us-form/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemoApiTqTodosRoute = DemoApiTqTodosRouteImport.update({
   id: '/demo/_api/tq-todos',
   path: '/demo/tq-todos',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/names': typeof DemoApiNamesRoute
   '/demo/tq-todos': typeof DemoApiTqTodosRoute
+  '/api/contact-us-form/': typeof ApiContactUsFormIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/names': typeof DemoApiNamesRoute
   '/demo/tq-todos': typeof DemoApiTqTodosRoute
+  '/api/contact-us-form': typeof ApiContactUsFormIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +133,7 @@ export interface FileRoutesById {
   '/api/trpc/$': typeof ApiTrpcSplatRoute
   '/demo/_api/names': typeof DemoApiNamesRoute
   '/demo/_api/tq-todos': typeof DemoApiTqTodosRoute
+  '/api/contact-us-form/': typeof ApiContactUsFormIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/api/trpc/$'
     | '/demo/names'
     | '/demo/tq-todos'
+    | '/api/contact-us-form/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
     | '/api/trpc/$'
     | '/demo/names'
     | '/demo/tq-todos'
+    | '/api/contact-us-form'
   id:
     | '__root__'
     | '/'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/api/trpc/$'
     | '/demo/_api/names'
     | '/demo/_api/tq-todos'
+    | '/api/contact-us-form/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,6 +196,7 @@ export interface RootRouteChildren {
   ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
+  ApiContactUsFormIndexRoute: typeof ApiContactUsFormIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -244,6 +257,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiRemyChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact-us-form/': {
+      id: '/api/contact-us-form/'
+      path: '/api/contact-us-form'
+      fullPath: '/api/contact-us-form/'
+      preLoaderRoute: typeof ApiContactUsFormIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/_api/tq-todos': {
       id: '/demo/_api/tq-todos'
       path: '/demo/tq-todos'
@@ -288,6 +308,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiTrpcSplatRoute: ApiTrpcSplatRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoApiTqTodosRoute: DemoApiTqTodosRoute,
+  ApiContactUsFormIndexRoute: ApiContactUsFormIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

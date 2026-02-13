@@ -6,7 +6,8 @@ import { useMaskito } from '@maskito/react'
 import { maskitoPhoneOptionsGenerator } from '@maskito/phone'
 import metadata from 'libphonenumber-js/min/metadata'
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
-import { Info } from 'lucide-react'
+import { Info, MailWarning } from 'lucide-react'
+import type { ContactUsRequest, ContactUsResponse } from '@/models/contact-us.models'
 import { Button } from '@/components/ui/button'
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
@@ -43,7 +44,41 @@ export const Route = createFileRoute('/contact-us/')({
   component: ContactUsPage,
 })
 
+async function postContactForm(data: ContactUsRequest): Promise<ContactUsResponse> {
+  const response = await fetch('/api/contact-us-form/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+
+  if (!response.status) {
+    throw new Error('Failed to submit form')
+  }
+
+  return response.json()
+}
+
 function ContactUsPage() {
+  const successToast = (value: ContactUsRequest) => {
+    toast(`Thanks for contacting us ${value.name}!`, {
+      position: 'bottom-center',
+      richColors: true,
+      style: {
+        backgroundColor: 'var(--primary)',
+        color: 'white',
+        opacity: '80%',
+      },
+      icon: <Info />,
+    })
+  }
+  const errorToast = (message: string) => {
+    toast.error(message, {
+      position: 'bottom-center',
+      richColors: true,
+      icon: <MailWarning />,
+    })
+  }
+
   const maskedInputRef = useMaskito({
     options: maskitoPhoneOptionsGenerator({ countryIsoCode: 'US', metadata }),
   })
@@ -58,17 +93,12 @@ function ContactUsPage() {
     validators: {
       onSubmit: formSchema,
     },
-    onSubmit: ({ value }) => {
-      toast(`Thanks for contacting us ${value.name}!`, {
-        position: 'bottom-center',
-        richColors: true,
-        style: {
-          backgroundColor: 'var(--primary)',
-          color: 'white',
-          opacity: '80%',
-        },
-        icon: <Info />,
-      })
+    onSubmit: async ({ value }) => {
+      const res = await postContactForm(value)
+      if (res.status === 'SUCCESS') {
+        return successToast(value)
+      }
+      errorToast(res.message)
     },
   })
 
