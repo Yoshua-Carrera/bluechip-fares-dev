@@ -13,6 +13,7 @@ export default [
       '.storybook/*',
       '.content-collections/*',
       '.netlify',
+      'src/components/ui/dropzone.tsx',
     ],
   },
 ]
