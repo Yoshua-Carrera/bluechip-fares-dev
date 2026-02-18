@@ -40,35 +40,35 @@ export const Route = createFileRoute('/api/contact-us-form/')({
 
           const insertedId = rows[0]?.id
 
-          // if (process.env.SMTP_USER) {
-          //   // Vendor Email
-          //   await sendEmail({
-          //     to: process.env.SMTP_USER,
-          //     subject: `New client inquiry from ${name} - Inquiry #${insertedId}`,
-          //     text: '',
-          //     html: createVendorEmailHtml({
-          //       inquiryNum: String(insertedId),
-          //       name: name,
-          //       phoneNumber: phone,
-          //       inquiry: inquiry,
-          //       clientEmail: email,
-          //     }),
-          //   })
-          //
-          //   // Client Email
-          //   await sendEmail({
-          //     to: email,
-          //     subject: `Thanks for contacting us, ${name}`,
-          //     text: '',
-          //     html: createClientEmailHtml({
-          //       inquiryNum: String(insertedId),
-          //       name: name,
-          //       phoneNumber: phone,
-          //       inquiry: inquiry,
-          //       contactEmail: process.env.SMTP_USER,
-          //     }),
-          //   })
-          // }
+          if (process.env.SMTP_USER) {
+            // Vendor Email
+            await sendEmail({
+              to: process.env.SMTP_USER,
+              subject: `New client inquiry from ${name} - Inquiry #${insertedId}`,
+              text: '',
+              html: createVendorEmailHtml({
+                inquiryNum: String(insertedId),
+                name: name,
+                phoneNumber: phone,
+                inquiry: inquiry,
+                clientEmail: email,
+              }),
+            })
+
+            // Client Email
+            await sendEmail({
+              to: email,
+              subject: `Thanks for contacting us, ${name}`,
+              text: '',
+              html: createClientEmailHtml({
+                inquiryNum: String(insertedId),
+                name: name,
+                phoneNumber: phone,
+                inquiry: inquiry,
+                contactEmail: process.env.SMTP_USER,
+              }),
+            })
+          }
 
           console.info(`Successfully posted contact us form: ${JSON.stringify({ data: res })}`)
           console.info(`Successfully emailed: client ${email} inquiry #${insertedId}`)
