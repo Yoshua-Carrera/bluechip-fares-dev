@@ -1,3 +1,12 @@
+--
+-- PostgreSQL database dump
+--
+
+\restrict 1TGiPgapG0HLMWZ99Py0TLzLOBjdn98QepfWa3VRBRub6DFrZD1IYDfMVsiBGN6
+
+-- Dumped from database version 17.7 (bdd1736)
+-- Dumped by pg_dump version 17.7
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -24,7 +33,10 @@ CREATE TABLE public.contact_us_form (
     customer_email character varying NOT NULL,
     customer_phone character varying NOT NULL,
     customer_request character varying NOT NULL,
-    image character varying
+    image character varying,
+    resolved boolean DEFAULT false,
+    iso_date character varying DEFAULT to_char(now(), 'YYYY-MM-DD"T"HH24:MI:SS.MSZ'::text),
+    expiration_iso_date character varying DEFAULT to_char((now() + '14 days'::interval), 'YYYY-MM-DD"T"HH24:MI:SS.MSZ'::text)
 );
 
 
@@ -50,3 +62,12 @@ ALTER TABLE public.contact_us_form ALTER COLUMN id ADD GENERATED ALWAYS AS IDENT
 
 ALTER TABLE ONLY public.contact_us_form
     ADD CONSTRAINT contact_us_form_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\unrestrict 1TGiPgapG0HLMWZ99Py0TLzLOBjdn98QepfWa3VRBRub6DFrZD1IYDfMVsiBGN6
+
+

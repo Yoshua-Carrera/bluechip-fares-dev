@@ -114,7 +114,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   const themeScript = `
   (function () {
     const stored = localStorage.getItem("vite-ui-theme")
-    console.log(stored)
     const root = window.document.documentElement
     root.classList.remove('light', 'dark')
     if (stored === 'system') {

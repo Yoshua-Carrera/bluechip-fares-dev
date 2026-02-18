@@ -9,7 +9,7 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import { Info, MailWarning } from 'lucide-react'
 import type { ContactUsRequest, ContactUsResponse } from '@/models/contact-us.models'
 import { Button } from '@/components/ui/button'
-import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
+import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import {
   InputGroup,
@@ -17,9 +17,9 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from '@/components/ui/input-group'
+import { ImageUploader } from '@/components/ImageUploader'
+import { useDropzone } from '@/components/ui/dropzone'
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
-const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif']
 const formSchema = z.object({
   name: z.string().nonempty('This field is required'),
   email: z.email('Please enter a valid email'),
@@ -31,13 +31,7 @@ const formSchema = z.object({
     .string()
     .min(10, 'Inquiry must be at least 10 characters long')
     .max(200, 'Inquiry must be at most 200 characters long'),
-  image: z
-    .any()
-    .nullable()
-    .refine((file) => {
-      if (!file) return true
-      return ACCEPTED_IMAGE_TYPES.includes(file.type) && file.size <= MAX_FILE_SIZE
-    }),
+  image: z.any().nullable(),
 })
 
 export const Route = createFileRoute('/contact-us/')({
@@ -59,6 +53,25 @@ async function postContactForm(data: ContactUsRequest): Promise<ContactUsRespons
 }
 
 function ContactUsPage() {
+  const dropzone = useDropzone({
+    onDropFile: async (file: File) => {
+      const blob = await file.bytes()
+      form.setFieldValue('image', JSON.stringify(blob))
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      return {
+        status: 'success',
+        result: URL.createObjectURL(file),
+      }
+    },
+    validation: {
+      accept: {
+        'image/*': ['.png', '.jpg', '.jpeg'],
+      },
+      maxSize: 10 * 1024 * 1024,
+      maxFiles: 1,
+    },
+  })
+
   const successToast = (value: ContactUsRequest) => {
     toast(`Thanks for contacting us ${value.name}!`, {
       position: 'bottom-center',
@@ -96,6 +109,10 @@ function ContactUsPage() {
     onSubmit: async ({ value }) => {
       const res = await postContactForm(value)
       if (res.status === 'SUCCESS') {
+        if (dropzone.fileStatuses.length) {
+          dropzone.onRemoveFile(dropzone.fileStatuses[0].id)
+        }
+        form.reset()
         return successToast(value)
       }
       errorToast(res.message)
@@ -231,21 +248,24 @@ function ContactUsPage() {
                   )
                 }}
               />
-              {/* <form.Field */}
-              {/*   name="image" */}
-              {/*   children={(field) => { */}
-              {/*     return ( */}
-              {/*       <Field> */}
-              {/*         <FieldLabel htmlFor="picture">Picture</FieldLabel> */}
-              {/*         <Input type="file" id={field.name} name={field.name} /> */}
-              {/*         <FieldDescription>Select a picture to upload.</FieldDescription> */}
-              {/*       </Field> */}
-              {/*     ) */}
-              {/*   }} */}
-              {/* /> */}
+              <form.Field
+                name="image"
+                children={(field) => {
+                  return (
+                    <Field>
+                      <ImageUploader
+                        dropzone={dropzone}
+                        id={field.name}
+                        name={field.name}
+                      ></ImageUploader>
+                      <FieldDescription>Select a picture to upload.</FieldDescription>
+                    </Field>
+                  )
+                }}
+              />
             </FieldGroup>
             <Button
-              className="mt-12 bg-gradient-to-t dark:from-copper/60 dark:to-copper light:from-primary/60 light:to-primary border border-white/25 text text-md"
+              className="mt-12 bg-gradient-to-t dark:bg-transparent dark:border dark:border-copper light:from-primary/60 light:to-primary border border-white/25 text text-xl text-white font-bold"
               size={'lg'}
               type="submit"
             >
