@@ -2,7 +2,6 @@ import { CloudUploadIcon, Trash2Icon } from 'lucide-react'
 import {
   DropZoneArea,
   Dropzone,
-  DropzoneDescription,
   DropzoneFileList,
   DropzoneFileListItem,
   DropzoneMessage,
@@ -21,7 +20,6 @@ export function ImageUploader(props: {
       <Dropzone {...props.dropzone}>
         <div>
           <div className="flex justify-between">
-            <DropzoneDescription>Please select up to 10 images</DropzoneDescription>
             <DropzoneMessage />
           </div>
           <DropZoneArea>

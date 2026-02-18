@@ -9,7 +9,7 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import { Info, MailWarning } from 'lucide-react'
 import type { ContactUsRequest, ContactUsResponse } from '@/models/contact-us.models'
 import { Button } from '@/components/ui/button'
-import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import {
   InputGroup,
@@ -253,12 +253,14 @@ function ContactUsPage() {
                 children={(field) => {
                   return (
                     <Field>
+                      <FieldLabel htmlFor={field.name}>
+                        Picture<span className="text-red-600 text-[0.65rem]">(optional)</span>
+                      </FieldLabel>
                       <ImageUploader
                         dropzone={dropzone}
                         id={field.name}
                         name={field.name}
                       ></ImageUploader>
-                      <FieldDescription>Select a picture to upload.</FieldDescription>
                     </Field>
                   )
                 }}
