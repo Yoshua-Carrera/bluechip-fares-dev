@@ -254,7 +254,7 @@ function ContactUsPage() {
                   return (
                     <Field>
                       <FieldLabel htmlFor={field.name}>
-                        Picture<span className="text-red-600 text-[0.65rem]">(optional)</span>
+                        Picture<span className="text-[0.75rem]">(optional)</span>
                       </FieldLabel>
                       <ImageUploader
                         dropzone={dropzone}
