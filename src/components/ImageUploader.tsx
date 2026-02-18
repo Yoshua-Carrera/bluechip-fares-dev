@@ -1,15 +1,15 @@
+import { CloudUploadIcon, Trash2Icon } from 'lucide-react'
 import {
-  Dropzone,
   DropZoneArea,
+  Dropzone,
   DropzoneDescription,
   DropzoneFileList,
   DropzoneFileListItem,
   DropzoneMessage,
   DropzoneRemoveFile,
   DropzoneTrigger,
-  UseDropzoneReturn,
 } from './ui/dropzone'
-import { CloudUploadIcon, Trash2Icon } from 'lucide-react'
+import type { UseDropzoneReturn } from './ui/dropzone'
 
 export function ImageUploader(props: {
   dropzone: UseDropzoneReturn<string, string>

@@ -1,9 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { createClientEmailHtml } from './client-email'
+import { createVendorEmailHtml } from './vendor-email'
 import type { ContactUsRequest } from '@/models/contact-us.models'
 import { getClient } from '@/db'
 import { sendEmail } from '@/utils/email.utils'
-import { createVendorEmailHtml } from './vendor-email'
 
 export const Route = createFileRoute('/api/contact-us-form/')({
   server: {

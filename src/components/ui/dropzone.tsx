@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils'
 import {
   createContext,
   forwardRef,
@@ -9,9 +8,11 @@ import {
   useReducer,
   useState,
 } from 'react'
-import { Accept, FileRejection, useDropzone as rootUseDropzone } from 'react-dropzone'
+import { useDropzone as rootUseDropzone } from 'react-dropzone'
 import { Button } from './button'
-import { ButtonProps } from '@base-ui/react'
+import type { ButtonProps } from '@base-ui/react'
+import type { Accept, FileRejection } from 'react-dropzone'
+import { cn } from '@/lib/utils'
 
 type DropzoneResult<TUploadRes, TUploadError> =
   | {
@@ -50,7 +51,7 @@ export type FileStatus<TUploadRes, TUploadError> = {
 )
 
 const fileStatusReducer = <TUploadRes, TUploadError>(
-  state: FileStatus<TUploadRes, TUploadError>[],
+  state: Array<FileStatus<TUploadRes, TUploadError>>,
   action:
     | {
         type: 'add'
@@ -66,7 +67,7 @@ const fileStatusReducer = <TUploadRes, TUploadError>(
         type: 'update-status'
         id: string
       } & DropzoneResult<TUploadRes, TUploadError>),
-): FileStatus<TUploadRes, TUploadError>[] => {
+): Array<FileStatus<TUploadRes, TUploadError>> => {
   switch (action.type) {
     case 'add':
       return [
@@ -84,7 +85,6 @@ const fileStatusReducer = <TUploadRes, TUploadError>(
     case 'update-status':
       return state.map((fileStatus) => {
         if (fileStatus.id === action.id) {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { id, type, ...rest } = action
           return {
             ...fileStatus,
@@ -104,17 +104,17 @@ const dropZoneErrorCodes = [
   'too-many-files',
 ] as const
 
-const getDropZoneErrorCodes = (fileRejections: FileRejection[]) => {
+const getDropZoneErrorCodes = (fileRejections: Array<FileRejection>) => {
   const errors = fileRejections.map((rejection) => {
     return rejection.errors
       .filter((error) => dropZoneErrorCodes.includes(error.code as DropZoneErrorCode))
-      .map((error) => error.code) as DropZoneErrorCode[]
+      .map((error) => error.code) as Array<DropZoneErrorCode>
   })
   return Array.from(new Set(errors.flat()))
 }
 
 const getRootError = (
-  errorCodes: DropZoneErrorCode[],
+  errorCodes: Array<DropZoneErrorCode>,
   limits: {
     accept?: Accept
     maxSize?: number
@@ -177,7 +177,7 @@ export interface UseDropzoneReturn<TUploadRes, TUploadError> {
   onRemoveFile: (id: string) => Promise<void>
   onRetry: (id: string) => Promise<void>
   canRetry: (id: string) => boolean
-  fileStatuses: FileStatus<TUploadRes, TUploadError>[]
+  fileStatuses: Array<FileStatus<TUploadRes, TUploadError>>
   isInvalid: boolean
   isDragActive: boolean
   rootError: string | undefined
@@ -345,14 +345,13 @@ const useDropzone = <TUploadRes, TUploadError = string>(
     onRemoveFile,
     onRetry,
     canRetry,
-    fileStatuses: fileStatuses as FileStatus<TUploadRes, TUploadError>[],
+    fileStatuses: fileStatuses as Array<FileStatus<TUploadRes, TUploadError>>,
     isInvalid,
     rootError,
     isDragActive: dropzone.isDragActive,
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DropZoneContext = createContext<UseDropzoneReturn<any, any>>({
   getRootProps: () => ({}) as never,
   getInputProps: () => ({}) as never,
