@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/38b27f65-5868-49e8-8e3f-7ae944ebd4d6/deploy-status)](https://app.netlify.com/projects/bluechip-fares/deploys)
+
 # Bluechip Fares
 
 This project serves as a demonstration application showcasing various features and integrations.
