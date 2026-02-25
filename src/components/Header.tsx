@@ -55,7 +55,7 @@ export default function Header() {
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-gray-800/10 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
             <Home className="text-[var(--accent-foreground)]" size={20} />
@@ -71,7 +71,7 @@ export default function Header() {
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-gray-800/10 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
             <Briefcase className="text-[var(--accent-foreground)]" size={20} />
@@ -84,7 +84,7 @@ export default function Header() {
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-gray-800/10 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
             <GalleryHorizontal className="text-[var(--accent-foreground)]" size={20} />
@@ -97,7 +97,7 @@ export default function Header() {
             className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 light:hover:bg-gray-800/10 transition-colors mb-2"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
+                'flex items-center gap-3 p-3 rounded-lg bg-gray-800/10 hover:bg-cyan-700 transition-colors mb-2',
             }}
           >
             <Contact className="text-[var(--accent-foreground)]" size={20} />
@@ -107,7 +107,7 @@ export default function Header() {
           {/* Demo Links End */}
         </nav>
 
-        <div className="p-4 border-t border-gray-700 bg-gray-800 flex flex-row gap-2 flex justify-center">
+        <div className="p-4 border-t border-gray-700 bg-gray-800/10 flex flex-row gap-2 flex justify-center">
           {/* TODO: Add Auth portal  */}
           {/* <BetterAuthHeader /> */}
           {/* <RemyButton /> */}

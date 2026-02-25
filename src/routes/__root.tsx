@@ -31,6 +31,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
+import Footer from '@/components/Footer'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -135,6 +136,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <ThemeProvider>
           <Header />
           {children}
+          <Footer />
           {isDialogOpen && (
             <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(!isDialogOpen)}>
               <DialogContent>
