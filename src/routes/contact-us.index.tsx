@@ -6,7 +6,7 @@ import { useMaskito } from '@maskito/react'
 import { maskitoPhoneOptionsGenerator } from '@maskito/phone'
 import metadata from 'libphonenumber-js/min/metadata'
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
-import { Info, MailWarning } from 'lucide-react'
+import { Info, Mail, MailWarning, MapPin, Phone } from 'lucide-react'
 import type { ContactUsRequest, ContactUsResponse } from '@/models/contact-us.models'
 import { Button } from '@/components/ui/button'
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
@@ -120,7 +120,7 @@ function ContactUsPage() {
   })
 
   return (
-    <section className="pt-6 px-6">
+    <section className="pt-6 px-6 flex flex-col justify-center items-center">
       <div className="relative py-8 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-4">
@@ -129,8 +129,56 @@ function ContactUsPage() {
         </div>
       </div>
 
-      <div className="mt-8 max-w-4xl mx-auto text-center">
-        <div className="relative p-12 rounded-3xl bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 border border-[var(--accent-foreground)]/30 overflow-hidden shadow-md shadow-primary/20">
+      <div className="mt-8 text-center flex items-center justify-center flex-col 2xl:flex-row w-9/10 gap-4">
+        <div className="w-full 2xl:w-3/10 h-full rounded-3xl flex flex-col justify-center p-8 self-start">
+          <h1 className="font-display text-3xl 2xl:text-5xl font-bold text-[var(--accent-foreground)] mb-6 leading-tight self-start text-left mb-12">
+            Contact <span className="italic text-copper">information</span>
+          </h1>
+          <ul className="space-y-4 text-left  text-xl self-start">
+            <li className="flex items-start">
+              <div className="flex-shrink-0">
+                <MapPin className="h-6 w-6 text-copper" />
+              </div>
+              <div
+                onClick={() =>
+                  window.open(
+                    'https://www.google.com/maps/place/5900+Balcones+Dr,+Austin,+TX+78731/@30.3416502,-97.7597088,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cae2feb064b3:0xfbcc19243aa6ddc0!8m2!3d30.3416503!4d-97.7548379!16s%2Fg%2F11c23lk3gj?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D',
+                    '_blank',
+                  )
+                }
+                className="ml-4 cursor-pointer"
+              >
+                <p className="text-gray-200 light:text-black hover:text-copper">
+                  5900 Balcones Dr #28454 <br />
+                  <span>Austin, TX 78731</span>
+                </p>
+              </div>
+            </li>
+            <li className="flex items-center">
+              <div className="flex-shrink-0">
+                <Phone className="h-6 w-6 text-copper" />
+              </div>
+              <a href="tel:9402757574" className="ml-4">
+                <p className="text-gray-200 light:text-black">
+                  <span className="underline hover:text-copper">(940) 275-7574</span>
+                </p>
+              </a>
+            </li>
+            <li className="flex items-center">
+              <div className="flex-shrink-0">
+                <Mail className="h-6 w-6 text-copper" />
+              </div>
+              <a
+                href="mailto:contact@bluechipfares.com"
+                className="ml-4 hover:text-copper text-gray-200 light:text-black"
+              >
+                contact@bluechipfares.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div></div>
+        <div className="w-full 2xl:w-7/10 relative p-12 rounded-3xl bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 border border-[var(--accent-foreground)]/30 overflow-hidden shadow-md shadow-primary/20">
           <form
             onSubmit={(e) => {
               e.preventDefault()
