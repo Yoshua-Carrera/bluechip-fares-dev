@@ -125,13 +125,15 @@ function ServicesOfferedPage() {
               <div className="prose prose-lg w-6xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
                 <Accordion
                   type="multiple"
-                  className="w-full p-6 bg-gradient-to-br dark:from-card/25 dark:to-charcoal/50 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
+                  className="w-full p-6 dark:bg-gradient-to-br dark:from-card/25 dark:to-charcoal/50 border border-copper/30 rounded-lg"
                 >
                   {service.services.map((q: string, i: number) => (
                     <>
                       <AccordionItem value={q + i}>
-                        <AccordionTrigger className="text-copper/70 mb-2">{q}</AccordionTrigger>
-                        <AccordionContent className="text-[var(--accent-foreground)]">
+                        <AccordionTrigger className="dark:text-cream light:text-black">
+                          {q}
+                        </AccordionTrigger>
+                        <AccordionContent className="pl-4 dark:text-white/90 light:text-black/90">
                           {service.serviceDescriptions[i]}
                         </AccordionContent>
                       </AccordionItem>
