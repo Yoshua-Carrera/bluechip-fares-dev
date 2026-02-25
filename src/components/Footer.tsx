@@ -9,7 +9,7 @@ export default function Footer() {
       <footer className="bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 py-16 text-white shadow-sm shadow-copper">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-between">
-            <div className="w-full md:w-1/4 mb-8 md:mb-0">
+            <div className="w-full md:w-1/4 mb-8 md:mb-0 flex items-center justify-center">
               <BluechipLogoComplete className="h-55  light:[--logo-fill-cls-2:var(--logo)] light:[--logo-fill-cls-3:var(--logo)] light:[--logo-stroke-cls-1:var(--logo)] " />
             </div>
             <div className="w-full md:w-1/4 mb-8 md:mb-0">
@@ -19,9 +19,25 @@ export default function Footer() {
               >
                 <h3 className="text-lg font-bold mb-4">Contact Us</h3>
               </a>
-              <p className="text-gray-400 light:text-black">123 Main Street</p>
-              <p className="text-gray-400 light:text-black">Anytown, USA 12345</p>
-              <p className="text-gray-400 light:text-black">Phone: (123) 456-7890</p>
+              <div
+                onClick={() =>
+                  window.open(
+                    'https://www.google.com/maps/place/5900+Balcones+Dr,+Austin,+TX+78731/@30.3416502,-97.7597088,17z/data=!3m1!4b1!4m6!3m5!1s0x8644cae2feb064b3:0xfbcc19243aa6ddc0!8m2!3d30.3416503!4d-97.7548379!16s%2Fg%2F11c23lk3gj?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D',
+                    '_blank',
+                  )
+                }
+              >
+                <p className="text-gray-400 light:text-black hover:text-copper">
+                  5900 Balcones Dr #28454 <br />
+                  <span>Austin, TX 78731</span>
+                </p>
+              </div>
+              <a href="tel:9402757574">
+                <p className="text-gray-400 light:text-black">
+                  Phone:
+                  <span className="underline hover:text-copper">(940) 275-7574</span>
+                </p>
+              </a>
               <p className="text-gray-400 light:text-black">
                 Email:{' '}
                 <a href="mailto:contact@bluechipfares.com" className="hover:text-copper">
@@ -50,20 +66,20 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            <div className="w-full md:w-1/4">
-              <h3 className="text-lg font-semibold mb-4 light:text-black">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 light:text-black hover:text-copper">
-                  Facebook
-                </a>
-                <a href="#" className="text-gray-400 light:text-black hover:text-copper">
-                  Instagram
-                </a>
-                <a href="#" className="text-gray-400 light:text-black hover:text-copper">
-                  Twitter
-                </a>
-              </div>
-            </div>
+            {/* <div className="w-full md:w-1/4"> */}
+            {/*   <h3 className="text-lg font-semibold mb-4 light:text-black">Follow Us</h3> */}
+            {/*   <div className="flex space-x-4"> */}
+            {/*     <a href="#" className="text-gray-400 light:text-black hover:text-copper"> */}
+            {/*       Facebook */}
+            {/*     </a> */}
+            {/*     <a href="#" className="text-gray-400 light:text-black hover:text-copper"> */}
+            {/*       Instagram */}
+            {/*     </a> */}
+            {/*     <a href="#" className="text-gray-400 light:text-black hover:text-copper"> */}
+            {/*       Twitter */}
+            {/*     </a> */}
+            {/*   </div> */}
+            {/* </div> */}
           </div>
           <div className="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400/50 light:text-black/50">
             <p className="flex justify-center items-center">

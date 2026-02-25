@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-background p-4 flex items-center justify-between text-white shadow-sm shadow-copper">
+      <header className="bg-gradient-to-br dark:from-card dark:to-charcoal-80 light:from-card/50 light:to-copper/10 p-4 flex items-center justify-between text-white shadow-sm shadow-copper">
         <button
           onClick={() => setIsOpen(true)}
           className="p-2 hover:bg-background rounded-lg transition-colors light:text-[var(--logo)]"
