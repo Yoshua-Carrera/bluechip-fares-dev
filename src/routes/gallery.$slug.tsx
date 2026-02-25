@@ -94,14 +94,12 @@ function GalleryDetailPage() {
         <div className="prose prose-lg w-6xl prose-invert prose-p:text-cream/80 prose-headings:text-cream prose-headings:font-display prose-strong:text-cream prose-a:text-gold font-body text-lg leading-relaxed flex justify-center">
           <Accordion
             type="multiple"
-            className="w-full p-6 bg-gradient-to-br dark:from-card/25 dark:to-charcoal/50 light:from-card/50 light:to-copper/10 border border-copper/30 rounded-lg"
+            className="w-full p-6 bg-gradient-to-br dark:from-card/25 dark:to-charcoal/50 light:from-card/5 light:to-copper/5 border border-copper/30 rounded-lg"
           >
             {gallery.questions.map((q: string, i: number) => (
               <>
                 <AccordionItem value={q + i}>
-                  <AccordionTrigger className="text-[var(--accent-foreground)] mb-2">
-                    {q}
-                  </AccordionTrigger>
+                  <AccordionTrigger className="text-copper/70 mb-2">{q}</AccordionTrigger>
                   <AccordionContent className="text-[var(--accent-foreground)]">
                     {gallery.answers[i]}
                   </AccordionContent>
