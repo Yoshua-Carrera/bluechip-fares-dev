@@ -1,0 +1,19 @@
+name: Code quality check
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          node-version: 20
+
+      - name: run sanity
+        run: pnpm install --frozen-lockfile
+        run: pnpm run sanity
