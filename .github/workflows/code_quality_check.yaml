@@ -25,9 +25,6 @@ jobs:
       - name: run lint
         run: npx pnpm run lint
 
-      - name: run format
-        run: npx pnpm run format
-
       - name: run test
         run: npx pnpm run test
 

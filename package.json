@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
-    "format": "prettier .",
+    "format": "prettier . --c",
     "pretty": "prettier --write . && eslint --fix",
     "sanity": "pnpm build && pnpm pretty",
     "storybook": "storybook dev -p 6006",
