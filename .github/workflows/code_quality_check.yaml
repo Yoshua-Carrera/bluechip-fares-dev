@@ -17,7 +17,7 @@ jobs:
           node-version: 20
 
       - name: run frozen install
-        run: pnpm install --frozen-lockfile
+        run: npx pnpm install --frozen-lockfile
           
       - name: run sanity
-        run: pnpm run sanity
+        run: npx pnpm run sanity
