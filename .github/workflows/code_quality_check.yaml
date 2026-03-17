@@ -1,0 +1,32 @@
+name: Code quality check
+on:
+  pull_request:
+    branches:
+      - develop
+  push:
+    branches:
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          node-version: 20
+
+      - name: run frozen install
+        run: npx pnpm install --frozen-lockfile
+
+      - name: run format
+        run: npx pnpm run format
+
+      - name: run lint
+        run: npx pnpm run lint
+
+      - name: run test
+        run: npx pnpm run test
+
+      - name: run build
+        run: npx pnpm run build
