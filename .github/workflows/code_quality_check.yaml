@@ -23,7 +23,6 @@ jobs:
 
       - run: node --version
       - run: pnpm --version
-      - run: cat pnpm-workspace.yaml
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm run format
