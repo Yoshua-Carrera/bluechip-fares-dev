@@ -20,11 +20,11 @@ function GalleryPage() {
         {/* Hero section */}
         <div className="relative py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-[var(--accent-foreground)] mb-4">
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-accent-foreground mb-4">
               From <span className="text-copper italic">Plans</span> To{' '}
               <span className="text-copper italic">Reality</span>
             </h1>
-            <p className="text-xl text-[var(--accent-foreground)] max-w-2xl mx-auto font-body">
+            <p className="text-xl text-accent-foreground max-w-2xl mx-auto font-body">
               Hand-crafted with quality, detail, and pride
             </p>
           </div>
