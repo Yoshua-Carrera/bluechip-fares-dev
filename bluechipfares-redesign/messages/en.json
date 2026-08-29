@@ -1,0 +1,60 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "nav_home": "Home",
+  "nav_services": "Services offered",
+  "nav_gallery": "Gallery",
+  "nav_contact": "Contact us",
+  "nav_menu": "Menu",
+  "nav_close": "Close",
+
+  "theme_toggle_label": "Toggle theme",
+
+  "hero_eyebrow": "Frisco, TX — family-owned",
+  "hero_lead": "Fixing homes, building ",
+  "hero_accent": "trust.",
+  "hero_sub": "Construction, renovation and remodeling across North Texas. One project at a time, seven days a week.",
+  "hero_cta_work": "Look at our work",
+  "hero_cta_advice": "Get honest advice",
+
+  "stat_contractors": "Contractors",
+  "stat_services": "Services offered",
+  "stat_days": "Days a week",
+
+  "work_lead": "Featured",
+  "work_accent": "Work",
+  "work_desc": "Take a look at our past work",
+  "work_view_all": "View work gallery",
+  "work_project_1": "Kitchen remodeling, cabinet installation",
+  "work_project_1_loc": "Celina, TX",
+  "work_project_2": "Bathroom remodeling",
+  "work_project_3": "Wood accent wall",
+
+  "svc_lead": "Service",
+  "svc_accent": "Catalog",
+  "svc_desc": "Six trades, one crew you already know",
+  "svc_view_all": "View all services",
+  "svc_painting_title": "Painting services",
+  "svc_painting_blurb": "Interior and exterior, with texture and trim repairs included.",
+  "svc_flooring_title": "Flooring and tile",
+  "svc_flooring_blurb": "Tile, hardwood and vinyl plank, set level and sealed.",
+  "svc_housekeeping_title": "Housekeeping",
+  "svc_housekeeping_blurb": "Deep cleans and post-construction turnovers.",
+  "svc_landscaping_title": "Landscaping",
+  "svc_landscaping_blurb": "Beds, sod, lighting and everything that frames the house.",
+  "svc_resurfacing_title": "Resurfacing",
+  "svc_resurfacing_blurb": "Cabinets, counters and tubs brought back without a full tear-out.",
+  "svc_ac_title": "Air conditioning",
+  "svc_ac_blurb": "Service, repair and replacement before the Texas summer.",
+
+  "cta_pill": "No pitch, just advice",
+  "cta_lead": "Need help with your next",
+  "cta_accent": "project?",
+  "cta_desc": "Tell us what's stopping you and we'll create a space that fits your life, your style, and your budget.",
+  "cta_button": "Contact us",
+
+  "footer_blurb": "Family-owned construction, renovation and remodeling in Frisco, TX.",
+  "footer_pages": "Pages",
+  "footer_contact": "Contact",
+  "footer_rights": "All rights reserved."
+}
