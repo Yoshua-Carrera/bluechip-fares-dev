@@ -1,0 +1,60 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "nav_home": "Ana sayfa",
+  "nav_services": "Hizmetler",
+  "nav_gallery": "Galeri",
+  "nav_contact": "İletişim",
+  "nav_menu": "Menü",
+  "nav_close": "Kapat",
+
+  "theme_toggle_label": "Temayı değiştir",
+
+  "hero_eyebrow": "Frisco, TX — aile şirketi",
+  "hero_lead": "Evleri onarıyoruz, ",
+  "hero_accent": "güven inşa ediyoruz.",
+  "hero_sub": "Kuzey Teksas genelinde inşaat, yenileme ve tadilat. Haftanın yedi günü, tek seferde bir proje.",
+  "hero_cta_work": "İşlerimize göz atın",
+  "hero_cta_advice": "Dürüst tavsiye alın",
+
+  "stat_contractors": "Müteahhit",
+  "stat_services": "Hizmet",
+  "stat_days": "Gün / hafta",
+
+  "work_lead": "Öne çıkan",
+  "work_accent": "İşler",
+  "work_desc": "Geçmiş projelerimize bir göz atın",
+  "work_view_all": "Tüm galeriyi görün",
+  "work_project_1": "Mutfak tadilatı, dolap montajı",
+  "work_project_1_loc": "Celina, TX",
+  "work_project_2": "Banyo tadilatı",
+  "work_project_3": "Ahşap aksan duvar",
+
+  "svc_lead": "Hizmet",
+  "svc_accent": "Kataloğu",
+  "svc_desc": "Altı meslek, zaten tanıdığınız tek bir ekip",
+  "svc_view_all": "Tüm hizmetleri görün",
+  "svc_painting_title": "Boya hizmetleri",
+  "svc_painting_blurb": "İç ve dış cephe; doku ve süpürgelik onarımları dahil.",
+  "svc_flooring_title": "Zemin ve fayans",
+  "svc_flooring_blurb": "Fayans, sert ahşap ve vinil, tesviyeli ve mühürlü.",
+  "svc_housekeeping_title": "Ev temizliği",
+  "svc_housekeeping_blurb": "Derin temizlik ve inşaat sonrası teslimat.",
+  "svc_landscaping_title": "Peyzaj",
+  "svc_landscaping_blurb": "Bahçeler, çim, aydınlatma ve evi çerçeveleyen her şey.",
+  "svc_resurfacing_title": "Yüzey yenileme",
+  "svc_resurfacing_blurb": "Dolaplar, tezgahlar ve küvetler tamamen sökülmeden yenilenir.",
+  "svc_ac_title": "Klima",
+  "svc_ac_blurb": "Teksas yazından önce servis, onarım ve değişim.",
+
+  "cta_pill": "Satış konuşması yok, sadece tavsiye",
+  "cta_lead": "Bir sonraki projenizde yardıma mı ihtiyacınız var,",
+  "cta_accent": "başlayalım mı?",
+  "cta_desc": "Sizi durduran nedir bize anlatın; hayatınıza, tarzınıza ve bütçenize uygun bir alan yaratalım.",
+  "cta_button": "Bize ulaşın",
+
+  "footer_blurb": "Frisco, TX'te aile işletmesi inşaat, yenileme ve tadilat.",
+  "footer_pages": "Sayfalar",
+  "footer_contact": "İletişim",
+  "footer_rights": "Tüm hakları saklıdır."
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if git symbolic-ref --short HEAD >/dev/null 2>&1; then
+  message=$(cat "$1")
+  case "$message" in
+  "feature: "*) ;;
+  *)
+    printf '%s\n' "feature: $message" >"$1"
+    ;;
+  esac
+fi
