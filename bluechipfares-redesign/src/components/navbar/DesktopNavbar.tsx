@@ -3,7 +3,6 @@ import { Logo } from '#/components/logo/Logo'
 import { LocaleSwitch } from '#/components/navbar/LocaleSwitch'
 import { ThemeToggle } from '#/components/theme-toggle/ThemeToggle'
 
-
 interface DesktopNavbarProps {
   items: Array<NavItem>
   scrolled: boolean

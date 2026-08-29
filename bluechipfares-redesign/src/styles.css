@@ -304,17 +304,17 @@ html[data-theme='light'] {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-html,
-body,
-#app {
-  min-height: 100%;
+html {
+  height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100%;
   background: var(--surface-page);
   color: var(--text-body);
   font-family: var(--font-body);
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

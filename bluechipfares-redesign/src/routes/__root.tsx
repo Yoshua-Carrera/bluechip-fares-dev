@@ -15,8 +15,6 @@ import type { QueryClient } from '@tanstack/react-query'
 import { getLocale } from '#/paraglide/runtime'
 import { ThemeProvider, themeInitScript } from '#/context/theme'
 
-
-
 interface MyRouterContext {
   queryClient: QueryClient
 }

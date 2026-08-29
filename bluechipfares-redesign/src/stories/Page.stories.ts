@@ -1,4 +1,3 @@
-
 import { expect, userEvent, within } from 'storybook/test'
 
 import { Route } from './Page'

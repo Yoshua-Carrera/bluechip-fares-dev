@@ -10,7 +10,6 @@ export function LandingPage() {
   return (
     <div
       style={{
-        minHeight: '100%',
         background: 'var(--surface-page)',
         color: 'var(--text-body)',
         fontFamily: 'var(--font-body)',

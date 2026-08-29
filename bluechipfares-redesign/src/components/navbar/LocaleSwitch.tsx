@@ -1,4 +1,4 @@
-import { getLocale, locales, localizeUrl, setLocale } from '#/paraglide/runtime'
+import { getLocale, locales, setLocale } from '#/paraglide/runtime'
 
 interface LocaleSwitchProps {
   tone?: 'on-photo' | 'on-chrome'
@@ -15,13 +15,6 @@ export function LocaleSwitch({ tone = 'on-chrome' }: LocaleSwitchProps) {
     : 'var(--chrome-foreground-muted)'
   const base = onPhoto ? 'var(--on-photo)' : 'var(--chrome-foreground)'
   const active = onPhoto ? 'var(--copper-light)' : 'var(--text-accent)'
-
-  console.log('locale:', getLocale())
-  console.log('localized:', localizeUrl(window.location.href))
-  console.log(
-    'localized tr:',
-    localizeUrl(window.location.href, { locale: 'tr' }),
-  )
 
   return (
     <div

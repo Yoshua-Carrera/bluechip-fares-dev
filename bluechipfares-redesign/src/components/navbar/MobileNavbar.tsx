@@ -7,7 +7,6 @@ import { LocaleSwitch } from '#/components/navbar/LocaleSwitch'
 import { ThemeToggle } from '#/components/theme-toggle/ThemeToggle'
 import { m } from '#/paraglide/messages'
 
-
 interface MobileNavbarProps {
   items: Array<NavItem>
   scrolled: boolean
