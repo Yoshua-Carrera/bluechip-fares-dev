@@ -15,7 +15,8 @@
     "check-types": "tsc --noEmit",
     "precommit": "pnpm pretty && pnpm build && pnpm check-types",
     "paragen": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
