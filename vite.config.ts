@@ -1,4 +1,5 @@
 import { URL, fileURLToPath } from 'node:url'
+import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
@@ -18,6 +19,11 @@ const config = defineConfig({
     },
   },
   plugins: [
+    paraglideVitePlugin({
+      project: './project.inlang',
+      outdir: './src/paraglide',
+      strategy: ['cookie', 'baseLocale'],
+    }),
     devtools(),
     netlify(),
     !process.env.VITEST && neon,

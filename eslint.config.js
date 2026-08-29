@@ -14,6 +14,7 @@ export default [
       '.content-collections/*',
       '.netlify',
       'src/components/ui/dropzone.tsx',
+      '**/paraglide/**/*',
     ],
   },
 ]

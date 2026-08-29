@@ -16,7 +16,6 @@ import { Route as ContactUsIndexRouteImport } from './routes/contact-us.index'
 import { Route as ServicesOfferedSlugRouteImport } from './routes/services-offered.$slug'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
-import { Route as ApiRemyChatRouteImport } from './routes/api.remy-chat'
 import { Route as ApiContactUsFormIndexRouteImport } from './routes/api/contact-us-form/index'
 import { Route as DemoApiTqTodosRouteImport } from './routes/demo/_api.tq-todos'
 import { Route as DemoApiNamesRouteImport } from './routes/demo/_api.names'
@@ -58,11 +57,6 @@ const DemoBetterAuthRoute = DemoBetterAuthRouteImport.update({
   path: '/demo/better-auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiRemyChatRoute = ApiRemyChatRouteImport.update({
-  id: '/api/remy-chat',
-  path: '/api/remy-chat',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiContactUsFormIndexRoute = ApiContactUsFormIndexRouteImport.update({
   id: '/api/contact-us-form/',
   path: '/api/contact-us-form/',
@@ -91,7 +85,6 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services-offered/$slug': typeof ServicesOfferedSlugRoute
@@ -106,7 +99,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services-offered/$slug': typeof ServicesOfferedSlugRoute
@@ -122,7 +114,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/api/remy-chat': typeof ApiRemyChatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services-offered/$slug': typeof ServicesOfferedSlugRoute
@@ -139,7 +130,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/api/remy-chat'
     | '/demo/better-auth'
     | '/gallery/$slug'
     | '/services-offered/$slug'
@@ -154,7 +144,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/api/remy-chat'
     | '/demo/better-auth'
     | '/gallery/$slug'
     | '/services-offered/$slug'
@@ -169,7 +158,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/api/remy-chat'
     | '/demo/better-auth'
     | '/gallery/$slug'
     | '/services-offered/$slug'
@@ -185,7 +173,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ApiRemyChatRoute: typeof ApiRemyChatRoute
   DemoBetterAuthRoute: typeof DemoBetterAuthRoute
   GallerySlugRoute: typeof GallerySlugRoute
   ServicesOfferedSlugRoute: typeof ServicesOfferedSlugRoute
@@ -250,13 +237,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoBetterAuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/remy-chat': {
-      id: '/api/remy-chat'
-      path: '/api/remy-chat'
-      fullPath: '/api/remy-chat'
-      preLoaderRoute: typeof ApiRemyChatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/contact-us-form/': {
       id: '/api/contact-us-form/'
       path: '/api/contact-us-form'
@@ -297,7 +277,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ApiRemyChatRoute: ApiRemyChatRoute,
   DemoBetterAuthRoute: DemoBetterAuthRoute,
   GallerySlugRoute: GallerySlugRoute,
   ServicesOfferedSlugRoute: ServicesOfferedSlugRoute,
