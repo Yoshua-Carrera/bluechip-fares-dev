@@ -15,6 +15,7 @@ export default [
       '.netlify',
       'src/components/ui/dropzone.tsx',
       '**/paraglide/**/*',
+      'bluechipfares-redesign/*',
     ],
   },
 ]
