@@ -151,8 +151,8 @@ const PROJECT_FACTORIES: Record<string, () => ProjectEntry> = {
       { question: m.proj_lighting_qa_3_q(), answer: m.proj_lighting_qa_3_a() },
     ],
     images: {
-      hero: '/img/hero-bg-5.jpg',
-      main: '/img/hero-bg-5.jpg',
+      hero: '/img/outdoor-deck.jpg',
+      main: '/img/outdoor-deck.jpg',
       side1: '/img/gallery-wood-accent-wall.jpg',
       side2: '/img/gallery-bathroom.jpg',
     },
@@ -215,8 +215,8 @@ const PROJECT_FACTORIES: Record<string, () => ProjectEntry> = {
       { question: m.proj_tile_qa_3_q(), answer: m.proj_tile_qa_3_a() },
     ],
     images: {
-      hero: '/img/hero-bg-5.jpg',
-      main: '/img/hero-bg-5.jpg',
+      hero: '/img/outdoor-tile.jpg',
+      main: '/img/outdoor-tile.jpg',
       side1: '/img/gallery-bathroom.jpg',
       side2: '/img/gallery-wood-accent-wall.jpg',
     },

@@ -10,15 +10,19 @@ import { m } from '#/paraglide/messages'
 
 interface MobileNavbarProps {
   items: Array<NavItem>
-  scrolled: boolean
-  onPhoto: boolean
+  overPhoto: boolean
   activeHref?: string
 }
 
+const BLEND = 'calc(var(--nav-photo-blend, 0) * 100%)'
+const blend = (photo: string, chrome: string) =>
+  `color-mix(in srgb, ${photo} ${BLEND}, ${chrome})`
+
+const LOGO_HEIGHT = 'calc(40px - 8px * var(--nav-scroll, 0))'
+
 export function MobileNavbar({
   items,
-  scrolled,
-  onPhoto,
+  overPhoto,
   activeHref,
 }: MobileNavbarProps) {
   const [open, setOpen] = useState(false)
@@ -34,8 +38,30 @@ export function MobileNavbar({
 
   return (
     <>
-      <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-        <Logo tone={onPhoto ? 'white' : 'auto'} height={scrolled ? 32 : 40} />
+      <Link
+        to="/"
+        style={{
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Logo tone="auto" height={LOGO_HEIGHT} />
+        {overPhoto && (
+          <span
+            aria-hidden
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              opacity: 'var(--nav-photo-blend, 0)',
+              pointerEvents: 'none',
+            }}
+          >
+            <Logo tone="white" height={LOGO_HEIGHT} />
+          </span>
+        )}
       </Link>
 
       <div
@@ -45,7 +71,7 @@ export function MobileNavbar({
           gap: 'var(--space-3)',
         }}
       >
-        <ThemeToggle tone={onPhoto ? 'on-photo' : 'on-chrome'} />
+        <ThemeToggle />
         <button
           type="button"
           onClick={() => setOpen(true)}
@@ -55,10 +81,10 @@ export function MobileNavbar({
             height: 38,
             display: 'grid',
             placeItems: 'center',
-            border: `1px solid ${onPhoto ? 'var(--line-on-photo)' : 'var(--line-hairline)'}`,
+            border: `1px solid ${blend('var(--line-on-photo)', 'var(--line-hairline)')}`,
             borderRadius: 'var(--radius-pill)',
             background: 'transparent',
-            color: onPhoto ? 'var(--on-photo)' : 'var(--chrome-foreground)',
+            color: blend('var(--on-photo)', 'var(--chrome-foreground)'),
             cursor: 'pointer',
           }}
         >
@@ -109,6 +135,8 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
           display: 'flex',
           flexDirection: 'column',
           gap: 'var(--space-2)',
+          minHeight: '100vh',
+          overflowY: 'scroll',
         }}
       >
         <div
@@ -172,7 +200,6 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
 
         <div
           style={{
-            marginTop: 'auto',
             paddingTop: 'var(--space-6)',
             borderTop: '1px solid var(--line-hairline)',
             display: 'flex',
@@ -183,7 +210,7 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
             color: 'var(--text-muted)',
           }}
         >
-          <LocaleSwitch tone="on-chrome" />
+          <LocaleSwitch />
           <div>
             (940) 275-7574
             <br />

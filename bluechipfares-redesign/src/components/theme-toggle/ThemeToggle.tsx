@@ -3,13 +3,12 @@ import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '#/context/theme'
 import { m } from '#/paraglide/messages'
 
-interface ThemeToggleProps {
-  tone?: 'auto' | 'on-photo' | 'on-chrome'
-}
+const BLEND = 'calc(var(--nav-photo-blend, 0) * 100%)'
+const blend = (photo: string, chrome: string) =>
+  `color-mix(in srgb, ${photo} ${BLEND}, ${chrome})`
 
-export function ThemeToggle({ tone = 'auto' }: ThemeToggleProps) {
+export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
-  const onPhoto = tone === 'on-photo'
   return (
     <button
       type="button"
@@ -20,10 +19,10 @@ export function ThemeToggle({ tone = 'auto' }: ThemeToggleProps) {
         height: 34,
         display: 'grid',
         placeItems: 'center',
-        border: `1px solid ${onPhoto ? 'var(--line-on-photo)' : 'var(--line-hairline)'}`,
+        border: `1px solid ${blend('var(--line-on-photo)', 'var(--line-hairline)')}`,
         borderRadius: 'var(--radius-pill)',
         background: 'transparent',
-        color: onPhoto ? 'var(--on-photo)' : 'var(--chrome-foreground)',
+        color: blend('var(--on-photo)', 'var(--chrome-foreground)'),
         cursor: 'pointer',
         opacity: 0.75,
         transition: 'opacity 200ms ease',

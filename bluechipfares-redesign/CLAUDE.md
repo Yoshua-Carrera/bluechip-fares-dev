@@ -84,7 +84,7 @@ Package manager is **pnpm**. Dev/build scripts wrap the process with dotenv (`.e
 ### Code Standards
 
 1. If you create components, make them modular, do not exceed 400 lines in a single file
-2. Make sure you rely on Paraglide for any copy that you put into the page, with English and Turkish translations (base locale is Turkish)
+2. Make sure you rely on Paraglide for any copy that you put into the page, with English and Spanish translations (base locale is English)
 3. Do not use `any` types, everything should be end-to-end type safe (`@typescript-eslint/no-explicit-any` is set to `error`)
 4. In order to verify the quality of the changes you are to run `pnpm precommit`; this will run prettier + lint (via `pretty`) and `build`, which should all pass without any errors or warnings
 5. Do not overdo it with comments, ideally these should be minimal if existent at all on new code being generated, if something happens to be really complex it is fine to add a comment, but for most tasks there should be little to no comments on generated code.
