@@ -138,10 +138,10 @@
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
 
-  --weight-normal: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
+  --weight-normal: 600;
+  --weight-medium: 700;
+  --weight-semibold: 800;
+  --weight-bold: 900;
 
   --tracking-wider: 0.05em;
 
@@ -199,7 +199,7 @@ html[data-theme='light'] {
   --secondary: oklch(0.4 0.1 70);
   --secondary-foreground: oklch(1 0.03 250);
   --accent: oklch(0.915 0.018 250);
-  --accent-foreground: #01418f;
+  --accent-foreground: oklch(0.18 0.01 250);
   --destructive: oklch(0.5 0.06 30);
   --destructive-foreground: oklch(1 0.03 250);
 
@@ -215,7 +215,7 @@ html[data-theme='light'] {
   --text-body: var(--foreground);
   --text-muted: var(--muted-foreground);
   --text-heading: var(--accent-foreground);
-  --text-accent: var(--copper-dark);
+  --text-accent: var(--copper);
   --text-accent-hover: var(--copper);
   --text-inverse: oklch(0.96 0.06 250);
 

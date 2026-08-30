@@ -59,7 +59,7 @@ export function DesktopNavbar({
                 transition: 'color 200ms ease, border-color 200ms ease',
               }}
             >
-              {item.label}
+              <p className="hover:text-(--copper)">{item.label}</p>
             </Link>
           )
         })}

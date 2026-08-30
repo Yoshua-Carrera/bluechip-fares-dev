@@ -11,7 +11,7 @@ interface ServiceItem {
 function ServiceRow({ item }: { item: ServiceItem }) {
   return (
     <Link
-      to={'/services' as '/'}
+      to="/services"
       style={{
         display: 'flex',
         alignItems: 'center',

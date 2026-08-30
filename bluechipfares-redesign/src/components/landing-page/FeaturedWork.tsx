@@ -33,7 +33,7 @@ export function FeaturedWork() {
               alt={m.work_project_1()}
               title={m.work_project_1()}
               subtitle={m.work_project_1_loc()}
-              href="/gallery"
+              href="/projects/kitchen-remodeling"
               size="lg"
             />
           </div>
@@ -49,13 +49,13 @@ export function FeaturedWork() {
               image="/img/gallery-bathroom.jpg"
               alt={m.work_project_2()}
               title={m.work_project_2()}
-              href="/gallery"
+              href="/projects/bathroom-remodeling"
             />
             <FeaturedWorkCard
               image="/img/gallery-wood-accent-wall.jpg"
               alt={m.work_project_3()}
               title={m.work_project_3()}
-              href="/gallery"
+              href="/projects/wood-accent-wall"
             />
           </div>
         </div>
