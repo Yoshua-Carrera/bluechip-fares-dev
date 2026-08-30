@@ -1,69 +1,56 @@
 import { createFileRoute } from '@tanstack/react-router'
 import type { ContactUsRequest } from './contact-us.models'
-// import { sendEmail } from '#/lib/email/emailer'
-// import { createVendorEmailHtml } from './vendor-email'
-// import { createClientEmailHtml } from './client-email'
 import db from '../../../../db'
 import { contactForm } from '../../../../db/contact-form-schema'
 import { apiHandle, apiOk } from '#/lib/api/api-response-wrapper'
+import { sendEmail } from '#/lib/email/send-email'
+import { logger } from '#/lib/api/logger'
+import { createVendorEmailHtml } from '#/lib/email/vendor-email'
+import { createClientEmailHtml } from '#/lib/email/client-email'
 
-// try {
-//   if (process.env.SMTP_USER) {
-//     // Vendor Email
-//     await sendEmail({
-//       to: process.env.SMTP_USER,
-//       subject: `New client inquiry from ${name} - Inquiry #${id}`,
-//       text: '',
-//       html: createVendorEmailHtml({
-//         inquiryNum: String(id),
-//         name: name,
-//         phoneNumber: phone,
-//         request: customerRequest,
-//         clientEmail: email,
-//       }),
-//     })
-//
-//     // Client Email
-//     await sendEmail({
-//       to: email,
-//       subject: `Thanks for contacting us, ${name}`,
-//       text: '',
-//       html: createClientEmailHtml({
-//         inquiryNum: String(id),
-//         name: name,
-//         phoneNumber: phone,
-//         inquiry: customerRequest,
-//         contactEmail: process.env.SMTP_USER,
-//       }),
-//     })
-//   }
-//
-//   console.info(
-//     `Successfully posted contact us form: ${JSON.stringify({ data: null })}`,
-//   )
-//   console.info(`Successfully emailed: client ${email} inquiry #${id}`)
-//
-//   return new Response(
-//     JSON.stringify({
-//       status: 'SUCCESS',
-//       message: 'okay',
-//     }),
-//     {
-//       status: 200,
-//     },
-//   )
-// } catch (error) {
-//   console.error(error)
-//   return new Response(
-//     JSON.stringify({
-//       status: 'ERROR',
-//       message: 'Something went wrong, try again later.',
-//     }),
-//     {
-//       status: 400,
-//     },
-//   )
-// }
+const sendContactEmails = async (inputs: {
+  id: number
+  name: string
+  email: string
+  phone: string
+  request: string
+}) => {
+  const vendorAddress = process.env.SMTP_USER
+  if (!vendorAddress) {
+    logger.warn('Skipping contact emails: SMTP_USER is not configured', {
+      inquiryId: inputs.id,
+    })
+    return
+  }
+
+  const inquiryNum = String(inputs.id)
+
+  await sendEmail({
+    to: vendorAddress,
+    subject: `New client inquiry from ${inputs.name} - Inquiry #${inquiryNum}`,
+    text: '',
+    html: createVendorEmailHtml({
+      inquiryNum,
+      name: inputs.name,
+      phoneNumber: inputs.phone,
+      request: inputs.request,
+      clientEmail: inputs.email,
+    }),
+  })
+
+  await sendEmail({
+    to: inputs.email,
+    subject: `Thanks for contacting us, ${inputs.name}`,
+    text: '',
+    html: createClientEmailHtml({
+      inquiryNum,
+      name: inputs.name,
+      phoneNumber: inputs.phone,
+      inquiry: inputs.request,
+      contactEmail: vendorAddress,
+    }),
+  })
+}
 
 export const Route = createFileRoute('/api/contact-us/')({
   server: {
@@ -74,18 +61,36 @@ export const Route = createFileRoute('/api/contact-us/')({
           h: async () => {
             const body: ContactUsRequest = await request.json()
             const { name, email, service, request: customerRequest } = body
+            const phone = 'N/A'
 
             const [{ id }] = await db
               .insert(contactForm)
               .values({
                 name,
                 email,
-                phone: 'N/A',
+                phone,
                 image: 'N/A',
                 service,
                 request: customerRequest,
               })
               .returning()
+
+            try {
+              await sendContactEmails({
+                id,
+                name,
+                email,
+                phone,
+                request: customerRequest,
+              })
+              logger.info('Contact emails sent', { inquiryId: id, email })
+            } catch (err) {
+              logger.error('Failed to send contact emails', {
+                inquiryId: id,
+                email,
+                err: err instanceof Error ? err.message : String(err),
+              })
+            }
 
             return apiOk({
               message: 'The form has been submitted',
