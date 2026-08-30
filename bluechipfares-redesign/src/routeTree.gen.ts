@@ -16,6 +16,7 @@ import { Route as McpRouteImport } from './routes/mcp'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProjectsSlugRouteImport } from './routes/projects/$slug'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiContactUsIndexRouteImport } from './routes/api/contact-us/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactUsIndexRoute = ApiContactUsIndexRouteImport.update({
+  id: '/api/contact-us/',
+  path: '/api/contact-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/contact-us/': typeof ApiContactUsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/contact-us': typeof ApiContactUsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/contact-us/': typeof ApiContactUsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/projects/$slug'
     | '/api/auth/$'
+    | '/api/contact-us/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/projects/$slug'
     | '/api/auth/$'
+    | '/api/contact-us'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/projects/$slug'
     | '/api/auth/$'
+    | '/api/contact-us/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiContactUsIndexRoute: typeof ApiContactUsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact-us/': {
+      id: '/api/contact-us/'
+      path: '/api/contact-us'
+      fullPath: '/api/contact-us/'
+      preLoaderRoute: typeof ApiContactUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiContactUsIndexRoute: ApiContactUsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

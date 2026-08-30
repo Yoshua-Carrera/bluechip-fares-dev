@@ -1,0 +1,1 @@
+ALTER TABLE "contact_form" ADD COLUMN "service" text NOT NULL;

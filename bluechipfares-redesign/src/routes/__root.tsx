@@ -11,7 +11,7 @@ import PostHogProvider from '../integrations/posthog/provider'
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
-import type { QueryClient } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { getLocale } from '#/paraglide/runtime'
 import { ThemeProvider, themeInitScript } from '#/context/theme'
 import { ToastProvider } from '#/context/toast'
@@ -44,6 +44,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const queryClient = new QueryClient()
   return (
     <html lang={getLocale()}>
       <head>
@@ -51,27 +52,29 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <ThemeProvider>
-          <PostHogProvider>
-            <LoaderProvider>
-              <ToastProvider>
-                <ModalProvider>
-                  {children}
-                  <TanStackDevtools
-                    config={{ position: 'bottom-right' }}
-                    plugins={[
-                      {
-                        name: 'Tanstack Router',
-                        render: <TanStackRouterDevtoolsPanel />,
-                      },
-                      TanStackQueryDevtools,
-                    ]}
-                  />
-                </ModalProvider>
-              </ToastProvider>
-            </LoaderProvider>
-          </PostHogProvider>
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider>
+            <PostHogProvider>
+              <LoaderProvider>
+                <ToastProvider>
+                  <ModalProvider>
+                    {children}
+                    <TanStackDevtools
+                      config={{ position: 'bottom-right' }}
+                      plugins={[
+                        {
+                          name: 'Tanstack Router',
+                          render: <TanStackRouterDevtoolsPanel />,
+                        },
+                        TanStackQueryDevtools,
+                      ]}
+                    />
+                  </ModalProvider>
+                </ToastProvider>
+              </LoaderProvider>
+            </PostHogProvider>
+          </ThemeProvider>
+        </QueryClientProvider>
         <Scripts />
       </body>
     </html>
