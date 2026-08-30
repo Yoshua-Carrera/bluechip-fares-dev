@@ -12,7 +12,7 @@ function StatItem({ value, label }: { value: string; label: string }) {
       <span
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '2rem',
+          fontSize: '2.25rem',
           fontWeight: 'var(--weight-bold)',
           color: 'var(--text-accent)',
           lineHeight: 1,
@@ -23,7 +23,8 @@ function StatItem({ value, label }: { value: string; label: string }) {
       <span
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '0.75rem',
+          fontSize: '0.875rem',
+          fontWeight: 'var(--weight-semibold)',
           letterSpacing: 'var(--tracking-wider)',
           textTransform: 'uppercase',
           color: 'var(--text-muted)',

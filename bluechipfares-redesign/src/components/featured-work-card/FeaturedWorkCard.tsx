@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 interface FeaturedWorkCardProps {
   image: string
   alt: string
@@ -17,8 +19,8 @@ export function FeaturedWorkCard({
 }: FeaturedWorkCardProps) {
   const isLarge = size === 'lg'
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       style={{
         position: 'relative',
         display: 'block',
@@ -62,8 +64,8 @@ export function FeaturedWorkCard({
           style={{
             display: 'block',
             fontFamily: 'var(--font-display)',
-            fontSize: isLarge ? 'clamp(1.5rem, 2.4vw, 2.125rem)' : '1.25rem',
-            fontWeight: 'var(--weight-semibold)',
+            fontSize: isLarge ? 'clamp(1.625rem, 2.5vw, 2.25rem)' : '1.375rem',
+            fontWeight: 'var(--weight-bold)',
             color: 'var(--on-photo-strong)',
             lineHeight: 1.15,
           }}
@@ -75,7 +77,8 @@ export function FeaturedWorkCard({
             style={{
               display: 'block',
               marginTop: '0.35rem',
-              fontSize: '1rem',
+              fontSize: '1.0625rem',
+              fontWeight: 'var(--weight-medium)',
               color: 'var(--on-photo-muted)',
             }}
           >
@@ -83,6 +86,6 @@ export function FeaturedWorkCard({
           </span>
         )}
       </span>
-    </a>
+    </Link>
   )
 }

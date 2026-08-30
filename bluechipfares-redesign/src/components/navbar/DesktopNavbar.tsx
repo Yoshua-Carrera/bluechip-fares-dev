@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 import type { NavItem } from '#/components/navbar/nav-items'
 import { Logo } from '#/components/logo/Logo'
 import { LocaleSwitch } from '#/components/navbar/LocaleSwitch'
@@ -12,15 +14,14 @@ interface DesktopNavbarProps {
 
 export function DesktopNavbar({
   items,
-  scrolled,
   onPhoto,
   activeHref,
 }: DesktopNavbarProps) {
   return (
     <>
-      <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
-        <Logo tone={onPhoto ? 'white' : 'auto'} height={scrolled ? 36 : 44} />
-      </a>
+      <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+        <Logo tone={onPhoto ? 'white' : 'auto'} height={60} />
+      </Link>
 
       <nav
         style={{
@@ -32,13 +33,13 @@ export function DesktopNavbar({
         {items.map((item) => {
           const active = activeHref === item.href
           return (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '1.0625rem',
-                fontWeight: 'var(--weight-medium)',
+                fontSize: '1.125rem',
+                fontWeight: 'var(--weight-semibold)',
                 color: active
                   ? onPhoto
                     ? 'var(--copper-light)'
@@ -59,7 +60,7 @@ export function DesktopNavbar({
               }}
             >
               {item.label}
-            </a>
+            </Link>
           )
         })}
       </nav>

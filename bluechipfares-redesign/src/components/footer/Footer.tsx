@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 import { Logo } from '#/components/logo/Logo'
 import { getNavItems } from '#/components/navbar/nav-items'
 import { m } from '#/paraglide/messages'
@@ -25,15 +27,16 @@ export function Footer() {
       >
         <div>
           <div style={{ marginBottom: 'var(--space-4)' }}>
-            <Logo height={52} />
+            <Logo height={100} />
           </div>
           <p
             style={{
               margin: 0,
               maxWidth: '20rem',
-              fontSize: '1.0625rem',
+              fontSize: '1.2rem',
+              fontWeight: 'var(--weight-medium)',
               lineHeight: 'var(--leading-relaxed)',
-              color: 'var(--chrome-foreground-muted)',
+              color: 'var(--on-panel)',
             }}
           >
             {m.footer_blurb()}
@@ -45,10 +48,11 @@ export function Footer() {
             style={{
               margin: '0 0 var(--space-4)',
               fontFamily: 'var(--font-display)',
-              fontSize: '0.75rem',
+              fontSize: '1.2rem',
+              fontWeight: 'var(--weight-semibold)',
               letterSpacing: 'var(--tracking-wider)',
               textTransform: 'uppercase',
-              color: 'var(--chrome-foreground-muted)',
+              color: 'var(--on-panel-muted)',
             }}
           >
             {m.footer_pages()}
@@ -61,17 +65,18 @@ export function Footer() {
             }}
           >
             {items.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 style={{
-                  fontSize: '1.0625rem',
+                  fontSize: '1.125rem',
+                  fontWeight: 'var(--weight-medium)',
                   color: 'var(--chrome-foreground)',
                   textDecoration: 'none',
                 }}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -81,10 +86,11 @@ export function Footer() {
             style={{
               margin: '0 0 var(--space-4)',
               fontFamily: 'var(--font-display)',
-              fontSize: '0.75rem',
+              fontSize: '1.2rem',
+              fontWeight: 'var(--weight-semibold)',
               letterSpacing: 'var(--tracking-wider)',
               textTransform: 'uppercase',
-              color: 'var(--chrome-foreground-muted)',
+              color: 'var(--on-panel-muted)',
             }}
           >
             {m.footer_contact()}
@@ -94,7 +100,8 @@ export function Footer() {
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-2)',
-              fontSize: '1.0625rem',
+              fontSize: '1.125rem',
+              fontWeight: 'var(--weight-medium)',
               color: 'var(--chrome-foreground)',
             }}
           >
@@ -131,8 +138,9 @@ export function Footer() {
             maxWidth: 'var(--container-max)',
             margin: '0 auto',
             padding: 'var(--space-5) clamp(1.5rem, 4vw, 3rem)',
-            fontSize: '0.9375rem',
-            color: 'var(--chrome-foreground-muted)',
+            fontSize: '1rem',
+            fontWeight: 'var(--weight-medium)',
+            color: 'var(--on-panel-muted)',
           }}
         >
           © 2026 Bluechip Fares. {m.footer_rights()}

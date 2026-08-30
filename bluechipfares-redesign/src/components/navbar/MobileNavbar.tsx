@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 
 import type { NavItem } from '#/components/navbar/nav-items'
 import { Logo } from '#/components/logo/Logo'
@@ -33,9 +34,9 @@ export function MobileNavbar({
 
   return (
     <>
-      <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
+      <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
         <Logo tone={onPhoto ? 'white' : 'auto'} height={scrolled ? 32 : 40} />
-      </a>
+      </Link>
 
       <div
         style={{
@@ -118,7 +119,7 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
             marginBottom: 'var(--space-6)',
           }}
         >
-          <Logo height={40} />
+          <Logo height={100} />
           <button
             type="button"
             onClick={onClose}
@@ -140,9 +141,9 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
         {items.map((item) => {
           const active = activeHref === item.href
           return (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               onClick={onClose}
               style={{
                 display: 'flex',
@@ -151,7 +152,8 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
                 padding: '0.85rem 0.75rem',
                 borderRadius: 'var(--radius-lg)',
                 fontFamily: 'var(--font-display)',
-                fontSize: '1.15rem',
+                fontSize: '1.1875rem',
+                fontWeight: 'var(--weight-semibold)',
                 color: 'var(--text-heading)',
                 textDecoration: 'none',
                 background: active ? 'var(--hover-surface)' : 'transparent',
@@ -164,7 +166,7 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
                 {item.glyph}
               </span>
               {item.label}
-            </a>
+            </Link>
           )
         })}
 
@@ -176,7 +178,8 @@ function MobileDrawer({ items, onClose, activeHref }: MobileDrawerProps) {
             display: 'flex',
             flexDirection: 'column',
             gap: 'var(--space-3)',
-            fontSize: '0.95rem',
+            fontSize: '1rem',
+            fontWeight: 'var(--weight-medium)',
             color: 'var(--text-muted)',
           }}
         >

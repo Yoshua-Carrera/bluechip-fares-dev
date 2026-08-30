@@ -73,7 +73,7 @@ export function CTACard({
                 border: '1px solid var(--accent-hairline-strong)',
                 borderRadius: 'var(--radius-pill)',
                 fontFamily: 'var(--font-display)',
-                fontSize: '0.75rem',
+                fontWeight: 'var(--weight-semibold)',
                 letterSpacing: 'var(--tracking-wider)',
                 textTransform: 'uppercase',
                 color: 'var(--text-accent)',
@@ -102,7 +102,8 @@ export function CTACard({
             style={{
               margin: '0 auto var(--space-8)',
               maxWidth: '34rem',
-              fontSize: '1.25rem',
+              fontSize: '1.4125rem',
+              fontWeight: 'var(--weight-medium)',
               lineHeight: 'var(--leading-relaxed)',
               color: 'var(--on-panel-muted)',
             }}

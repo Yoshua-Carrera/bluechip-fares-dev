@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 import { SectionHeader } from '#/components/landing-page/SectionHeader'
 import { m } from '#/paraglide/messages'
 
@@ -8,8 +10,8 @@ interface ServiceItem {
 
 function ServiceRow({ item }: { item: ServiceItem }) {
   return (
-    <a
-      href="/services"
+    <Link
+      to={'/services' as '/'}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -42,8 +44,8 @@ function ServiceRow({ item }: { item: ServiceItem }) {
           style={{
             display: 'block',
             fontFamily: 'var(--font-display)',
-            fontSize: '1.25rem',
-            fontWeight: 'var(--weight-semibold)',
+            fontSize: '1.375rem',
+            fontWeight: 'var(--weight-bold)',
             color: 'var(--text-heading)',
           }}
         >
@@ -52,9 +54,10 @@ function ServiceRow({ item }: { item: ServiceItem }) {
         <span
           style={{
             display: 'block',
-            marginTop: '0.2rem',
-            fontSize: '1rem',
-            color: 'var(--text-muted)',
+            marginTop: '0.75rem',
+            fontSize: '1.15rem',
+            fontWeight: 'var(--weight-medium)',
+            color: 'var(--on-panel)',
             lineHeight: 'var(--leading-relaxed)',
           }}
         >
@@ -70,7 +73,7 @@ function ServiceRow({ item }: { item: ServiceItem }) {
       >
         →
       </span>
-    </a>
+    </Link>
   )
 }
 
