@@ -19,6 +19,10 @@ import {
   SelectValue,
 } from '#/components/ui/select'
 import { m } from '#/paraglide/messages'
+import { useMutation } from '@tanstack/react-query'
+import { useToast } from '#/context/toast'
+import type { ApiResponse } from '#/lib/api/api-response-wrapper'
+import { useLoader } from '#/context/loader'
 
 function firstError(errors: Array<unknown>): string | undefined {
   const err = errors[0]
@@ -33,16 +37,50 @@ function firstError(errors: Array<unknown>): string | undefined {
 
 export function ContactForm() {
   const [sent, setSent] = useState(false)
+  const { toaster } = useToast()
+  const { show, hide } = useLoader()
+
   const schema = getContactSchema()
   const serviceOptions = getServiceOptions()
+
+  const { mutate } = useMutation({
+    mutationKey: ['/api/contact-us/'],
+    mutationFn: async () => {
+      show()
+      const res = await fetch('/api/contact-us/', {
+        method: 'POST',
+        body: JSON.stringify(form.state.values),
+      })
+      if (!res.ok) {
+        toaster.error({
+          title: 'Something went wrong',
+          description: 'Please try again later',
+        })
+        hide()
+        throw new Error('Something went wrong')
+      }
+      const data: ApiResponse<{ id: string }> = await res.json()
+      if (data.status === 'ERROR') {
+        toaster.error({
+          title: 'Something went wrong',
+          description: data.message ?? 'Please try again later',
+        })
+        hide()
+        throw new Error(data.message ?? 'Please try again later')
+      }
+      hide()
+      toaster.success({
+        title: 'Message sent',
+        description: 'Thanks for contacting us.',
+      })
+      setSent(true)
+    },
+  })
 
   const form = useForm({
     defaultValues: CONTACT_FORM_DEFAULTS,
     validators: { onSubmit: schema },
-    onSubmit: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 900))
-      setSent(true)
-    },
+    onSubmit: async () => mutate(),
   })
 
   if (sent) {
@@ -191,10 +229,10 @@ export function ContactForm() {
         </form.Field>
 
         <form.Field
-          name="inquiry"
+          name="request"
           validators={{
-            onSubmit: schema.shape.inquiry,
-            onBlur: schema.shape.inquiry,
+            onSubmit: schema.shape.request,
+            onBlur: schema.shape.request,
           }}
         >
           {(field) => {
@@ -204,14 +242,14 @@ export function ContactForm() {
             const count = field.state.value.trim().length
             return (
               <FormField
-                htmlFor="bcf-inquiry"
+                htmlFor="bcf-request"
                 label={m.contact_form_inquiry_label()}
                 required
                 error={error}
                 hint={m.contact_form_counter({ count })}
               >
                 <textarea
-                  id="bcf-inquiry"
+                  id="bcf-request"
                   rows={5}
                   value={field.state.value}
                   onBlur={field.handleBlur}

@@ -7,7 +7,7 @@ export function getContactSchema() {
     name: z.string().trim().min(1, m.contact_form_name_err()),
     email: z.string().trim().email(m.contact_form_email_err()),
     service: z.string(),
-    inquiry: z.string().trim().min(10, m.contact_form_inquiry_err()),
+    request: z.string().trim().min(10, m.contact_form_inquiry_err()),
   })
 }
 
@@ -17,7 +17,7 @@ export const CONTACT_FORM_DEFAULTS: ContactFormValues = {
   name: '',
   email: '',
   service: '',
-  inquiry: '',
+  request: '',
 }
 
 export function getServiceOptions() {

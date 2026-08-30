@@ -1,10 +1,10 @@
 import { defineRelationsPart } from 'drizzle-orm'
 import {
-  boolean,
-  index,
   pgTable,
   text,
   timestamp,
+  boolean,
+  index,
   uniqueIndex,
 } from 'drizzle-orm/pg-core'
 

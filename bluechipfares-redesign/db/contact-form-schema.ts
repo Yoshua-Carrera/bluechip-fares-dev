@@ -13,6 +13,7 @@ export const contactForm = pgTable('contact_form', {
   name: text('name').notNull(),
   email: text('email').notNull(),
   phone: text('phone').notNull(),
+  service: text('service').notNull(),
   request: text('request').notNull(),
   image: varchar('image'),
   resolved: boolean('resolved').default(false).notNull(),
