@@ -14,6 +14,9 @@ import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { getLocale } from '#/paraglide/runtime'
 import { ThemeProvider, themeInitScript } from '#/context/theme'
+import { ToastProvider } from '#/context/toast'
+import { ModalProvider } from '#/context/modal'
+import { LoaderProvider } from '#/context/loader'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -50,17 +53,23 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <ThemeProvider>
           <PostHogProvider>
-            {children}
-            <TanStackDevtools
-              config={{ position: 'bottom-right' }}
-              plugins={[
-                {
-                  name: 'Tanstack Router',
-                  render: <TanStackRouterDevtoolsPanel />,
-                },
-                TanStackQueryDevtools,
-              ]}
-            />
+            <LoaderProvider>
+              <ToastProvider>
+                <ModalProvider>
+                  {children}
+                  <TanStackDevtools
+                    config={{ position: 'bottom-right' }}
+                    plugins={[
+                      {
+                        name: 'Tanstack Router',
+                        render: <TanStackRouterDevtoolsPanel />,
+                      },
+                      TanStackQueryDevtools,
+                    ]}
+                  />
+                </ModalProvider>
+              </ToastProvider>
+            </LoaderProvider>
           </PostHogProvider>
         </ThemeProvider>
         <Scripts />
