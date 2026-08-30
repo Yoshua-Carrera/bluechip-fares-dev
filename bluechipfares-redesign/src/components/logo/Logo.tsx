@@ -2,7 +2,6 @@ import { useTheme } from '#/context/theme'
 
 interface LogoProps {
   variant?: 'lockup' | 'mark'
-  /** Force color regardless of theme (useful on photo backgrounds). */
   tone?: 'auto' | 'white' | 'navy'
   height?: number | string
   className?: string
@@ -22,7 +21,7 @@ const SOURCES = {
 export function Logo({
   variant = 'lockup',
   tone = 'auto',
-  height = 44,
+  height = 80,
   className,
 }: LogoProps) {
   const { theme } = useTheme()

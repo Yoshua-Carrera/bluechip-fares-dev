@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router'
+
 interface SectionHeaderProps {
   lead: string
   accent: string
@@ -43,23 +45,24 @@ export function SectionHeader({
         <p
           style={{
             margin: 0,
-            fontSize: '1.125rem',
+            fontSize: '1.1875rem',
+            fontWeight: 'var(--weight-medium)',
             color: 'var(--text-muted)',
           }}
         >
           {description}
         </p>
       </div>
-      <a
-        href={linkHref}
+      <Link
+        to={linkHref}
         style={{
           fontFamily: 'var(--font-display)',
-          fontWeight: 'var(--weight-medium)',
-          fontSize: '1.0625rem',
+          fontWeight: 'var(--weight-semibold)',
+          fontSize: '1.125rem',
         }}
       >
         {linkLabel} →
-      </a>
+      </Link>
     </div>
   )
 }

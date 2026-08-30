@@ -314,6 +314,9 @@ body {
   background: var(--surface-page);
   color: var(--text-body);
   font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

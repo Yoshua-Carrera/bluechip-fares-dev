@@ -4,6 +4,7 @@ import type {
   CSSProperties,
   ReactNode,
 } from 'react'
+import { Link } from '@tanstack/react-router'
 
 export type ButtonVariant = 'primary' | 'outline' | 'accent'
 export type ButtonTone = 'on-surface' | 'on-photo'
@@ -94,6 +95,7 @@ export function Button(props: ButtonProps) {
       children: _c,
       className: _cn,
       style: _s,
+      href,
       ...rest
     } = props
     void _v
@@ -102,9 +104,9 @@ export function Button(props: ButtonProps) {
     void _cn
     void _s
     return (
-      <a {...rest} className={className} style={combined}>
+      <Link {...rest} to={href} className={className} style={combined}>
         {children}
-      </a>
+      </Link>
     )
   }
 

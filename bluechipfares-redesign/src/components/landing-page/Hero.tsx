@@ -40,7 +40,8 @@ export function Hero() {
             gap: 'var(--space-3)',
             marginBottom: 'var(--space-6)',
             fontFamily: 'var(--font-display)',
-            fontSize: '0.8125rem',
+            fontSize: '0.9375rem',
+            fontWeight: 'var(--weight-semibold)',
             letterSpacing: 'var(--tracking-wider)',
             textTransform: 'uppercase',
             color: 'var(--on-photo-muted)',
@@ -79,9 +80,10 @@ export function Hero() {
           style={{
             margin: '0 0 var(--space-8)',
             maxWidth: '34rem',
-            fontSize: 'clamp(1.125rem, 1.6vw, 1.375rem)',
+            fontSize: 'clamp(1.25rem, 1.8vw, 1.5rem)',
+            fontWeight: 'var(--weight-medium)',
             lineHeight: 'var(--leading-relaxed)',
-            color: 'color-mix(in oklab, var(--on-photo) 88%, transparent)',
+            color: 'color-mix(in oklab, var(--on-photo) 92%, transparent)',
           }}
         >
           {m.hero_sub()}
