@@ -1,7 +1,11 @@
 import { m } from '#/paraglide/messages'
 
 export type GalleryCategory =
-  'all' | 'kitchen' | 'bath' | 'interior' | 'outdoor'
+  | 'all'
+  | 'kitchen'
+  | 'bath'
+  | 'interior'
+  | 'outdoor'
 
 export interface GalleryFilter {
   id: GalleryCategory
