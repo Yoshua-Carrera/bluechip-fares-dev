@@ -1,7 +1,7 @@
 import { SectionHeader } from '#/components/landing-page/SectionHeader'
 import { m } from '#/paraglide/messages'
-import { ServiceRow  } from './service-row'
-import type {ServiceItem} from './service-row';
+import { ServiceRow } from './service-row'
+import type { ServiceItem } from './service-row'
 
 export function ServiceCatalog() {
   const services: Array<ServiceItem> = [
