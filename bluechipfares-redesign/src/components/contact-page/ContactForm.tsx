@@ -69,6 +69,10 @@ export function ContactForm() {
         throw new Error(data.message ?? 'Please try again later')
       }
       hide()
+      toaster.success({
+        title: 'Message sent',
+        description: 'Thanks for contacting us.',
+      })
       setSent(true)
     },
   })
