@@ -1,20 +1,17 @@
 import { getLocale, locales, setLocale } from '#/paraglide/runtime'
 
-interface LocaleSwitchProps {
-  tone?: 'on-photo' | 'on-chrome'
-}
+const BLEND = 'calc(var(--nav-photo-blend, 0) * 100%)'
+const blend = (photo: string, chrome: string) =>
+  `color-mix(in srgb, ${photo} ${BLEND}, ${chrome})`
 
-export function LocaleSwitch({ tone = 'on-chrome' }: LocaleSwitchProps) {
+export function LocaleSwitch() {
   const currentLocale = getLocale()
   const otherLocale = locales.find((locale) => locale !== currentLocale)
-  const onPhoto = tone === 'on-photo'
 
-  const line = onPhoto ? 'var(--line-on-photo)' : 'var(--line-hairline)'
-  const muted = onPhoto
-    ? 'var(--on-photo-muted)'
-    : 'var(--chrome-foreground-muted)'
-  const base = onPhoto ? 'var(--on-photo)' : 'var(--chrome-foreground)'
-  const active = onPhoto ? 'var(--copper-light)' : 'var(--text-accent)'
+  const line = blend('var(--line-on-photo)', 'var(--line-hairline)')
+  const muted = blend('var(--on-photo-muted)', 'var(--chrome-foreground-muted)')
+  const base = blend('var(--on-photo)', 'var(--chrome-foreground)')
+  const active = blend('var(--copper-light)', 'var(--text-accent)')
 
   return (
     <div

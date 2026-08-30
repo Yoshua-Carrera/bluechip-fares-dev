@@ -1,11 +1,7 @@
 import { m } from '#/paraglide/messages'
 
 export type GalleryCategory =
-  | 'all'
-  | 'kitchen'
-  | 'bath'
-  | 'interior'
-  | 'outdoor'
+  'all' | 'kitchen' | 'bath' | 'interior' | 'outdoor'
 
 export interface GalleryFilter {
   id: GalleryCategory
@@ -63,7 +59,7 @@ export function getGalleryProjects(): Array<GalleryProject> {
       location: 'Prosper, TX',
       tag: m.gallery_tag_outdoor(),
       category: 'outdoor',
-      image: '/img/hero-bg-5.jpg',
+      image: '/img/outdoor-deck.jpg',
     },
     {
       slug: 'cabinet-installation',
@@ -79,7 +75,7 @@ export function getGalleryProjects(): Array<GalleryProject> {
       location: 'Celina, TX',
       tag: m.gallery_tag_outdoor(),
       category: 'outdoor',
-      image: '/img/hero-bg-5.jpg',
+      image: '/img/outdoor-tile.jpg',
     },
   ]
 }

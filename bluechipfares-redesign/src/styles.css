@@ -335,3 +335,72 @@ a:hover {
     @apply border-border outline-ring/50;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Scroll-driven navbar chrome. Drives --nav-scroll from 0 → 1 over the first
+   48px of root scroll so children can interpolate (padding, background
+   opacity, color-mix blends) without any JS listeners.
+   --------------------------------------------------------------------------- */
+@property --nav-scroll {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+@keyframes nav-scroll-progress {
+  to {
+    --nav-scroll: 1;
+  }
+}
+
+.navbar-scroll-fx {
+  --nav-scroll: 1;
+  --nav-photo-blend: 0;
+  transform: translateY(0);
+  transition: transform 250ms ease;
+  will-change: transform;
+}
+.navbar-scroll-fx[data-hidden='true'] {
+  transform: translateY(-105%);
+}
+.navbar-scroll-fx[data-over-photo='true'] {
+  --nav-photo-blend: calc(1 - var(--nav-scroll));
+}
+.navbar-scroll-fx::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--chrome-gradient);
+  border-bottom: 1px solid var(--accent-hairline);
+  box-shadow: var(--shadow-sm);
+  opacity: var(--nav-scroll);
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+@supports (animation-timeline: scroll()) {
+  .navbar-scroll-fx {
+    --nav-scroll: 0;
+    animation: nav-scroll-progress linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 48px;
+  }
+  .navbar-scroll-fx::before {
+    transition: none;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
