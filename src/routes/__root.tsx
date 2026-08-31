@@ -14,7 +14,7 @@ import appCss from '../styles.css?url'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { getLocale } from '#/paraglide/runtime'
 import { ThemeProvider, themeInitScript } from '#/context/theme'
-// import { ToastProvider } from '#/context/toast'
+import { ToastProvider } from '#/context/toast'
 import { ModalProvider } from '#/context/modal'
 import { LoaderProvider } from '#/context/loader'
 
@@ -55,25 +55,25 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
             <PostHogProvider>
-              {/* <LoaderProvider> */}
-              {/* <ToastProvider> */}
-              {/* <ModalProvider> */}
-              {children}
-              {import.meta.env.DEV && (
-                <TanStackDevtools
-                  config={{ position: 'bottom-right' }}
-                  plugins={[
-                    {
-                      name: 'Tanstack Router',
-                      render: <TanStackRouterDevtoolsPanel />,
-                    },
-                    TanStackQueryDevtools,
-                  ]}
-                />
-              )}
-              {/* </ModalProvider> */}
-              {/* </ToastProvider> */}
-              {/* </LoaderProvider> */}
+              <LoaderProvider>
+                <ToastProvider>
+                  <ModalProvider>
+                    {children}
+                    {import.meta.env.DEV && (
+                      <TanStackDevtools
+                        config={{ position: 'bottom-right' }}
+                        plugins={[
+                          {
+                            name: 'Tanstack Router',
+                            render: <TanStackRouterDevtoolsPanel />,
+                          },
+                          TanStackQueryDevtools,
+                        ]}
+                      />
+                    )}
+                  </ModalProvider>
+                </ToastProvider>
+              </LoaderProvider>
             </PostHogProvider>
           </ThemeProvider>
         </QueryClientProvider>
