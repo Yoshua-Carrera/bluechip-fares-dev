@@ -1,26 +1,39 @@
 {
-  "projectName": "bluechip-fares",
+  "projectName": "bluechipfares-redesign",
   "mode": "file-router",
   "typescript": true,
   "packageManager": "pnpm",
+  "includeExamples": false,
   "tailwind": true,
-  "addOnOptions": {},
+  "projectPreset": "default",
+  "addOnOptions": {
+    "drizzle": {
+      "database": "postgresql"
+    }
+  },
   "git": true,
+  "install": true,
+  "intent": true,
+  "routerOnly": false,
   "version": 1,
-  "framework": "react-cra",
+  "framework": "react",
   "chosenAddOns": [
     "eslint",
     "netlify",
-    "start",
-    "neon",
+    "sentry",
+    "strapi",
+    "compiler",
+    "drizzle",
     "form",
+    "mcp",
+    "paraglide",
     "shadcn",
-    "tRPC",
+    "table",
     "better-auth",
     "store",
-    "storybook",
+    "posthog",
     "tanstack-query",
-    "compiler",
-    "events"
+    "storybook",
+    "neon"
   ]
 }

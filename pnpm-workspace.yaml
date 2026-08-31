@@ -1,6 +1,6 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - protobufjs
-  - sharp
-  - unrs-resolver
+allowBuilds:
+  esbuild: true
+  lightningcss: true
+  '@sentry/cli': true
+  sharp: true
+  better-sqlite3: true
