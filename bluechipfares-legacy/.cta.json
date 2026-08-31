@@ -1,0 +1,26 @@
+{
+  "projectName": "bluechip-fares",
+  "mode": "file-router",
+  "typescript": true,
+  "packageManager": "pnpm",
+  "tailwind": true,
+  "addOnOptions": {},
+  "git": true,
+  "version": 1,
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "eslint",
+    "netlify",
+    "start",
+    "neon",
+    "form",
+    "shadcn",
+    "tRPC",
+    "better-auth",
+    "store",
+    "storybook",
+    "tanstack-query",
+    "compiler",
+    "events"
+  ]
+}

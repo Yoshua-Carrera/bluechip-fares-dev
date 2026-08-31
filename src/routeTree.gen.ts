@@ -10,71 +10,42 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as NotFoundIndexRouteImport } from './routes/not-found.index'
-import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
-import { Route as ContactUsIndexRouteImport } from './routes/contact-us.index'
-import { Route as ServicesOfferedSlugRouteImport } from './routes/services-offered.$slug'
-import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
-import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
-import { Route as ApiContactUsFormIndexRouteImport } from './routes/api/contact-us-form/index'
-import { Route as DemoApiTqTodosRouteImport } from './routes/demo/_api.tq-todos'
-import { Route as DemoApiNamesRouteImport } from './routes/demo/_api.names'
-import { Route as ApiTrpcSplatRouteImport } from './routes/api.trpc.$'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as McpRouteImport } from './routes/mcp'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProjectsSlugRouteImport } from './routes/projects/$slug'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiContactUsIndexRouteImport } from './routes/api/contact-us/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NotFoundIndexRoute = NotFoundIndexRouteImport.update({
-  id: '/not-found/',
-  path: '/not-found/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GalleryIndexRoute = GalleryIndexRouteImport.update({
-  id: '/gallery/',
-  path: '/gallery/',
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContactUsIndexRoute = ContactUsIndexRouteImport.update({
-  id: '/contact-us/',
-  path: '/contact-us/',
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesOfferedSlugRoute = ServicesOfferedSlugRouteImport.update({
-  id: '/services-offered/$slug',
-  path: '/services-offered/$slug',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GallerySlugRoute = GallerySlugRouteImport.update({
-  id: '/gallery/$slug',
-  path: '/gallery/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoBetterAuthRoute = DemoBetterAuthRouteImport.update({
-  id: '/demo/better-auth',
-  path: '/demo/better-auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiContactUsFormIndexRoute = ApiContactUsFormIndexRouteImport.update({
-  id: '/api/contact-us-form/',
-  path: '/api/contact-us-form/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiTqTodosRoute = DemoApiTqTodosRouteImport.update({
-  id: '/demo/_api/tq-todos',
-  path: '/demo/tq-todos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
-  id: '/demo/_api/names',
-  path: '/demo/names',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiTrpcSplatRoute = ApiTrpcSplatRouteImport.update({
-  id: '/api/trpc/$',
-  path: '/api/trpc/$',
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -82,108 +53,85 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactUsIndexRoute = ApiContactUsIndexRouteImport.update({
+  id: '/api/contact-us/',
+  path: '/api/contact-us/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/gallery/$slug': typeof GallerySlugRoute
-  '/services-offered/$slug': typeof ServicesOfferedSlugRoute
-  '/contact-us/': typeof ContactUsIndexRoute
-  '/gallery/': typeof GalleryIndexRoute
-  '/not-found/': typeof NotFoundIndexRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/mcp': typeof McpRoute
+  '/services': typeof ServicesRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/trpc/$': typeof ApiTrpcSplatRoute
-  '/demo/names': typeof DemoApiNamesRoute
-  '/demo/tq-todos': typeof DemoApiTqTodosRoute
-  '/api/contact-us-form/': typeof ApiContactUsFormIndexRoute
+  '/api/contact-us/': typeof ApiContactUsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/gallery/$slug': typeof GallerySlugRoute
-  '/services-offered/$slug': typeof ServicesOfferedSlugRoute
-  '/contact-us': typeof ContactUsIndexRoute
-  '/gallery': typeof GalleryIndexRoute
-  '/not-found': typeof NotFoundIndexRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/mcp': typeof McpRoute
+  '/services': typeof ServicesRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/trpc/$': typeof ApiTrpcSplatRoute
-  '/demo/names': typeof DemoApiNamesRoute
-  '/demo/tq-todos': typeof DemoApiTqTodosRoute
-  '/api/contact-us-form': typeof ApiContactUsFormIndexRoute
+  '/api/contact-us': typeof ApiContactUsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/gallery/$slug': typeof GallerySlugRoute
-  '/services-offered/$slug': typeof ServicesOfferedSlugRoute
-  '/contact-us/': typeof ContactUsIndexRoute
-  '/gallery/': typeof GalleryIndexRoute
-  '/not-found/': typeof NotFoundIndexRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/mcp': typeof McpRoute
+  '/services': typeof ServicesRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/trpc/$': typeof ApiTrpcSplatRoute
-  '/demo/_api/names': typeof DemoApiNamesRoute
-  '/demo/_api/tq-todos': typeof DemoApiTqTodosRoute
-  '/api/contact-us-form/': typeof ApiContactUsFormIndexRoute
+  '/api/contact-us/': typeof ApiContactUsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/demo/better-auth'
-    | '/gallery/$slug'
-    | '/services-offered/$slug'
-    | '/contact-us/'
-    | '/gallery/'
-    | '/not-found/'
+    | '/contact'
+    | '/gallery'
+    | '/mcp'
+    | '/services'
+    | '/projects/$slug'
     | '/api/auth/$'
-    | '/api/trpc/$'
-    | '/demo/names'
-    | '/demo/tq-todos'
-    | '/api/contact-us-form/'
+    | '/api/contact-us/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/demo/better-auth'
-    | '/gallery/$slug'
-    | '/services-offered/$slug'
-    | '/contact-us'
+    | '/contact'
     | '/gallery'
-    | '/not-found'
+    | '/mcp'
+    | '/services'
+    | '/projects/$slug'
     | '/api/auth/$'
-    | '/api/trpc/$'
-    | '/demo/names'
-    | '/demo/tq-todos'
-    | '/api/contact-us-form'
+    | '/api/contact-us'
   id:
     | '__root__'
     | '/'
-    | '/demo/better-auth'
-    | '/gallery/$slug'
-    | '/services-offered/$slug'
-    | '/contact-us/'
-    | '/gallery/'
-    | '/not-found/'
+    | '/contact'
+    | '/gallery'
+    | '/mcp'
+    | '/services'
+    | '/projects/$slug'
     | '/api/auth/$'
-    | '/api/trpc/$'
-    | '/demo/_api/names'
-    | '/demo/_api/tq-todos'
-    | '/api/contact-us-form/'
+    | '/api/contact-us/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DemoBetterAuthRoute: typeof DemoBetterAuthRoute
-  GallerySlugRoute: typeof GallerySlugRoute
-  ServicesOfferedSlugRoute: typeof ServicesOfferedSlugRoute
-  ContactUsIndexRoute: typeof ContactUsIndexRoute
-  GalleryIndexRoute: typeof GalleryIndexRoute
-  NotFoundIndexRoute: typeof NotFoundIndexRoute
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
+  McpRoute: typeof McpRoute
+  ServicesRoute: typeof ServicesRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
-  ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
-  DemoApiNamesRoute: typeof DemoApiNamesRoute
-  DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
-  ApiContactUsFormIndexRoute: typeof ApiContactUsFormIndexRoute
+  ApiContactUsIndexRoute: typeof ApiContactUsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -195,74 +143,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/not-found/': {
-      id: '/not-found/'
-      path: '/not-found'
-      fullPath: '/not-found/'
-      preLoaderRoute: typeof NotFoundIndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gallery/': {
-      id: '/gallery/'
+    '/gallery': {
+      id: '/gallery'
       path: '/gallery'
-      fullPath: '/gallery/'
-      preLoaderRoute: typeof GalleryIndexRouteImport
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contact-us/': {
-      id: '/contact-us/'
-      path: '/contact-us'
-      fullPath: '/contact-us/'
-      preLoaderRoute: typeof ContactUsIndexRouteImport
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services-offered/$slug': {
-      id: '/services-offered/$slug'
-      path: '/services-offered/$slug'
-      fullPath: '/services-offered/$slug'
-      preLoaderRoute: typeof ServicesOfferedSlugRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gallery/$slug': {
-      id: '/gallery/$slug'
-      path: '/gallery/$slug'
-      fullPath: '/gallery/$slug'
-      preLoaderRoute: typeof GallerySlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/better-auth': {
-      id: '/demo/better-auth'
-      path: '/demo/better-auth'
-      fullPath: '/demo/better-auth'
-      preLoaderRoute: typeof DemoBetterAuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/contact-us-form/': {
-      id: '/api/contact-us-form/'
-      path: '/api/contact-us-form'
-      fullPath: '/api/contact-us-form/'
-      preLoaderRoute: typeof ApiContactUsFormIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/_api/tq-todos': {
-      id: '/demo/_api/tq-todos'
-      path: '/demo/tq-todos'
-      fullPath: '/demo/tq-todos'
-      preLoaderRoute: typeof DemoApiTqTodosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/_api/names': {
-      id: '/demo/_api/names'
-      path: '/demo/names'
-      fullPath: '/demo/names'
-      preLoaderRoute: typeof DemoApiNamesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/trpc/$': {
-      id: '/api/trpc/$'
-      path: '/api/trpc/$'
-      fullPath: '/api/trpc/$'
-      preLoaderRoute: typeof ApiTrpcSplatRouteImport
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -272,22 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact-us/': {
+      id: '/api/contact-us/'
+      path: '/api/contact-us'
+      fullPath: '/api/contact-us/'
+      preLoaderRoute: typeof ApiContactUsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DemoBetterAuthRoute: DemoBetterAuthRoute,
-  GallerySlugRoute: GallerySlugRoute,
-  ServicesOfferedSlugRoute: ServicesOfferedSlugRoute,
-  ContactUsIndexRoute: ContactUsIndexRoute,
-  GalleryIndexRoute: GalleryIndexRoute,
-  NotFoundIndexRoute: NotFoundIndexRoute,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
+  McpRoute: McpRoute,
+  ServicesRoute: ServicesRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-  ApiTrpcSplatRoute: ApiTrpcSplatRoute,
-  DemoApiNamesRoute: DemoApiNamesRoute,
-  DemoApiTqTodosRoute: DemoApiTqTodosRoute,
-  ApiContactUsFormIndexRoute: ApiContactUsFormIndexRoute,
+  ApiContactUsIndexRoute: ApiContactUsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

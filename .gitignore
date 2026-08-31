@@ -3,16 +3,17 @@ node_modules
 dist
 dist-ssr
 *.local
-count.txt
 .env
 .nitro
 .tanstack
 .wrangler
 .output
 .vinxi
+__unconfig*
 todos.json
+mcp-todos.json
+*storybook.log
+storybook-static
 
 # Local Netlify folder
 .netlify
-notes.md
-.content-collections

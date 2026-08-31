@@ -1,4 +1,4 @@
-import { postgres } from 'vite-plugin-db'
+import { postgres } from 'vite-plugin-neon-new'
 
 export default postgres({
   seed: {
@@ -6,5 +6,5 @@ export default postgres({
     path: 'db/init.sql',
   },
   referrer: 'create-tanstack',
-  dotEnvKey: 'VITE_DATABASE_URL',
+  dotEnvKey: 'DATABASE_URL',
 })

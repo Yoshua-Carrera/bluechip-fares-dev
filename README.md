@@ -1,57 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/38b27f65-5868-49e8-8e3f-7ae944ebd4d6/deploy-status)](https://app.netlify.com/projects/bluechip-fares/deploys)
-
-# Bluechip Fares
-
-This project serves as a demonstration application showcasing various features and integrations.
-
-## Project Structure
-
-```
-.
-├── components.json
-├── content
-│   ├── speakers
-│   └── talks
-├── content-collections.ts
-├── eslint.config.js
-├── neon-vite-plugin.ts
-├── netlify.toml
-├── package.json
-├── prettier.config.js
-├── public
-│   ├── background-1.jpg
-│   ├── background-2.jpg
-│   ├── background-3.jpg
-│   ├── background-4.jpg
-│   ├── bluechip-fares.svg
-│   ├── conference-logo.png
-│   ├── demo-neon.svg
-│   ├── favicon.ico
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   ├── robots.txt
-│   ├── speakers
-│   ├── talks
-│   └── tanstack-circle-logo.png
-├── README.md
-├── src
-│   ├── components
-│   ├── data
-│   ├── db.ts
-│   ├── hooks
-│   ├── integrations
-│   ├── lib
-│   ├── logo.svg
-│   ├── router.tsx
-│   ├── routes
-│   ├── routeTree.gen.ts
-│   └── styles.css
-├── todos.json
-├── tsconfig.json
-└── vite.config.ts
-
-```
+Welcome to your new TanStack Start app!
 
 # Getting Started
 
@@ -70,17 +17,18 @@ To build this application for production:
 pnpm build
 ```
 
-## Testing
-
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
-
-```bash
-pnpm test
-```
-
 ## Styling
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+
+### Removing Tailwind CSS
+
+If you prefer not to use Tailwind CSS:
+
+1. Remove the demo pages in `src/routes/demo/`
+2. Replace the Tailwind import in `src/styles.css` with your own styles
+3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
+4. Remove `@tailwindcss/vite` and `tailwindcss` from `package.json`
 
 ## Linting & Formatting
 
@@ -92,14 +40,194 @@ pnpm format
 pnpm check
 ```
 
-## Setting up Neon
+## Deploy to Netlify
 
-When running the `dev` command, the `@neondatabase/vite-plugin-postgres` will identify there is not a database setup. It will then create and seed a claimable database.
+This project ships with `netlify.toml` configured for a Netlify site:
 
-It is the same process as [Neon Launchpad](https://neon.new).
+1. Push this repo to GitHub
+2. Visit https://app.netlify.com/start and import the repo
+3. Netlify auto-detects the build (`vite build` → `dist/client`)
+4. Open **Site settings → Environment variables** and add anything from `.env.example` that needs a real value in production
+5. Trigger the first deploy
 
-> [!IMPORTANT]  
-> Claimable databases expire in 72 hours.
+Server functions and API routes run on Netlify Functions. For lower-latency request handling, see Netlify Edge Functions: https://docs.netlify.com/edge-functions/overview.
+
+## Strapi CMS Integration
+
+This add-on integrates Strapi CMS with your TanStack Start application using the official Strapi Client SDK.
+
+### Features
+
+- Article listing with search and pagination
+- Article detail pages with dynamic block rendering
+- Rich text, quotes, media, and image slider blocks
+- Markdown content rendering with GitHub Flavored Markdown
+- Responsive image handling with error fallbacks
+- URL-based search and pagination (shareable/bookmarkable)
+- Graceful error handling with helpful setup instructions
+
+### Project Structure
+
+```
+parent/
+├── client/                 # TanStack Start frontend (your project name)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── blocks/     # Block rendering components
+│   │   │   ├── markdown-content.tsx
+│   │   │   ├── pagination.tsx
+│   │   │   ├── search.tsx
+│   │   │   └── strapi-image.tsx
+│   │   ├── data/
+│   │   │   ├── loaders/    # Server functions
+│   │   │   └── strapi-sdk.ts
+│   │   ├── lib/
+│   │   │   └── strapi-utils.ts
+│   │   ├── routes/demo/
+│   │   │   ├── strapi.tsx              # Articles list
+│   │   │   └── strapi.$articleId.tsx   # Article detail
+│   │   └── types/
+│   │       └── strapi.ts
+│   ├── .env.local
+│   └── package.json
+└── server/                 # Strapi CMS backend (create manually or use hosted Strapi)
+    ├── src/api/            # Content types
+    ├── config/             # Strapi configuration
+    └── package.json
+```
+
+### Quick Start
+
+Create your Strapi project separately (or use an existing hosted Strapi instance), then point this app to it with `VITE_STRAPI_URL`.
+
+**1. Set up Strapi:**
+
+Follow the Strapi quick-start guide to create a local project, or use your existing Strapi deployment:
+
+- https://docs.strapi.io/dev-docs/quick-start
+
+If you created a local Strapi project in a sibling `server` directory, continue with:
+
+```bash
+cd ../server
+npm install    # or pnpm install / yarn install
+```
+
+**2. Start the Strapi server:**
+
+```bash
+npm run develop    # Starts at http://localhost:1337
+```
+
+**3. Create an admin account:**
+
+Open http://localhost:1337/admin and create your first admin user.
+
+**4. Create content:**
+
+In the Strapi admin panel, go to Content Manager > Article and create some articles.
+
+**5. Start your TanStack app (in another terminal):**
+
+```bash
+cd ../client   # or your project name
+npm run dev    # Starts at http://localhost:3000
+```
+
+**6. View the demo:**
+
+Navigate to http://localhost:3000/demo/strapi to see your articles.
+
+### Environment Variables
+
+The following environment variable is pre-configured in `.env.local`:
+
+```bash
+VITE_STRAPI_URL="http://localhost:1337"
+```
+
+For production, update this to your deployed Strapi URL.
+
+### Demo Pages
+
+| URL                       | Description                              |
+| ------------------------- | ---------------------------------------- |
+| `/demo/strapi`            | Articles list with search and pagination |
+| `/demo/strapi/:articleId` | Article detail with block rendering      |
+
+### Search and Pagination
+
+- **Search**: Type in the search box to filter articles by title or description
+- **Pagination**: Navigate between pages using the pagination controls
+- **URL State**: Search and page are stored in the URL (`?query=term&page=2`)
+
+### Block Types Supported
+
+| Block              | Component | Description            |
+| ------------------ | --------- | ---------------------- |
+| `shared.rich-text` | RichText  | Markdown content       |
+| `shared.quote`     | Quote     | Blockquote with author |
+| `shared.media`     | Media     | Single image/video     |
+| `shared.slider`    | Slider    | Image gallery grid     |
+
+### Dependencies
+
+| Package          | Purpose                  |
+| ---------------- | ------------------------ |
+| `@strapi/client` | Official Strapi SDK      |
+| `react-markdown` | Markdown rendering       |
+| `remark-gfm`     | GitHub Flavored Markdown |
+| `use-debounce`   | Debounced search input   |
+
+### Running Both Servers
+
+Open two terminal windows from the parent directory:
+
+**Terminal 1 - Strapi:**
+
+```bash
+cd server && npm run develop
+```
+
+**Terminal 2 - TanStack Start:**
+
+```bash
+cd client && npm run dev   # or your project name
+```
+
+### Customization
+
+**Change page size:**
+Edit `src/data/loaders/articles.ts` and modify `PAGE_SIZE`.
+
+**Add new block types:**
+
+1. Create component in `src/components/blocks/`
+2. Export from `src/components/blocks/index.ts`
+3. Add case to `block-renderer.tsx` switch statement
+4. Update populate in articles loader
+
+**Add new content types:**
+
+1. Add types to `src/types/strapi.ts`
+2. Create loader in `src/data/loaders/`
+3. Create route in `src/routes/demo/`
+
+### Learn More
+
+- [Strapi Documentation](https://docs.strapi.io/)
+- [Strapi Client SDK](https://www.npmjs.com/package/@strapi/client)
+- [Strapi Cloud Template Blog](https://github.com/strapi/strapi-cloud-template-blog)
+- [TanStack Start Documentation](https://tanstack.com/start/latest)
+- [TanStack Router Search Params](https://tanstack.com/router/latest/docs/framework/react/guide/search-params)
+
+# Paraglide i18n
+
+This add-on wires up ParaglideJS for localized routing and message formatting.
+
+- Messages live in `project.inlang/messages`.
+- URLs are localized through the Paraglide Vite plugin and router `rewrite` hooks.
+- Run the dev server or build to regenerate the `src/paraglide` outputs.
 
 ## Shadcn
 
@@ -114,7 +242,7 @@ pnpm dlx shadcn@latest add button
 1. Generate and set the `BETTER_AUTH_SECRET` environment variable in your `.env.local`:
 
    ```bash
-   npx @better-auth/cli secret
+   pnpm dlx @better-auth/cli secret
    ```
 
 2. Visit the [Better Auth documentation](https://www.better-auth.com) to unlock the full potential of authentication in your app.
@@ -139,60 +267,138 @@ export const auth = betterAuth({
 Then run migrations:
 
 ```bash
-npx @better-auth/cli migrate
+pnpm dlx @better-auth/cli migrate
 ```
 
-## Features
+## Setting up PostHog
 
-### Content Management
+1. Create a PostHog account at [posthog.com](https://posthog.com)
+2. Get your Project API Key from [Project Settings](https://app.posthog.com/project/settings)
+3. Set `VITE_POSTHOG_KEY` in your `.env.local`
 
-- Speaker profiles with bios, awards, and specialty information
-- Session details with topics, duration, and speaker attribution
-- All content in markdown files using content-collections
+### Optional Configuration
 
-### AI-Powered Assistance
+- `VITE_POSTHOG_HOST` - Set this if you're using PostHog Cloud EU (`https://eu.i.posthog.com`) or self-hosting
 
-- Chat with "Remy" the culinary assistant
-- Search for speakers and sessions by topic
-- Get recommendations based on interests
-- Supports multiple AI providers (Anthropic, OpenAI, Gemini, Ollama)
+## Setting up Neon
 
-### Routes
+When running the `dev` command, `vite-plugin-neon-new` will identify there is not a database setup. It will then create and seed a claimable database.
 
-- `/` - Home page with featured speakers and sessions
-- `/schedule` - Conference schedule with day-by-day timeline
-- `/speakers` - All speakers grid
-- `/speakers/:slug` - Individual speaker detail page
-- `/talks` - All sessions grid
-- `/talks/:slug` - Individual session detail page
+It is the same process as [Neon Launchpad](https://neon.new).
 
-## Getting Started
-
-```bash
-# Create a new project with this example
-npx netlify-cta my-conference --example events
-
-# Navigate to the project
-cd my-conference
-
-# Install dependencies
-pnpm install
-
-# Start the development server
-pnpm dev
-```
-
-## Theme
-
-The example uses a custom dark theme with:
-
-- **Font**: Playfair Display (display) and Cormorant Garamond (body)
-- **Colors**: Copper and gold accents on a dark charcoal background
-- **Effects**: Elegant card hover animations, grain texture overlay
+> [!IMPORTANT]  
+> Claimable databases expire in 72 hours.
 
 ## Routing
 
-This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as files in `src/routes`.
+This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
+
+### Adding A Route
+
+To add a new route to your application just add a new file in the `./src/routes` directory.
+
+TanStack will automatically generate the content of the route file for you.
+
+Now that you have two routes you can use a `Link` component to navigate between them.
+
+### Adding Links
+
+To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
+
+```tsx
+import { Link } from '@tanstack/react-router'
+```
+
+Then anywhere in your JSX you can use it like so:
+
+```tsx
+<Link to="/about">About</Link>
+```
+
+This will create a link that will navigate to the `/about` route.
+
+More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
+
+### Using A Layout
+
+In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
+
+Here is an example layout that includes a header:
+
+```tsx
+import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'My App' },
+    ],
+  }),
+  shellComponent: ({ children }) => (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        <header>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
+        </header>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  ),
+})
+```
+
+More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
+
+## Server Functions
+
+TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
+
+```tsx
+import { createServerFn } from '@tanstack/react-start'
+
+const getServerTime = createServerFn({
+  method: 'GET',
+}).handler(async () => {
+  return new Date().toISOString()
+})
+
+// Use in a component
+function MyComponent() {
+  const [time, setTime] = useState('')
+
+  useEffect(() => {
+    getServerTime().then(setTime)
+  }, [])
+
+  return <div>Server time: {time}</div>
+}
+```
+
+## API Routes
+
+You can create API routes by using the `server` property in your route definitions:
+
+```tsx
+import { createFileRoute } from '@tanstack/react-router'
+import { json } from '@tanstack/react-start'
+
+export const Route = createFileRoute('/api/hello')({
+  server: {
+    handlers: {
+      GET: () => json({ message: 'Hello, World!' }),
+    },
+  },
+})
+```
 
 ## Data Fetching
 
@@ -201,186 +407,32 @@ There are multiple ways to fetch data in your application. You can use TanStack 
 For example:
 
 ```tsx
-const peopleRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/people',
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/people')({
   loader: async () => {
     const response = await fetch('https://swapi.dev/api/people')
-    return response.json() as Promise<{
-      results: {
-        name: string
-      }[]
-    }>
+    return response.json()
   },
-  component: () => {
-    const data = peopleRoute.useLoaderData()
-    return (
-      <ul>
-        {data.results.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    )
-  },
+  component: PeopleComponent,
 })
+
+function PeopleComponent() {
+  const data = Route.useLoaderData()
+  return (
+    <ul>
+      {data.results.map((person) => (
+        <li key={person.name}>{person.name}</li>
+      ))}
+    </ul>
+  )
+}
 ```
 
 Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
 
-### React-Query
-
-React-Query is an excellent addition or alternative to route loading and integrating it into you application is a breeze.
-
-First add your dependencies:
-
-```bash
-pnpm add @tanstack/react-query @tanstack/react-query-devtools
-```
-
-Next we'll need to create a query client and provider. We recommend putting those in `main.tsx`.
-
-```tsx
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
-// ...
-
-const queryClient = new QueryClient()
-
-// ...
-
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
-
-  root.render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>,
-  )
-}
-```
-
-You can also add TanStack Query Devtools to the root route (optional).
-
-```tsx
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
-const rootRoute = createRootRoute({
-  component: () => (
-    <>
-      <Outlet />
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools />
-    </>
-  ),
-})
-```
-
-Now you can use `useQuery` to fetch your data.
-
-```tsx
-import { useQuery } from '@tanstack/react-query'
-
-import './App.css'
-
-function App() {
-  const { data } = useQuery({
-    queryKey: ['people'],
-    queryFn: () =>
-      fetch('https://swapi.dev/api/people')
-        .then((res) => res.json())
-        .then((data) => data.results as { name: string }[]),
-    initialData: [],
-  })
-
-  return (
-    <div>
-      <ul>
-        {data.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default App
-```
-
-You can find out everything you need to know on how to use React-Query in the [React-Query documentation](https://tanstack.com/query/latest/docs/framework/react/overview).
-
-## State Management
-
-Another common requirement for React applications is state management. There are many options for state management in React. TanStack Store provides a great starting point for your project.
-
-First you need to add TanStack Store as a dependency:
-
-```bash
-pnpm add @tanstack/store
-```
-
-Now let's create a simple counter in the `src/App.tsx` file as a demonstration.
-
-```tsx
-import { useStore } from '@tanstack/react-store'
-import { Store } from '@tanstack/store'
-import './App.css'
-
-const countStore = new Store(0)
-
-function App() {
-  const count = useStore(countStore)
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>Increment - {count}</button>
-    </div>
-  )
-}
-
-export default App
-```
-
-One of the many nice features of TanStack Store is the ability to derive state from other state. That derived state will update when the base state updates.
-
-Let's check this out by doubling the count using derived state.
-
-```tsx
-import { useStore } from '@tanstack/react-store'
-import { Store, Derived } from '@tanstack/store'
-import './App.css'
-
-const countStore = new Store(0)
-
-const doubledStore = new Derived({
-  fn: () => countStore.state * 2,
-  deps: [countStore],
-})
-doubledStore.mount()
-
-function App() {
-  const count = useStore(countStore)
-  const doubledCount = useStore(doubledStore)
-
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>Increment - {count}</button>
-      <div>Doubled - {doubledCount}</div>
-    </div>
-  )
-}
-
-export default App
-```
-
-We use the `Derived` class to create a new store that is derived from another store. The `Derived` class has a `mount` method that will start the derived store updating.
-
-Once we've created the derived store we can use it in the `App` component just like we would any other store using the `useStore` hook.
-
-You can find out everything you need to know on how to use TanStack Store in the [TanStack Store documentation](https://tanstack.com/store/latest).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
 # Learn More
 
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+
+For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).

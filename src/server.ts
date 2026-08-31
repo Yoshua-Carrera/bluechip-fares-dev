@@ -1,4 +1,7 @@
-import { createStartHandler, defaultStreamHandler } from '@tanstack/react-start/server'
+import {
+  createStartHandler,
+  defaultStreamHandler,
+} from '@tanstack/react-start/server'
 import { paraglideMiddleware } from '#/paraglide/server.js'
 
 const fetch = createStartHandler({
