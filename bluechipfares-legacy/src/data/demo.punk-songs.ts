@@ -10,7 +10,6 @@ export const getPunkSongs = createServerFn({
       artist: string
     }>
     // TODO: Simulating async response, will be replaced by real call
-    // eslint-disable-next-line @typescript-eslint/require-await
   > => [
     { id: 1, name: 'Teenage Dirtbag', artist: 'Wheatus' },
     { id: 2, name: 'Smells Like Teen Spirit', artist: 'Nirvana' },

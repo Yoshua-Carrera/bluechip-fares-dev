@@ -29,6 +29,7 @@ export default [
       'prettier.config.js',
       '.storybook/',
       '**/paraglide/**/*',
+      'bluechipfares-legacy/**/*',
     ],
   },
   ...storybook.configs['flat/recommended'],
