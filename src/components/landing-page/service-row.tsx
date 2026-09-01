@@ -19,6 +19,7 @@ export function ServiceRow({ item }: { item: ServiceItem }) {
           borderRadius: 'var(--radius-xl)',
           background: 'var(--surface-card)',
           textDecoration: 'none',
+          height: '100%',
           transition: 'border-color 200ms ease, transform 300ms ease',
         }}
       >
