@@ -1,5 +1,10 @@
 [build]
-  command = "vite build"
+  command = '''
+    printf '{\n\t"commit": "%s",\n\t"commitShort": "%s",\n\t"branch": "%s",\n\t"context": "%s",\n\t"deployId": "%s",\n\t"builtAt": "%s"\n}\n' \
+      "$COMMIT_REF" "${COMMIT_REF:0:7}" "$BRANCH" "$CONTEXT" "$DEPLOY_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+      > public/version.txt \
+    && pnpm build
+  '''
   publish = "dist/client"
 [dev]
   command = "npm run dev"
