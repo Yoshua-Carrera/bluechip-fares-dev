@@ -258,5 +258,26 @@
   "contact_service_housekeeping": "Limpieza",
   "contact_service_landscaping": "Jardinería",
   "contact_service_resurfacing": "Restauración de superficies",
-  "contact_service_ac": "Aire acondicionado"
+  "contact_service_ac": "Aire acondicionado",
+
+  "not_found_head_lead": "Esta página se",
+  "not_found_head_accent": "perdió.",
+  "not_found_body": "La dirección que siguió no existe, o la página se movió durante una remodelación nuestra. Todo lo demás sigue donde lo dejó.",
+  "not_found_cta_home": "Volver al inicio",
+  "not_found_cta_work": "Vea nuestro trabajo",
+  "not_found_links_kicker": "Hacia dónde ir",
+  "not_found_links_lead": "Pruebe una de",
+  "not_found_links_accent": "estas",
+  "not_found_link_services_title": "Servicios ofrecidos",
+  "not_found_link_services_desc": "Seis servicios, desde remodelación de cocinas hasta iluminación exterior.",
+  "not_found_link_services_cta": "Ver el catálogo",
+  "not_found_link_gallery_title": "Galería",
+  "not_found_link_gallery_desc": "Trabajos terminados en Frisco, Celina y el área metropolitana.",
+  "not_found_link_gallery_cta": "Echar un vistazo",
+  "not_found_link_contact_title": "Contáctenos",
+  "not_found_link_contact_desc": "Cuéntenos su proyecto y agendamos una visita.",
+  "not_found_link_contact_cta": "Enviar consulta",
+  "not_found_call_lead": "¿Aún perdido? Llámenos al",
+  "not_found_call_mid": "o escriba a",
+  "not_found_call_end": " y lo llevamos a la página correcta."
 }

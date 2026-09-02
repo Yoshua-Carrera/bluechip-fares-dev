@@ -258,5 +258,26 @@
   "contact_service_housekeeping": "Housekeeping",
   "contact_service_landscaping": "Landscaping",
   "contact_service_resurfacing": "Resurfacing",
-  "contact_service_ac": "Air conditioning"
+  "contact_service_ac": "Air conditioning",
+
+  "not_found_head_lead": "This page went",
+  "not_found_head_accent": "missing.",
+  "not_found_body": "The address you followed does not exist, or the page moved during a remodel of our own. Everything else is still where you left it.",
+  "not_found_cta_home": "Back to home",
+  "not_found_cta_work": "Look at our work",
+  "not_found_links_kicker": "Where to next",
+  "not_found_links_lead": "Try one of",
+  "not_found_links_accent": "these",
+  "not_found_link_services_title": "Services offered",
+  "not_found_link_services_desc": "Six services, from kitchen remodels to outdoor lighting.",
+  "not_found_link_services_cta": "See the catalog",
+  "not_found_link_gallery_title": "Gallery",
+  "not_found_link_gallery_desc": "Finished jobs across Frisco, Celina and the surrounding metroplex.",
+  "not_found_link_gallery_cta": "Take a look",
+  "not_found_link_contact_title": "Contact us",
+  "not_found_link_contact_desc": "Tell us about your project and we will set up a walkthrough.",
+  "not_found_link_contact_cta": "Start an inquiry",
+  "not_found_call_lead": "Still stuck? Call us at",
+  "not_found_call_mid": "or email",
+  "not_found_call_end": " and we will point you to the right page."
 }

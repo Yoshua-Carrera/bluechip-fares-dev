@@ -12,6 +12,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { NotFoundPage } from '#/components/not-found/NotFoundPage'
 import { getLocale } from '#/paraglide/runtime'
 import { ThemeProvider, themeInitScript } from '#/context/theme'
 import { ToastProvider } from '#/context/toast'
@@ -40,6 +41,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       { rel: 'icon', href: '/logo/favicon.ico' },
     ],
   }),
+  notFoundComponent: NotFoundPage,
   shellComponent: RootDocument,
 })
 
