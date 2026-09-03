@@ -456,3 +456,12 @@ a:hover {
     transform: rotate(360deg);
   }
 }
+
+.not-found-link-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--copper-light);
+  box-shadow: var(--shadow-md);
+}
+.not-found-link-card:hover span:last-child {
+  color: var(--text-accent-hover);
+}

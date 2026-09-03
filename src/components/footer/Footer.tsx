@@ -75,7 +75,7 @@ export function Footer() {
                   textDecoration: 'none',
                 }}
               >
-                {item.label}
+                <span className="hover:text-(--copper)">{item.label}</span>
               </Link>
             ))}
           </div>
@@ -105,7 +105,7 @@ export function Footer() {
               color: 'var(--chrome-foreground)',
             }}
           >
-            <span>
+            <span className="hover:text-(--copper)">
               5900 Balcones Dr #28454
               <br />
               Austin, TX 78731
@@ -117,7 +117,7 @@ export function Footer() {
                 textDecoration: 'none',
               }}
             >
-              (940) 275-7574
+              <span className="hover:text-(--copper)">(940) 275-7574</span>
             </a>
             <a
               href="mailto:contact@bluechipfares.com"
@@ -126,7 +126,9 @@ export function Footer() {
                 textDecoration: 'none',
               }}
             >
-              contact@bluechipfares.com
+              <span className="hover:text-(--copper)">
+                contact@bluechipfares.com
+              </span>
             </a>
           </div>
         </div>
